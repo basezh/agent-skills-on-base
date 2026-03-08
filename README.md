@@ -23,6 +23,7 @@ This repo is a curated collection of [Agent Skills](https://agentskills.io) for 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [coinbase-agentic-wallet](skills/coinbase-agentic-wallet/) | Authenticate, send USDC, trade tokens using the `awal` CLI. x402 bazaar, monetize services. | [https://github.com/coinbase/agentic-wallet-skills](https://github.com/coinbase/agentic-wallet-skills) |
+| [bankr](skills/bankr/) | Bankr Skills equip builders with plug-and-play tools to build more powerful agents. Includes Bankr (launch tokens, earn trading fees, built-in wallet with safeguards), Sign-In With Agent, Axiom Bankr Signals, Botchan, ERC-8004, ENS Primary Name, OnchainKit, QRcoin, Veil, Yoink, Neynar, and Hydrex. | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
 | [privy-agentic-wallets](skills/privy-agentic-wallets/) | Create crypto wallets with Privy that AI agents control autonomously with policy-based guardrails. | [https://github.com/privy-io/privy-agentic-wallets-skill](https://github.com/privy-io/privy-agentic-wallets-skill) |
 | [sponge-wallet](skills/sponge-wallet/) | Crypto wallet, token swaps, cross-chain bridges, x402 payments for external services (search, image gen, AI). | [https://wallet.paysponge.com/skill.md](https://wallet.paysponge.com/skill.md) |
 | [clawlett](skills/clawlett/) | OpenClaw skill for autonomous token swaps and Trenches trading via Gnosis Safe + Zodiac Roles. | [https://github.com/Creator-Bid/Clawlett](https://github.com/Creator-Bid/Clawlett) |
@@ -46,7 +47,6 @@ This repo is a curated collection of [Agent Skills](https://agentskills.io) for 
 | [flow](skills/flow/) | Flow protocol: discover auctions, launch tokens, submit bids, claim/exit, deploy liquidity on Base. | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
 | [dx-terminal-pro](skills/dx-terminal-pro/) | Managing autonomous memecoin trading agents on DX Terminal Pro. | [https://github.com/ProjectDXAI/dx-terminal-pro-skill](https://github.com/ProjectDXAI/dx-terminal-pro-skill) |
 | [frame](skills/frame/) | Build in public with vibe raising. Launch builder coins, ship products, claim vesting and trading fees. Gas-free on Base. | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
-| [bankr](skills/bankr/) | Bankr Skills equip builders with plug-and-play tools to build more powerful agents. Includes Bankr (launch tokens, earn trading fees, built-in wallet with safeguards), Sign-In With Agent, Axiom Bankr Signals, Botchan, ERC-8004, ENS Primary Name, OnchainKit, QRcoin, Veil, Yoink, Neynar, and Hydrex. | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
 
 ### DeFi Protocols
 
@@ -135,6 +135,7 @@ Base 是 AI agents 的链上家园。
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [coinbase-agentic-wallet](skills/coinbase-agentic-wallet/) | 使用 `awal` CLI 完成认证、发送 USDC、交易代币，x402 市集与服务变现。 | [https://github.com/coinbase/agentic-wallet-skills](https://github.com/coinbase/agentic-wallet-skills) |
+| [bankr](skills/bankr/) | Bankr Skills 为 builders 提供即插即用工具，构建更强大的 agents。包含 Bankr（代币发行、赚取交易费、内置带 safeguards 的钱包）、Sign-In With Agent、Axiom Bankr Signals、Botchan、ERC-8004、ENS Primary Name、OnchainKit、QRcoin、Veil、Yoink、Neynar、Hydrex。 | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
 | [privy-agentic-wallets](skills/privy-agentic-wallets/) | 用 Privy 创建由 AI agents 自主控制、带策略约束的加密钱包。 | [https://github.com/privy-io/privy-agentic-wallets-skill](https://github.com/privy-io/privy-agentic-wallets-skill) |
 | [sponge-wallet](skills/sponge-wallet/) | 加密钱包、代币兑换、跨链桥接，x402 支付外部服务（搜索、图像生成、AI 等）。 | [https://wallet.paysponge.com/skill.md](https://wallet.paysponge.com/skill.md) |
 | [clawlett](skills/clawlett/) | OpenClaw skill：基于 Gnosis Safe + Zodiac Roles 的自主代币兑换与 Trenches 交易。 | [https://github.com/Creator-Bid/Clawlett](https://github.com/Creator-Bid/Clawlett) |
@@ -158,7 +159,6 @@ Base 是 AI agents 的链上家园。
 | [flow](skills/flow/) | Flow 协议：发现拍卖、发行代币、出价、领取/退出、部署流动性，均在 Base 上。 | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
 | [dx-terminal-pro](skills/dx-terminal-pro/) | 在 DX Terminal Pro 上管理自主 meme 币交易 agents。 | [https://github.com/ProjectDXAI/dx-terminal-pro-skill](https://github.com/ProjectDXAI/dx-terminal-pro-skill) |
 | [frame](skills/frame/) | 公开构建与 vibe raising：发行 builder 代币、发布产品、领取 vesting 与交易费，Base 上 gas-free。 | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
-| [bankr](skills/bankr/) | Bankr Skills 为 builders 提供即插即用工具，构建更强大的 agents。包含 Bankr（代币发行、赚取交易费、内置带 safeguards 的钱包）、Sign-In With Agent、Axiom Bankr Signals、Botchan、ERC-8004、ENS Primary Name、OnchainKit、QRcoin、Veil、Yoink、Neynar、Hydrex。 | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
 
 ### DeFi 协议
 
