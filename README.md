@@ -81,12 +81,26 @@ A curated collection of [Agent Skills](https://agentskills.io) for building AI a
 
 This repository serves as a curated navigation hub. All skills are forked and ready to load. Clone this repo and copy the skill folders into your OpenClaw `skills/` directory, or install individual skills from their Original Link above.
 
+**Repo structure:**
+```
+agent-skills-on-base/
+├── README.md
+└── skills/
+    ├── base/           # Base infrastructure (Account SDK, deployment, node, etc.)
+    │   ├── SKILL.md
+    │   └── skills/     # Sub-skills
+    ├── bankr/          # Token launch, trading, SIWA, Farcaster, etc.
+    ├── sponge-wallet/
+    ├── virtual-protocol-acp/
+    └── ...             # One folder per skill, each with SKILL.md
+```
+
 ```bash
 git clone https://github.com/basezh/agent-skills-on-base.git
 cp -r agent-skills-on-base/skills/* ~/.openclaw/skills/
 ```
 
-Each skill lives as a subfolder under `skills/` (e.g. `base/`, `bankr/`) with its own `SKILL.md`. Some skills require API keys or additional configuration. Check each skill's `SKILL.md` before use.
+Some skills require API keys or additional configuration. Check each skill's `SKILL.md` before use.
 
 ---
 
