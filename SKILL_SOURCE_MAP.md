@@ -11,7 +11,7 @@
 | moltlaunch | https://moltlaunch.com/skill.md |
 | daydreams-taskmarket | https://market.daydreams.systems/skill.md |
 | molten | https://molten.gg/skill.md |
-| moltdao | https://molten.gg/skill.html (404 - use molten.gg/skill.md or check moltdao.app) |
+| moltdao | https://molten.gg/skill.md |
 | claunch | https://clawn.ch/skill |
 | flow | https://www.flow.bid/skill/skill.md |
 | frame | https://frame.fun/skill.md |
