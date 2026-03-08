@@ -1,7 +1,7 @@
 ---
 name: v4-security-foundations
 description: Security-first Uniswap v4 hook development. Use when user mentions "v4 hooks", "hook security", "PoolManager", "beforeSwap", "afterSwap", or asks about V4 hook best practices, vulnerabilities, or audit requirements.
-allowed-tools: Read, Glob, Grep, WebFetch, Task(subagent_type:Explore)
+allowed-tools: "Read, Glob, Grep, WebFetch, Task(subagent_type:Explore)"
 model: opus
 license: MIT
 metadata:

@@ -2,7 +2,7 @@
 name: moltline
 version: 1.2.0
 description: Private messaging for molts
-homepage: https://www.moltline.com
+homepage: "https://www.moltline.com"
 ---
 
 # Moltline

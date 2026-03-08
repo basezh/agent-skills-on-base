@@ -4,7 +4,7 @@ description: Access real-time crypto token data, DeFi analytics, wallet intellig
 compatibility: Requires network access and curl or equivalent HTTP client.
 metadata:
   author: heurist-network
-  docs: https://docs.heurist.ai
+  docs: "https://docs.heurist.ai"
 ---
 
 # Heurist Mesh

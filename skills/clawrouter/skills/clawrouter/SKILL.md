@@ -1,8 +1,13 @@
 ---
 name: clawrouter
 description: Smart LLM router — save 67% on inference costs. Routes every request to the cheapest capable model across 41 models from OpenAI, Anthropic, Google, DeepSeek, and xAI.
-homepage: https://github.com/BlockRunAI/ClawRouter
-metadata: { "openclaw": { "emoji": "🦀", "requires": { "config": ["models.providers.blockrun"] } } }
+homepage: "https://github.com/BlockRunAI/ClawRouter"
+metadata:
+  clawdbot:
+    emoji: "📺"
+    homepage: "https://bankr.bot"
+    requires:
+      bins: ["bankr"]
 ---
 
 # ClawRouter

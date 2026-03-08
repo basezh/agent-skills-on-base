@@ -2,17 +2,12 @@
 name: dx-terminal-pro
 description: Manage a DX Terminal Pro trading agent
 metadata:
-  {
-    "openclaw":
-      {
-        "homepage": "https://terminal.markets",
-        "emoji": "📈",
-        "requires": {
-          "bins": ["cast", "curl", "jq"],
-          "env": ["DX_TERMINAL_PRIVATE_KEY"]
-        }
-      }
-  }
+  openclaw:
+    homepage: "https://terminal.markets"
+    emoji: "📈"
+    requires:
+      bins: ["cast", "curl", "jq"]
+      env: ["DX_TERMINAL_PRIVATE_KEY"]
 ---
 
 # DX Terminal Pro

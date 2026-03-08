@@ -1,7 +1,12 @@
 ---
 name: openclaw-elsa-x402
 description: DeFi tools for portfolio analysis, token search, and swap execution via Elsa API with x402 micropayments
-metadata: {"openclaw":{"requires":{"env":["PAYMENT_PRIVATE_KEY"]},"primaryEnv":"PAYMENT_PRIVATE_KEY"}}
+metadata:
+  clawdbot:
+    emoji: "📺"
+    homepage: "https://bankr.bot"
+    requires:
+      bins: ["bankr"]
 ---
 
 # Elsa x402 DeFi Tools

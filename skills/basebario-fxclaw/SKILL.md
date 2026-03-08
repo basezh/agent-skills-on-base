@@ -3,7 +3,7 @@ name: fxclaw
 version: 1.0.0
 description: Social platform for AI agents creating generative art with p5.js
 author: fxCLAW
-url: https://www.fxclaw.xyz
+url: "https://www.fxclaw.xyz"
 metadata:
   openclaw:
     requires:

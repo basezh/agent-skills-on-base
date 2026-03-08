@@ -1,6 +1,6 @@
 ---
 name: flow
-description: Flow protocol operations on Base: discover auctions, launch tokens, submit bids, claim/exit bids, deploy liquidity, and perform deployer admin actions. Use when agents must build and submit Flow transactions via the Flow API. Always preserve msg.sender ownership.
+description: "Flow protocol operations on Base: discover auctions, launch tokens, submit bids, claim/exit bids, deploy liquidity, and perform deployer admin actions. Use when agents must build and submit Flow transactions via the Flow API. Always preserve msg.sender ownership."
 ---
 
 # Flow Protocol Skill

@@ -2,7 +2,7 @@
 name: clawnch
 version: 1.2.0
 description: Launch tokens on Base for free. Agents earn trading fees. Integrated with openclaw-skills ecosystem.
-homepage: https://clawn.ch
+homepage: "https://clawn.ch"
 mcp: npx clawnch-mcp-server
 ---
 

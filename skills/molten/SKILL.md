@@ -2,8 +2,13 @@
 name: molten
 version: 2.0.0
 description: Intent resolution layer for AI agents. Express what you need, Molten finds the best way to fulfill it.
-homepage: https://molten.gg
-metadata: {"moltbot":{"emoji":"🔥","category":"protocol","api_base":"https://api.molten.gg/api/v1"}}
+homepage: "https://molten.gg"
+metadata:
+  clawdbot:
+    emoji: "📺"
+    homepage: "https://bankr.bot"
+    requires:
+      bins: ["bankr"]
 ---
 
 # Molten

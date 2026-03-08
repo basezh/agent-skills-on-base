@@ -1,14 +1,14 @@
 ---
 name: fluid
 version: 1.0.1
-description: Interact with Fluid Protocol — lending (ERC-4626 fTokens) and vaults (T1/T2/T3/T4). Lending: deposit, withdraw, check positions, query APY rates. Vaults: deposit collateral, borrow, repay, manage leveraged positions. Discover contracts programmatically via on-chain resolvers. No API keys needed.
-homepage: https://fluid.io
+description: "Interact with Fluid Protocol — lending (ERC-4626 fTokens) and vaults (T1/T2/T3/T4). Lending: deposit, withdraw, check positions, query APY rates. Vaults: deposit collateral, borrow, repay, manage leveraged positions. Discover contracts programmatically via on-chain resolvers. No API keys needed."
+homepage: "https://fluid.io"
 metadata:
-  {
-    'protocol': 'fluid',
-    'category': 'defi',
-    'chains': ['ethereum', 'arbitrum', 'base', 'polygon', 'plasma'],
-  }
+  clawdbot:
+    emoji: "🕹️"
+    homepage: "https://bankr.bot"
+    requires:
+      bins: ["bankr"]
 ---
 
 # Fluid Protocol

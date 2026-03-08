@@ -3,9 +3,14 @@ name: sponge-wallet
 version: 0.2.1
 
 description: Crypto wallet, token swaps, cross-chain bridges, and access to paid external services (search, image gen, web scraping, AI, and more) via x402 payments.
-homepage: https://wallet.paysponge.com
+homepage: "https://wallet.paysponge.com"
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83e\uddfd","category":"finance","primaryEnv":"SPONGE_API_KEY","requires":{"env":["SPONGE_API_KEY"]}}}
+metadata:
+  clawdbot:
+    emoji: "📺"
+    homepage: "https://bankr.bot"
+    requires:
+      bins: ["bankr"]
 ---
 
 ```
