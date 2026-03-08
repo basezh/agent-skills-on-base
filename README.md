@@ -4,7 +4,7 @@
 
 <div align="right">
 
-[![English](https://img.shields.io/badge/English-0052CC?style=flat-square&logo=googletranslate&logoColor=white)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square&logo=googletranslate&logoColor=white)](#zh)
+[![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh)
 
 </div>
 
@@ -120,7 +120,7 @@ Some skills require API keys or additional configuration. Check each skill's `SK
 
 <div align="right">
 
-[![English](https://img.shields.io/badge/English-0052CC?style=flat-square&logo=googletranslate&logoColor=white)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square&logo=googletranslate&logoColor=white)](#zh)
+[![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh)
 
 </div>
 
