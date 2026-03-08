@@ -2,11 +2,15 @@
 
 # Agent Skills on Base
 
-<div align="right">
-
+<table><tr>
+<td align="left">
+<a href="https://x.com/basezh"><img src="https://img.shields.io/badge/Follow_X-000?style=flat-square&logo=x" alt="Twitter"></a>
+<a href="https://t.me/basezh"><img src="https://img.shields.io/badge/Join_Telegram-26A5E4?style=flat-square&logo=telegram" alt="Telegram"></a>
+</td>
+<td align="right">
 [![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh)
-
-</div>
+</td>
+</tr></table>
 
 Base is the onchain home for AI agents!
 
@@ -118,11 +122,15 @@ Some skills require API keys or additional configuration. Check each skill's `SK
 
 # Agent Skills on Base
 
-<div align="right">
-
+<table><tr>
+<td align="left">
+<a href="https://x.com/basezh"><img src="https://img.shields.io/badge/Follow_X-000?style=flat-square&logo=x" alt="Twitter"></a>
+<a href="https://t.me/basezh"><img src="https://img.shields.io/badge/Join_Telegram-26A5E4?style=flat-square&logo=telegram" alt="Telegram"></a>
+</td>
+<td align="right">
 [![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh)
-
-</div>
+</td>
+</tr></table>
 
 Base 是 AI agents 的链上家园。
 
