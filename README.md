@@ -44,7 +44,7 @@ A curated collection of [Agent Skills](https://agentskills.io) for building AI a
 | [flow](skills/flow/) | Flow protocol: discover auctions, launch tokens, submit bids, claim/exit, deploy liquidity on Base. | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
 | [dx-terminal-pro](skills/dx-terminal-pro/) | Managing autonomous memecoin trading agents on DX Terminal Pro. | [https://github.com/ProjectDXAI/dx-terminal-pro-skill](https://github.com/ProjectDXAI/dx-terminal-pro-skill) |
 | [frame](skills/frame/) | Build in public with vibe raising. Launch builder coins, ship products, claim vesting and trading fees. Gas-free on Base. | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
-| [bankr](skills/bankr/) | Launch tokens, earn trading fees, built-in wallet. Bankr, SIWA, Signals, Botchan, ERC-8004, OnchainKit, and more. | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
+| [bankr](skills/bankr/) | Launch tokens, earn trading fees, built-in wallet. Bankr, SIWA, Signals, Botchan, ERC-8004, OnchainKit, and more. | [https://github.com/BankrBot/skills/tree/main/bankr](https://github.com/BankrBot/skills/tree/main/bankr) |
 
 ### DeFi Protocols
 

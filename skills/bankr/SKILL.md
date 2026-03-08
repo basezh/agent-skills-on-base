@@ -2,14 +2,14 @@
 name: bankr
 description: AI-powered crypto trading agent and LLM gateway via natural language. Use when the user wants to trade crypto, check portfolio balances, view token prices, transfer crypto, manage NFTs, use leverage, bet on Polymarket, deploy tokens, set up automated trading, sign and submit raw transactions, or access LLM models through the Bankr LLM gateway funded by your Bankr wallet. Supports Base, Ethereum, Polygon, Solana, and Unichain.
 metadata:
-  {
-    "clawdbot":
-      {
-        "emoji": "📺",
-        "homepage": "https://bankr.bot",
-        "requires": { "bins": ["bankr"] },
-      },
-  }
+ {
+ "clawdbot":
+ {
+ "emoji": "📺",
+ "homepage": "https://bankr.bot",
+ "requires": { "bins": ["bankr"] },
+ },
+ }
 ---
 
 # Bankr
@@ -79,8 +79,8 @@ bankr login email <user-email>
 
 1. **Accept Terms of Service** — Present the [Terms of Service](https://bankr.bot/terms) link and confirm the user agrees. Required for new users — do not pass `--accept-terms` unless the user has explicitly confirmed.
 2. **Read-only or read-write API key?**
-   - **Read-only** (default) — portfolio, balances, prices, research only
-   - **Read-write** (`--read-write`) — enables swaps, transfers, orders, token launches, leverage, Polymarket bets
+ - **Read-only** (default) — portfolio, balances, prices, research only
+ - **Read-write** (`--read-write`) — enables swaps, transfers, orders, token launches, leverage, Polymarket bets
 3. **Enable LLM gateway access?** (`--llm`) — multi-model API at `llm.bankr.bot` (currently limited to beta testers). Skip if user doesn't need it.
 4. **Key name?** (`--key-name`) — a display name for the API key (e.g. "My Agent", "Trading Bot")
 
@@ -98,9 +98,9 @@ bankr login email <user-email> --code <otp> --accept-terms --key-name "Research 
 
 | Option | Description |
 |--------|-------------|
-| `--code <otp>` | OTP code received via email (step 2) |
+| `--code ` | OTP code received via email (step 2) |
 | `--accept-terms` | Accept [Terms of Service](https://bankr.bot/terms) without prompting (required for new users) |
-| `--key-name <name>` | Display name for the API key (e.g. "My Agent"). Prompted if omitted |
+| `--key-name ` | Display name for the API key (e.g. "My Agent"). Prompted if omitted |
 | `--read-write` | Enable write operations: swaps, transfers, orders, token launches, leverage, Polymarket bets. **Without this flag, the key is read-only** (portfolio, balances, prices, research only) |
 | `--llm` | Enable [LLM gateway](https://docs.bankr.bot/llm-gateway/overview) access (multi-model API at `llm.bankr.bot`). Currently limited to beta testers |
 
@@ -187,7 +187,7 @@ curl -X POST "https://api.bankr.bot/agent/prompt" \
   -d '{"prompt": "And what about SOL?", "threadId": "thr_XYZ"}'
 ```
 
-Omit `threadId` to start a new conversation. CLI equivalent: `bankr prompt --continue` (reuses last thread) or `bankr prompt --thread <id>`.
+Omit `threadId` to start a new conversation. CLI equivalent: `bankr prompt --continue` (reuses last thread) or `bankr prompt --thread `.
 
 ### API Endpoints Summary
 
@@ -211,20 +211,20 @@ For full API details (request/response schemas, job states, rich data, polling s
 | Command | Description |
 |---------|-------------|
 | `bankr login` | Authenticate with the Bankr API (interactive menu) |
-| `bankr login email <address>` | Send OTP to email (headless step 1) |
-| `bankr login email <address> --code <otp> [options]` | Verify OTP and complete setup (headless step 2) |
-| `bankr login --api-key <key>` | Login with an existing API key directly |
-| `bankr login --api-key <key> --llm-key <key>` | Login with separate LLM gateway key |
+| `bankr login email ` | Send OTP to email (headless step 1) |
+| `bankr login email --code [options]` | Verify OTP and complete setup (headless step 2) |
+| `bankr login --api-key ` | Login with an existing API key directly |
+| `bankr login --api-key --llm-key ` | Login with separate LLM gateway key |
 | `bankr login --url` | Print Bankr Terminal URL for API key generation |
 | `bankr logout` | Clear stored credentials |
 | `bankr whoami` | Show current authentication info |
-| `bankr prompt <text>` | Send a prompt to the Bankr AI agent |
-| `bankr prompt --continue <text>` | Continue the most recent conversation thread |
-| `bankr prompt --thread <id> <text>` | Continue a specific conversation thread |
-| `bankr status <jobId>` | Check the status of a running job |
-| `bankr cancel <jobId>` | Cancel a running job |
+| `bankr prompt ` | Send a prompt to the Bankr AI agent |
+| `bankr prompt --continue ` | Continue the most recent conversation thread |
+| `bankr prompt --thread ` | Continue a specific conversation thread |
+| `bankr status ` | Check the status of a running job |
+| `bankr cancel ` | Cancel a running job |
 | `bankr balances` | Show wallet token balances across all chains |
-| `bankr balances --chain <chains>` | Filter by chain(s): base, polygon, mainnet, unichain, solana (comma-separated) |
+| `bankr balances --chain ` | Filter by chain(s): base, polygon, mainnet, unichain, solana (comma-separated) |
 | `bankr balances --json` | Output raw JSON balances |
 | `bankr skills` | Show all Bankr AI agent skills with examples |
 
@@ -233,8 +233,8 @@ For full API details (request/response schemas, job states, rich data, polling s
 | Command | Description |
 |---------|-------------|
 | `bankr config get [key]` | Get config value(s) |
-| `bankr config set <key> <value>` | Set a config value |
-| `bankr --config <path> <command>` | Use a custom config file path |
+| `bankr config set ` | Set a config value |
+| `bankr --config ` | Use a custom config file path |
 
 Valid config keys: `apiKey`, `apiUrl`, `llmKey`, `llmUrl`
 
@@ -257,7 +257,7 @@ Environment variables override config file values. Config file values override d
 |---------|-------------|
 | `bankr llm models` | List available LLM models |
 | `bankr llm credits` | Check credit balance |
-| `bankr llm credits add <amount> [--token <addr>] [-y]` | Top up LLM credits from wallet |
+| `bankr llm credits add [--token] [-y]` | Top up LLM credits from wallet |
 | `bankr llm credits auto [--enable/--disable] [--amount] [--threshold] [--tokens]` | View or configure auto top-up |
 | `bankr llm setup openclaw [--install]` | Generate or install OpenClaw config |
 | `bankr llm setup opencode [--install]` | Generate or install OpenCode config |
@@ -341,7 +341,7 @@ The [Bankr LLM Gateway](https://docs.bankr.bot/llm-gateway/overview) is a unifie
 - Uses your `llmKey` if configured, otherwise falls back to your API key
 - **LLM credits** (USD) and **trading wallet** (crypto) are completely separate balances — having crypto does NOT give you LLM credits
 - **New accounts start with $0 LLM credits** — top up via `bankr llm credits add 25` or at [bankr.bot/llm?tab=credits](https://bankr.bot/llm?tab=credits) before making any LLM calls, or you will get a 402 error
-- Check credits: `bankr llm credits` | Top up: `bankr llm credits add <amount>` | Auto top-up: `bankr llm credits auto --enable --amount 25 --tokens USDC`
+- Check credits: `bankr llm credits` | Top up: `bankr llm credits add ` | Auto top-up: `bankr llm credits auto --enable --amount 25 --tokens USDC`
 - In OpenClaw config, prefix model IDs with `bankr/` (e.g. `bankr/claude-sonnet-4.6`). In direct API calls, use bare IDs (e.g. `claude-sonnet-4.6`)
 
 ### Quick Commands
@@ -468,13 +468,13 @@ For full details — setup paths, model list, provider config, SDK examples, key
 
 ## Supported Chains
 
-| Chain    | Native Token | Best For                      | Gas Cost |
+| Chain | Native Token | Best For | Gas Cost |
 | -------- | ------------ | ----------------------------- | -------- |
-| Base     | ETH          | Memecoins, general trading    | Very Low |
-| Polygon  | MATIC        | Gaming, NFTs, frequent trades | Very Low |
-| Ethereum | ETH          | Blue chips, high liquidity    | High     |
-| Solana   | SOL          | High-speed trading            | Minimal  |
-| Unichain | ETH          | Newer L2 option               | Very Low |
+| Base | ETH | Memecoins, general trading | Very Low |
+| Polygon | MATIC | Gaming, NFTs, frequent trades | Very Low |
+| Ethereum | ETH | Blue chips, high liquidity | High |
+| Solana | SOL | High-speed trading | Minimal |
+| Unichain | ETH | Newer L2 option | Very Low |
 
 ## Safety & Access Control
 
@@ -566,7 +566,7 @@ Bankr uses an asynchronous job-based API:
 3. **Complete** — Process results when done
 4. **Continue** — Reuse `threadId` for multi-turn conversations
 
-The `bankr prompt` command handles this automatically. When using the REST API directly, implement the poll loop yourself (see Option 2 above or the reference below). For manual job control via CLI, use `bankr status <jobId>` and `bankr cancel <jobId>`.
+The `bankr prompt` command handles this automatically. When using the REST API directly, implement the poll loop yourself (see Option 2 above or the reference below). For manual job control via CLI, use `bankr status ` and `bankr cancel `.
 
 For details on the API structure, job states, polling strategy, and error handling, see:
 
