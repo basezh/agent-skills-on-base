@@ -73,5 +73,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 This project is licensed under the terms of the included LICENSE file.
 
----
 [Base]: https://base.org

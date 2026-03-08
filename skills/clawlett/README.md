@@ -221,6 +221,9 @@ Checkout [Troubleshooting Guide](TROUBLESHOOTING.md) for common issues.
 
 ## Contributing
 
+
+## Contributing
+
 Contributions are welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
 ## License

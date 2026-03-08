@@ -79,19 +79,16 @@ A curated collection of [Agent Skills](https://agentskills.io) for building AI a
 
 ## Install skills
 
-This repo is a **curated navigation hub**. Skills are forked from their original projects and organized by category. Each skill lives in `skills/<name>/` with `SKILL.md` (and optionally `references/`, `scripts/`).
+**Two ways to install:**
 
-**Repo structure:**
-```
-skills/
-├── base/                    # Base infrastructure (from base/skills)
-├── bankr/                   # Bankr ecosystem (from BankrBot/skills)
-├── sponge-wallet/
-├── moltlaunch/
-└── ...
-```
+1. **Copy from this repo** — Copy the skill folder into your agent's skills directory (e.g. `~/.skills/`, `~/.openclaw/skills/`, or `.cursor/skills/`). Each `skills/<name>/` has the full skill including `SKILL.md`.
 
-To install a skill, go to the **Original Link** for that skill and follow its install instructions. Each upstream project has its own CLI, API keys, and setup — see the SKILL.md in each folder or the Original Link column for details.
+2. **Official install** — Use the **Original Link** for the skill. Common commands:
+   - `npx skills add ORG/REPO` (Vercel Skills CLI)
+   - `npx clawhub install <skill-name>`
+   - Or `git clone` from the Original Link
+
+Each skill may need API keys or extra setup — see its `SKILL.md` for details.
 
 ---
 
