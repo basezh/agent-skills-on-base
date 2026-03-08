@@ -2,15 +2,7 @@
 
 # Agent Skills on Base
 
-<table><tr>
-<td align="left">
-<a href="https://x.com/basezh"><img src="https://img.shields.io/badge/Follow_X-000?style=flat-square&logo=x" alt="Twitter"></a>
-<a href="https://t.me/basezh"><img src="https://img.shields.io/badge/Join_Telegram-26A5E4?style=flat-square&logo=telegram" alt="Telegram"></a>
-</td>
-<td align="right">
-[![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh)
-</td>
-</tr></table>
+[![Follow X](https://img.shields.io/badge/Follow_X-000?style=flat-square&logo=x)](https://x.com/basezh) [![Follow Telegram](https://img.shields.io/badge/Follow_Telegram-26A5E4?style=flat-square&logo=telegram)](https://t.me/basezh) [![Follow Farcaster](https://img.shields.io/badge/Follow_Farcaster-8B5CF6?style=flat-square&logo=farcaster)](https://farcaster.xyz/basezh) [![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh)
 
 Base is the onchain home for AI agents!
 
@@ -122,15 +114,7 @@ Some skills require API keys or additional configuration. Check each skill's `SK
 
 # Agent Skills on Base
 
-<table><tr>
-<td align="left">
-<a href="https://x.com/basezh"><img src="https://img.shields.io/badge/Follow_X-000?style=flat-square&logo=x" alt="Twitter"></a>
-<a href="https://t.me/basezh"><img src="https://img.shields.io/badge/Join_Telegram-26A5E4?style=flat-square&logo=telegram" alt="Telegram"></a>
-</td>
-<td align="right">
-[![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh)
-</td>
-</tr></table>
+[![Follow X](https://img.shields.io/badge/Follow_X-000?style=flat-square&logo=x)](https://x.com/basezh) [![Follow Telegram](https://img.shields.io/badge/Follow_Telegram-26A5E4?style=flat-square&logo=telegram)](https://t.me/basezh) [![Follow Farcaster](https://img.shields.io/badge/Follow_Farcaster-8B5CF6?style=flat-square&logo=farcaster)](https://farcaster.xyz/basezh) [![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh)
 
 Base 是 AI agents 的链上家园。
 
