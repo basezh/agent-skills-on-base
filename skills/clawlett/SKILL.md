@@ -5,6 +5,8 @@ description: OpenClaw skill for autonomous token swaps and Trenches trading. Pow
 
 # Clawlett by creator.bid
 
+**Install:** Read the [original README](https://github.com/Creator-Bid/Clawlett) and follow the instructions. Clone to `~/.openclaw/workspace/skills/clawlett`.
+
 OpenClaw skill for autonomous token swaps and Trenches trading via Gnosis Safe + Zodiac Roles.
 
 ## Features

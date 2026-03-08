@@ -45,8 +45,10 @@ const client = createPublicClient({
 
 ## Install
 
+Read SKILL.md and follow the instructions. Install via:
+
 ```bash
 npx skills add https://github.com/quiknode-labs/blockchain-skills --skill quicknode-skill
 ```
 
-**Source**: [quiknode-labs/blockchain-skills](https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill)
+**Source:** [quiknode-labs/blockchain-skills](https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill)

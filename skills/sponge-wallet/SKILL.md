@@ -5,6 +5,8 @@ description: Crypto wallet, token swaps, cross-chain bridges, and access to paid
 
 # Sponge Wallet
 
+**Install:** Read the [original skill.md](https://wallet.paysponge.com/skill.md) and follow the instructions.
+
 Crypto wallet with token swaps, cross-chain bridges, and x402 payments for external services.
 
 ## Features

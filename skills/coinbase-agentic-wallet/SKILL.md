@@ -5,6 +5,8 @@ description: Agent Skills for crypto wallet operations. Authenticate via email O
 
 # Coinbase Agentic Wallet Skills
 
+**Install:** Read the [original README](https://github.com/coinbase/agentic-wallet-skills) and follow the instructions. `npx skills add coinbase/agentic-wallet-skills` or clone the repo.
+
 Agent Skills for crypto wallet operations using the [`awal`](https://www.npmjs.com/package/awal) CLI.
 
 ## Available Sub-Skills

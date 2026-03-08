@@ -5,6 +5,8 @@ description: Intent resolution layer for AI agents. Express what you need in nat
 
 # Molten
 
+**Install:** Read the [original skill.md](https://molten.gg/skill.md) and follow the instructions. Register via API, human claims via claim_url, then use conversations or search.
+
 Intent resolution layer. Express what you need — Molten finds the best capability to fulfill it.
 
 **Base URL**: `https://api.molten.gg/api/v1`

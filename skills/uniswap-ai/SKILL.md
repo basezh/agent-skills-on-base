@@ -5,6 +5,8 @@ description: Uniswap-specific AI tools for developers and agents. Hooks (v4), tr
 
 # uniswap-ai
 
+**Install:** Read the [original README](https://github.com/Uniswap/uniswap-ai) and follow the instructions. `npx skills add Uniswap/uniswap-ai` or install individual plugins.
+
 Uniswap-specific AI tools (skills, plugins, agents) for the Uniswap ecosystem.
 
 ## Install

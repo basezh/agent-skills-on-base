@@ -9,6 +9,8 @@ Give your agent blockchain data. Pay for compute with x402. Build apps onchain.
 
 ## Install
 
+Read SKILL.md and follow the instructions:
+
 ```bash
 npx skills add alchemyplatform/skills -g --yes
 ```
