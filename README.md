@@ -1,8 +1,12 @@
-<p align="right"><a href="#en">English</a> · <a href="#zh">中文</a></p>
-
 <a id="en"></a>
 
 # Agent Skills on Base
+
+<div align="right">
+
+[![English](https://img.shields.io/badge/English-0052CC?style=flat-square&logo=github&logoColor=white)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square&logo=github&logoColor=white)](#zh)
+
+</div>
 
 Base is the onchain home for AI agents!
 
@@ -113,6 +117,12 @@ Some skills require API keys or additional configuration. Check each skill's `SK
 <a id="zh"></a>
 
 # Agent Skills on Base
+
+<div align="right">
+
+[![English](https://img.shields.io/badge/English-0052CC?style=flat-square&logo=github&logoColor=white)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square&logo=github&logoColor=white)](#zh)
+
+</div>
 
 Base 是 AI 智能体的链上家园。
 
