@@ -79,14 +79,15 @@ A curated collection of [Agent Skills](https://agentskills.io) for building AI a
 
 ## Install skills
 
-This repo is a **navigation hub** — we curate and fork skills so you can browse them in one place. Clone this repo and point your agent (e.g. OpenClaw) at the `skills/` folder, or use the **Original Link** for each skill to install from source.
+This repository serves as a curated navigation hub. All skills are forked and ready to load. You can use this repo directly by cloning it and adding the `skills/` directory to your agent's load path, or install individual skills from their Original Link above.
 
 ```bash
 git clone https://github.com/basezh/agent-skills-on-base.git
-# Then add the skills/ folder to your agent's load path (e.g. OpenClaw extraDirs)
 ```
 
-Note: some skills require API keys or extra setup — see each skill's `SKILL.md`.
+For OpenClaw: add the cloned repo's `skills/` folder to `extraDirs` in `openclaw.json`. Other agents: add the path to your skills directory (e.g. `~/.openclaw/skills/`, `.cursor/skills/`).
+
+Some skills require API keys or additional configuration. Check each skill's `SKILL.md` before use.
 
 ---
 
