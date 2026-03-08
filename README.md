@@ -8,11 +8,7 @@ A curated collection of [Agent Skills](https://agentskills.io) for building AI a
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
-| [building-with-base-account](skills/building-with-base-account/) | Base Account SDK for authentication and payments: SIWB, Base Pay, Paymasters, Sub Accounts, Spend Permissions. | [https://github.com/base/skills](https://github.com/base/skills) |
-| [connecting-to-base-network](skills/connecting-to-base-network/) | Base Mainnet and Sepolia network configuration, RPC endpoints, chain IDs, explorer URLs. | [https://github.com/base/skills](https://github.com/base/skills) |
-| [deploying-contracts-on-base](skills/deploying-contracts-on-base/) | Deploy and verify contracts on Base with Foundry, plus troubleshooting guidance. | [https://github.com/base/skills](https://github.com/base/skills) |
-| [running-a-base-node](skills/running-a-base-node/) | Production node setup, hardware requirements, networking ports, syncing guidance. | [https://github.com/base/skills](https://github.com/base/skills) |
-| [converting-minikit-to-farcaster](skills/converting-minikit-to-farcaster/) | Migrate Mini Apps from MiniKit (OnchainKit) to native Farcaster SDK. | [https://github.com/base/skills](https://github.com/base/skills) |
+| [base](skills/base/) | Base Skills: Base Account SDK, network config, contract deployment, node setup, MiniKit to Farcaster. | [https://github.com/base/skills](https://github.com/base/skills) |
 | [quicknode](skills/quicknode/) | Blockchain infrastructure: RPC, Streams, Webhooks, IPFS, enhanced APIs for 80+ chains, x402 pay-per-request. | [https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill](https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill) |
 | [alchemy](skills/alchemy/) | Blockchain data APIs for agents. Node APIs, Token APIs, Webhooks. Pay for compute with x402. | [https://agents.alchemy.com/](https://agents.alchemy.com/) |
 
@@ -44,7 +40,7 @@ A curated collection of [Agent Skills](https://agentskills.io) for building AI a
 | [flow](skills/flow/) | Flow protocol: discover auctions, launch tokens, submit bids, claim/exit, deploy liquidity on Base. | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
 | [dx-terminal-pro](skills/dx-terminal-pro/) | Managing autonomous memecoin trading agents on DX Terminal Pro. | [https://github.com/ProjectDXAI/dx-terminal-pro-skill](https://github.com/ProjectDXAI/dx-terminal-pro-skill) |
 | [frame](skills/frame/) | Build in public with vibe raising. Launch builder coins, ship products, claim vesting and trading fees. Gas-free on Base. | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
-| [bankr](skills/bankr/) | Bankr Skills: bankr, siwa, bankr-signals, botchan, clanker, endaoment, ens-primary-name, erc-8004, hydrex, neynar, onchainkit, qrcoin, veil, yoink, zapper. | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
+| [bankr](skills/bankr/) | Bankr Skills — token launch, trading, SIWA, Farcaster, ENS, DeFi. Install from BankrBot/skills. | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
 
 ### DeFi Protocols
 
@@ -83,37 +79,28 @@ A curated collection of [Agent Skills](https://agentskills.io) for building AI a
 
 ## Install
 
-This repo is a **navigation hub** — each skill lives in its own folder with full content (SKILL.md, references/, scripts/). Install skills individually by following each skill's instructions.
+Each skill is a folder with `SKILL.md`. Read the skill's `SKILL.md` for install steps (CLI, API keys, etc.). See Original Link column for upstream docs.
 
-**Browse and install:**
-```bash
-# Clone this repo
-git clone https://github.com/basezh/agent-skills-on-base
-cd agent-skills-on-base
+**Adding a skill:**
 
-# Each skill has its own folder. Read SKILL.md for install steps:
-cat skills/bankr/SKILL.md
-cat skills/basebario-fxclaw/SKILL.md
-# etc. — each skill documents its own CLI, API keys, and setup
-```
+1. Fork this repo and create a branch.
+2. Create a directory for your skill:
+   ```
+   mkdir skills/your-skill-name/
+   ```
+3. Add a `SKILL.md` — this is the only required file.
+4. Optionally add `references/` for supporting docs and `scripts/` for helper scripts:
+   ```
+   skills/your-skill-name/
+   ├── SKILL.md
+   ├── references/
+   │   └── your-docs.md
+   └── scripts/
+       └── your-script.sh
+   ```
+5. Open a pull request with a description of what your skill does.
 
-**Skill folder structure:**
-```
-skills/your-skill-name/
-├── SKILL.md          # Required — agent instructions, install steps
-├── references/       # Optional — supporting docs
-└── scripts/          # Optional — helper scripts
-```
-
-**Adding a skill** — see [CONTRIBUTING.md](CONTRIBUTING.md): fork, create `skills/your-skill-name/`, add SKILL.md, open a PR.
-
-**Sync from upstream:**
-```bash
-python3 scripts/sync_skills.py --all      # Sync all (BankrBot, URLs, GitHub)
-python3 scripts/sync_skills.py --bankr    # Sync BankrBot/skills into skills/bankr/
-python3 scripts/sync_skills.py --urls     # Sync URL-based skills only
-python3 scripts/sync_skills.py --fix-yaml # Fix YAML frontmatter in SKILL.md files
-```
+**Guidelines:** Keep SKILL.md clear and well-documented. Include usage examples. Test before submitting.
 
 ## Contributing
 
