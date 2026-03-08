@@ -1,6 +1,8 @@
 # Agent Skills on Base
 
-A curated collection of [Agent Skills](https://agentskills.io) for building AI agents on [Base](https://base.org). These skills enable agents to connect to Base infrastructure, manage wallets, launch tokens, participate in agent marketplaces, interact with DeFi protocols, and more.
+Base is the onchain home for AI agents!
+
+This repo is a curated collection of [Agent Skills](https://agentskills.io) for building AI agents on [Base](https://base.org). These skills enable agents to connect to Base infrastructure, manage wallets, launch tokens, participate in agent marketplaces, interact with DeFi protocols, and more.
 
 ## Available Skills
 
