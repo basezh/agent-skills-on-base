@@ -46,7 +46,7 @@ This repo is a curated collection of [Agent Skills](https://agentskills.io) for 
 | [flow](skills/flow/) | Flow protocol: discover auctions, launch tokens, submit bids, claim/exit, deploy liquidity on Base. | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
 | [dx-terminal-pro](skills/dx-terminal-pro/) | Managing autonomous memecoin trading agents on DX Terminal Pro. | [https://github.com/ProjectDXAI/dx-terminal-pro-skill](https://github.com/ProjectDXAI/dx-terminal-pro-skill) |
 | [frame](skills/frame/) | Build in public with vibe raising. Launch builder coins, ship products, claim vesting and trading fees. Gas-free on Base. | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
-| [bankr](skills/bankr/) | Bankr Skills — token launch, trading, SIWA, Farcaster, ENS, DeFi. Install from BankrBot/skills. | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
+| [bankr](skills/bankr/) | Bankr Skills equip builders with plug-and-play tools to build more powerful agents. Includes Bankr (launch tokens, earn trading fees, built-in wallet with safeguards), Sign-In With Agent, Axiom Bankr Signals, Botchan, ERC-8004, ENS Primary Name, OnchainKit, QRcoin, Veil, Yoink, Neynar, and Hydrex. | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
 
 ### DeFi Protocols
 
@@ -158,7 +158,7 @@ Base 是 AI agents 的链上家园。
 | [flow](skills/flow/) | Flow 协议：发现拍卖、发行代币、出价、领取/退出、部署流动性，均在 Base 上。 | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
 | [dx-terminal-pro](skills/dx-terminal-pro/) | 在 DX Terminal Pro 上管理自主 meme 币交易 agents。 | [https://github.com/ProjectDXAI/dx-terminal-pro-skill](https://github.com/ProjectDXAI/dx-terminal-pro-skill) |
 | [frame](skills/frame/) | 公开构建与 vibe raising：发行 builder 代币、发布产品、领取 vesting 与交易费，Base 上 gas-free。 | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
-| [bankr](skills/bankr/) | Bankr Skills：代币发行、交易、SIWA、Farcaster、ENS、DeFi，从 BankrBot/skills 安装。 | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
+| [bankr](skills/bankr/) | Bankr Skills 为 builders 提供即插即用工具，构建更强大的 agents。包含 Bankr（代币发行、赚取交易费、内置带 safeguards 的钱包）、Sign-In With Agent、Axiom Bankr Signals、Botchan、ERC-8004、ENS Primary Name、OnchainKit、QRcoin、Veil、Yoink、Neynar、Hydrex。 | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
 
 ### DeFi 协议
 
