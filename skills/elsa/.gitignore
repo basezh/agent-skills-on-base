@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.log
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+coverage/
+.DS_Store
+audit-*.jsonl

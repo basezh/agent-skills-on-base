@@ -1,7 +1,7 @@
 ---
 name: town
-description: An Agent Skill providing comprehensive knowledge for building Towns Protocol bots.
-homepage: https://app.towns.com
+description: "An [Agent Skill](https://agentskills.io) providing comprehensive knowledge for building Towns Protocol bots. Compatible with Claude Code, OpenAI Codex, and other agents supporting the Agent Skills ..."
+homepage: https://github.com/towns-protocol/skills
 ---
 
 # Towns Bot Skill
@@ -78,5 +78,3 @@ The skill also triggers automatically when working on Towns bot development task
 - [Towns Documentation](https://docs.towns.com/build/bots)
 - [@towns-protocol/bot SDK](https://www.npmjs.com/package/@towns-protocol/bot)
 - [Agent Skills Specification](https://agentskills.io)
-
-Original: https://github.com/towns-protocol/skills

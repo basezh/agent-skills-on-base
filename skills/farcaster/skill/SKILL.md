@@ -1,12 +1,7 @@
 ---
 name: farcaster-agent
 description: Create Farcaster accounts and post casts autonomously. Official skill from the Farcaster team.
-metadata:
-  clawdbot:
-    emoji: "📺"
-    homepage: "https://www.farcaster.xyz"
-    requires:
-      bins: ["bankr"]
+metadata: {"openclaw":{"emoji":"🟣","requires":{"bins":["node","npm"],"env":[]},"install":[{"id":"npm","kind":"shell","command":"cd {baseDir}/.. && npm install","label":"Install dependencies"}]}}
 ---
 
 # Farcaster Agent

@@ -1,8 +1,12 @@
 ---
 name: elsa
-description: OpenClaw skill-pack for Elsa x402 DeFi API integration with micropayments.
-homepage: https://x402.heyelsa.ai
+description: "OpenClaw skill-pack for Elsa x402 DeFi API integration with micropayments. Enables agents to interact with Elsa DeFi API using x402 payment protocol for USDC micropayments on Base."
+homepage: https://github.com/HeyElsa/elsa-openclaw
 ---
+
+<p align="center">
+  <img src="assets/logo.svg" alt="Elsa + OpenClaw" width="400">
+</p>
 
 # elsa-openclaw
 
@@ -242,5 +246,3 @@ See current pricing at [x402.heyelsa.ai](https://x402.heyelsa.ai).
 ## License
 
 MIT
-
-Original: https://github.com/HeyElsa/elsa-openclaw

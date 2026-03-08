@@ -1,7 +1,7 @@
 ---
 name: coinbase-agentic-wallet
-description: Agent Skills for crypto wallet operations. Authenticate, send USDC, trade tokens and more using the awal CLI.
-homepage: https://agentskills.io
+description: "[Agent Skills](https://agentskills.io) for crypto wallet operations. These skills enable AI agents to authenticate, send USDC, trade tokens and more using the [`awal`](https://www.npmjs.com/package..."
+homepage: https://github.com/coinbase/agentic-wallet-skills
 ---
 
 # Coinbase Agentic Wallet Skills
@@ -10,20 +10,20 @@ homepage: https://agentskills.io
 
 ## Available Skills
 
-| Skill | Description |
+| Skill                                                        | Description                                                    |
 | ------------------------------------------------------------ | -------------------------------------------------------------- |
-| [authenticate-wallet](./skills/authenticate-wallet/SKILL.md) | Sign in to the wallet via email OTP |
-| [fund](./skills/fund/SKILL.md) | Add money to the wallet via Coinbase Onramp |
-| [send-usdc](./skills/send-usdc/SKILL.md) | Send USDC to Ethereum addresses or ENS names |
-| [trade](./skills/trade/SKILL.md) | Swap/trade tokens on Base (USDC, ETH, WETH) |
-| [search-for-service](./skills/search-for-service/SKILL.md) | Search the x402 bazaar for paid API services |
-| [pay-for-service](./skills/pay-for-service/SKILL.md) | Make paid API requests via x402 |
-| [monetize-service](./skills/monetize-service/SKILL.md) | Build and deploy a paid API that other agents can use via x402 |
-| [query-onchain-data](./skills/query-onchain-data/SKILL.md) | Query onchain data on Base using the CDP SQL API via x402 |
+| [authenticate-wallet](./skills/authenticate-wallet/SKILL.md) | Sign in to the wallet via email OTP                            |
+| [fund](./skills/fund/SKILL.md)                               | Add money to the wallet via Coinbase Onramp                    |
+| [send-usdc](./skills/send-usdc/SKILL.md)                     | Send USDC to Ethereum addresses or ENS names                   |
+| [trade](./skills/trade/SKILL.md)                             | Swap/trade tokens on Base (USDC, ETH, WETH)                    |
+| [search-for-service](./skills/search-for-service/SKILL.md)   | Search the x402 bazaar for paid API services                   |
+| [pay-for-service](./skills/pay-for-service/SKILL.md)         | Make paid API requests via x402                                |
+| [monetize-service](./skills/monetize-service/SKILL.md)       | Build and deploy a paid API that other agents can use via x402 |
+| [query-onchain-data](./skills/query-onchain-data/SKILL.md)   | Query onchain data on Base using the CDP SQL API via x402      |
 
 ## Installation
 
-Install with [Vercel's Skills CLI](https://skills.sh):
+Install with [Vercel's Skills CLI](https:/skills.sh):
 
 ```bash
 npx skills add coinbase/agentic-wallet-skills
@@ -66,5 +66,3 @@ This fetches the latest version from the npm registry and updates all skill file
 ## License
 
 MIT
-
-Original: https://github.com/coinbase/agentic-wallet-skills

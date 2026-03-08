@@ -1,14 +1,18 @@
 ---
 name: clawlett
-description: OpenClaw skill for autonomous token swaps and Trenches trading, powered by Gnosis Safe + Zodiac Roles.
-homepage: https://openclaw.ai
+description: "OpenClaw skill for autonomous token swaps and Trenches trading, powered by Gnosis Safe + Zodiac Roles."
+homepage: https://github.com/Creator-Bid/Clawlett
 ---
 
 # Clawlett
 
+<p align="center">
+  <img src="assets/mascot.jpg" alt="Clawlett Mascot" width="400">
+</p>
+
 An [OpenClaw](https://openclaw.ai) skill for autonomous token swaps and Trenches trading, powered by Gnosis Safe + Zodiac Roles.
 
-**Supported chains:** Base (default), BNB Chain. All scripts accept `--chain <chain>`.
+**Supported chains:** Base (default), BNB Chain. All scripts accept `--chain <name>`.
 
 ## Overview
 
@@ -40,7 +44,7 @@ The human owner retains full control of the Safe while the agent can only execut
 │  Agent can ONLY:                                        │
 │  • Call ZodiacHelpers (swaps, approvals, wrapping)      │
 │  • Approve tokens for KyberSwap Router & CoW Relayer    │
-│  • Execute swaps via KyberSwap or CoW Protocol         │
+│  • Execute swaps via KyberSwap or CoW Protocol          │
 │                                                         │
 │  Agent CANNOT:                                          │
 │  • Transfer tokens out of Safe                          │
@@ -189,6 +193,21 @@ Config is stored per-chain in `config/<chain>/wallet.json` after initialization.
 | `QUOTE_API_URL` | Production API | Quote/routing API |
 | `TRENCHES_API_URL` | `https://trenches.bid` | Trenches API endpoint |
 
+## Contracts
+
+| Contract | Address | Description |
+|----------|---------|-------------|
+| Safe Singleton | `0x3E5c63644E683549055b9Be8653de26E0B4CD36E` | Safe L2 impl |
+| CoW Settlement | `0x9008D19f58AAbD9eD0D60971565AA8510560ab41` | CoW Protocol settlement |
+| CoW Vault Relayer | `0xC92E8bdf79f0507f65a392b0ab4667716BFE0110` | CoW token allowance target |
+| KyberSwap Router | `0x6131B5fae19EA4f9D964eAc0408E4408b66337b5` | KyberSwap Meta Aggregation Router V2 |
+| ZodiacHelpers | `0x38441B5bd6370b000747c97a12877c83c0A32eaF` | Approvals, CoW presign, KyberSwap, WETH wrap/unwrap, Trenches factory wrappers via delegatecall |
+| AgentKeyFactoryV3 | `0x2EA0010c18fa7239CAD047eb2596F8d8B7Cf2988` | Trenches token creation and trading |
+| Safe Factory | `0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2` | Safe deployer |
+| Roles Singleton | `0x9646fDAD06d3e24444381f44362a3B0eB343D337` | Zodiac Roles |
+| Module Factory | `0x000000000000aDdB49795b0f9bA5BC298cDda236` | Module deployer |
+| CNS | `0x299319e0BC8d67e11AD8b17D4d5002033874De3a` | Clawlett Name Service (unique agent names) |
+
 ## OpenClaw Integration
 
 This skill is designed to work with [OpenClaw](https://openclaw.ai) agents. The agent can:
@@ -204,8 +223,7 @@ This skill is designed to work with [OpenClaw](https://openclaw.ai) agents. The 
 See [SKILL.md](./clawlett/SKILL.md) for the skill specification.
 
 ## Troubleshooting
-
-Checkout [Troubleshooting Guide](TROUBLESHOOTING.md) for common issues.
+Checkout [Troubleshooting Guide](TROUBLESHOOTING.md) for common issues. 
 
 ## Contributing
 
@@ -214,5 +232,3 @@ Contributions are welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelin
 ## License
 
 MIT
-
-Original: https://github.com/Creator-Bid/Clawlett

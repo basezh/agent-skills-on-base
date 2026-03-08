@@ -1,0 +1,22 @@
+# Exclude non-skill directories
+.agents/
+.claude/
+.codex/
+.cursor/
+.opencode/
+.windsurf/
+.docs/
+plans/
+todos/
+
+# Exclude root-level markdown except README
+/interview-followup.md
+/interview-questions.md
+
+# OS files
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+*~

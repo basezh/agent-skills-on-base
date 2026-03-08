@@ -1,7 +1,7 @@
 ---
 name: bankr
-description: Bankr Skills equip builders with plug-and-play tools to build more powerful agents.
-homepage: https://bankr.bot
+description: "Bankr Skills equip builders with plug-and-play tools to build more powerful agents."
+homepage: https://github.com/BankrBot/skills
 ---
 
 # Bankr Skills. Build your agent.
@@ -52,5 +52,3 @@ Bankr Skills equip builders with plug-and-play tools to build more powerful agen
 5. Open a pull request with a description of what your skill does.
 
 **Guidelines:** Keep `SKILL.md` clear and well-documented. Include usage examples. Test before submitting.
-
-Original: https://github.com/BankrBot/skills

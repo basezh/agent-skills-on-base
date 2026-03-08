@@ -1,10 +1,14 @@
 ---
 name: heurist-mesh
-description: Access Web3 and crypto intelligence via Heurist Mesh — 30+ specialized AI agents for cryptocurrency analytics, token data, wallet analysis, Twitter/X intelligence, and blockchain research.
-homepage: https://mesh.heurist.ai
+description: "Access Web3 and crypto intelligence via [Heurist Mesh](https://mesh.heurist.ai) — 30+ specialized AI agents for cryptocurrency analytics, token data, wallet analysis, Twitter/X intelligence, and bl..."
+homepage: https://github.com/heurist-network/heurist-mesh-skill
 ---
 
 # Heurist Mesh Skill
+
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-Compatible-blue)](https://claude.ai/code)
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-Compatible-blue)](https://openclaw.ai)
+[![Heurist](https://img.shields.io/badge/Heurist-Mesh-purple)](https://mesh.heurist.ai)
 
 Access Web3 and crypto intelligence via [Heurist Mesh](https://mesh.heurist.ai) — 30+ specialized AI agents for cryptocurrency analytics, token data, wallet analysis, Twitter/X intelligence, and blockchain research, optimized for AI with fewer tool calls and less token usage.
 
@@ -65,5 +69,3 @@ heurist-mesh-skill/
 - [API Documentation](https://docs.heurist.ai)
 - [Telegram Support](https://t.me/heuristsupport)
 - [X / Twitter](https://x.com/heurist_ai)
-
-Original: https://github.com/heurist-network/heurist-mesh-skill

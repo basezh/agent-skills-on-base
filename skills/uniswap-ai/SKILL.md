@@ -1,7 +1,7 @@
 ---
 name: uniswap-ai
-description: Uniswap-specific AI tools (skills, plugins, agents) for developers and AI agents integrating the Uniswap ecosystem.
-homepage: https://uniswap.org
+description: "Uniswap-specific AI tools (skills, plugins, agents) for developers and AI agents integrating the Uniswap ecosystem."
+homepage: https://github.com/Uniswap/uniswap-ai
 ---
 
 # uniswap-ai
@@ -21,16 +21,16 @@ npx skills add Uniswap/uniswap-ai
 /plugin install uniswap-hooks      # v4 hook development
 /plugin install uniswap-trading    # Swap integration
 /plugin install uniswap-cca        # CCA auctions
-/plugin install uniswap-driver    # Swap & liquidity planning
+/plugin install uniswap-driver     # Swap & liquidity planning
 /plugin install uniswap-viem       # EVM integration (viem/wagmi)
 ```
 
 ## Documentation
 
-| Document | Description |
+| Document                                   | Description                              |
 | ------------------------------------------ | ---------------------------------------- |
-| [Project Overview](./docs/OVERVIEW.md) | Plugins, architecture, development setup |
-| [Getting Started](./docs/getting-started/) | Installation and quick start guide |
+| [Project Overview](./docs/OVERVIEW.md)     | Plugins, architecture, development setup |
+| [Getting Started](./docs/getting-started/) | Installation and quick start guide       |
 
 ## Contributing
 
@@ -39,5 +39,3 @@ See [Project Overview](./docs/OVERVIEW.md) for development setup and contributio
 ## License
 
 MIT License - see [LICENSE](./LICENSE) for details.
-
-Original: https://github.com/Uniswap/uniswap-ai

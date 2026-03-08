@@ -1,7 +1,7 @@
 ---
 name: xmtp
-description: Skills for building with XMTP, the open protocol for secure, decentralized messaging between people and agents.
-homepage: https://xmtp.org
+description: "Skills for building with [XMTP](https://xmtp.org), the open protocol for secure, decentralized messaging between people and agents."
+homepage: https://github.com/xmtp/skills
 ---
 
 # XMTP Skills
@@ -62,5 +62,3 @@ Copy the skill folder to your agent's plugins directory.
 ## License
 
 MIT
-
-Original: https://github.com/xmtp/skills

@@ -1,7 +1,7 @@
 ---
 name: dx-terminal-pro
-description: AI agent skill for managing autonomous memecoin trading agents on DX Terminal Pro.
-homepage: https://terminal.markets
+description: "An AI agent skill for managing autonomous memecoin trading agents on [DX Terminal Pro](https://terminal.markets)."
+homepage: https://github.com/ProjectDXAI/dx-terminal-pro-skill
 ---
 
 # DX Terminal Pro Skill
@@ -75,5 +75,3 @@ All write operations are signed with your private key and executed on Base Mainn
 ## Links
 
 - [DX Terminal Pro](https://terminal.markets)
-
-Original: https://github.com/ProjectDXAI/dx-terminal-pro-skill

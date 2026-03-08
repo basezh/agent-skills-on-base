@@ -1,7 +1,7 @@
 ---
 name: opensea
-description: Query NFT data, trade on the Seaport marketplace, and swap ERC20 tokens across Ethereum, Base, Arbitrum, Optimism, Polygon, and more.
-homepage: https://opensea.io
+description: "**Query NFT data, trade on the Seaport marketplace, and swap ERC20 tokens** across Ethereum, Base, Arbitrum, Optimism, Polygon, and more."
+homepage: https://github.com/ProjectOpenSea/opensea-skill
 ---
 
 # OpenSea Skill
@@ -142,5 +142,3 @@ This skill supports all chains available on OpenSea, including `ethereum`, `sola
 - [OpenSea Developer Docs](https://docs.opensea.io/)
 - [OpenSea Developer Portal](https://opensea.io/settings/developer)
 - [Agent Skills Directory](https://skills.sh/docs)
-
-Original: https://github.com/ProjectOpenSea/opensea-skill

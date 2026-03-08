@@ -1,7 +1,7 @@
 ---
 name: privy-agentic-wallets
-description: Create crypto wallets with Privy that AI agents can control autonomously with policy-based guardrails.
-homepage: https://privy.io
+description: "Create crypto wallets with [Privy](https://privy.io) that AI agents can control autonomously with policy-based guardrails."
+homepage: https://github.com/privy-io/privy-agentic-wallets-skill
 ---
 
 # Privy Agentic Wallets Skill
@@ -78,7 +78,19 @@ See platform-specific instructions below.
 
 ### Claude (claude.ai / Claude Desktop)
 
-Copy the contents of `SKILL.md` into your conversation or project instructions. For complex tasks, also share the relevant reference files.
+Copy the contents of `SKILL.md` into your conversation or project instructions. For complex tasks, also share the relevant reference files:
+
+```
+Hey Claude, here's a skill for using Privy agentic wallets:
+
+[paste SKILL.md contents]
+
+When I ask about Privy policies, also reference this:
+
+[paste references/policies.md contents]
+```
+
+Or attach the files directly if using Claude with file uploads.
 
 ### Cursor
 
@@ -88,6 +100,10 @@ Add the skill to your project:
 # Clone into your project
 git clone https://github.com/tedim52/privy-agentic-wallets-skill.git .cursor/skills/privy
 ```
+
+Then reference it in your Cursor rules or just ask:
+
+> "Read the Privy skill in .cursor/skills/privy and help me create an agentic wallet"
 
 ### OpenClaw
 
@@ -113,6 +129,8 @@ Add your Privy credentials to your OpenClaw config (`~/.openclaw/openclaw.json`)
   }
 }
 ```
+
+The agent will automatically use the skill when you ask about Privy wallets.
 
 ### Windsurf / Codeium
 
@@ -181,5 +199,3 @@ The agent will use the skill to:
 ## License
 
 MIT
-
-Original: https://github.com/privy-io/privy-agentic-wallets-skill
