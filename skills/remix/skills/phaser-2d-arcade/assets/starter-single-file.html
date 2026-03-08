@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phaser Starter</title>
+  <script src="https://cdn.jsdelivr.net/npm/@remix-gg/sdk@latest/dist/index.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #111;
+      overflow: hidden;
+    }
+    #game {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="game"></div>
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.90.0/dist/phaser.min.js"></script>
+  <script>
+    (async function () {
+      const sdk = window.RemixSDK || null
+      if (sdk && typeof sdk.ready === 'function') {
+        await sdk.ready()
+      }
+
+      let isMuted = false
+      if (sdk && typeof sdk.onToggleMute === 'function') {
+        sdk.onToggleMute(({ isMuted: next }) => {
+          isMuted = Boolean(next)
+        })
+      }
+
+      const state = {
+        score: 0,
+        gameOver: false,
+      }
+
+      function finishGame() {
+        if (state.gameOver) return
+        state.gameOver = true
+        if (sdk && sdk.singlePlayer && sdk.singlePlayer.actions) {
+          sdk.singlePlayer.actions.gameOver({ score: state.score })
+        }
+      }
+
+      class MainScene extends Phaser.Scene {
+        constructor() {
+          super('main')
+        }
+
+        create() {
+          const centerX = this.scale.width / 2
+          const centerY = this.scale.height / 2
+
+          this.add.text(centerX, centerY - 40, 'Phaser Starter', {
+            color: '#ffffff',
+            fontSize: '24px',
+          }).setOrigin(0.5)
+
+          this.scoreText = this.add.text(centerX, centerY, 'Score: 0', {
+            color: '#ffffff',
+            fontSize: '20px',
+          }).setOrigin(0.5)
+
+          this.add.text(centerX, centerY + 40, 'Tap to score. Long press to finish.', {
+            color: '#bbbbbb',
+            fontSize: '14px',
+          }).setOrigin(0.5)
+
+          this.input.on('pointerdown', (pointer) => {
+            if (pointer.downDuration() > 400) {
+              finishGame()
+              return
+            }
+            if (state.gameOver) return
+            state.score += 1
+            this.scoreText.setText('Score: ' + state.score)
+          })
+        }
+      }
+
+      const game = new Phaser.Game({
+        type: Phaser.AUTO,
+        parent: 'game',
+        backgroundColor: '#111111',
+        scale: {
+          mode: Phaser.Scale.FIT,
+          autoCenter: Phaser.Scale.CENTER_BOTH,
+          width: 720,
+          height: 1280,
+        },
+        physics: {
+          default: 'arcade',
+          arcade: { debug: false },
+        },
+        scene: [MainScene],
+      })
+
+      function resetGame() {
+        state.score = 0
+        state.gameOver = false
+        game.scene.stop('main')
+        game.scene.start('main')
+      }
+
+      if (sdk && typeof sdk.onPlayAgain === 'function') {
+        sdk.onPlayAgain(() => {
+          resetGame()
+        })
+      }
+
+      window.__PHASER_STARTER__ = { game, resetGame, finishGame, getMuted: () => isMuted }
+    })()
+  </script>
+</body>
+</html>

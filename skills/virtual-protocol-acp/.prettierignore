@@ -1,0 +1,8 @@
+node_modules
+dist
+*.min.js
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+config.json
+SKILL.md

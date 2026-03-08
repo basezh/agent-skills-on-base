@@ -1,0 +1,22 @@
+# Lefthook configuration for git hooks
+
+# <https://github.com/evilmartians/lefthook>
+
+pre-commit:
+  parallel: false
+  commands:
+    format:
+      glob: '*.{js,ts,tsx,json,md}'
+      run: npx nx format:write --uncommitted
+      stage_fixed: true
+    lint:
+      run: npx nx affected --target=lint --base=HEAD~1 --head=HEAD
+    actionlint:
+      glob: '.github/workflows/*.yml'
+      # shellcheck disabled: env vars set via GitHub Actions env: context are
+      # safe from word splitting; shellcheck produces ~44 false-positive
+      # info/style findings (SC2086, SC2129). Matches CI config in zizmor.yml.
+      run: actionlint -shellcheck=""
+    eval-coverage:
+      glob: 'packages/plugins/**/*'
+      run: npx tsx scripts/check-eval-coverage.ts --staged

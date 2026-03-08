@@ -1,0 +1,9 @@
+{
+  "name": "towns",
+  "description": "Skills for building Towns Protocol bots - covers SDK initialization, slash commands, message handlers, reactions, interactive forms, blockchain operations, and deployment",
+  "version": "2.0.0",
+  "author": {
+    "name": "towns-protocol"
+  },
+  "keywords": ["towns", "bot", "sdk", "blockchain", "messaging", "makeTownsBot", "webhook"]
+}

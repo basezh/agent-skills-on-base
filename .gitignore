@@ -24,3 +24,6 @@ npm-debug.log*
 dist/
 build/
 *.tsbuildinfo
+
+# Sync temp (GitHub repo sync script)
+.sync_repos/

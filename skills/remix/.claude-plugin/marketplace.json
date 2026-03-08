@@ -1,0 +1,42 @@
+{
+	"name": "remix-agent-publish",
+	"owner": {
+		"name": "Remix",
+		"url": "https://remix.gg"
+	},
+	"metadata": {
+		"description": "Skills for API-driven game publishing on Remix",
+		"version": "1.0.0",
+		"repository": "https://github.com/farworld-labs/skills"
+	},
+	"plugins": [
+		{
+			"name": "remix",
+			"description": "Skills for building and publishing games on Remix",
+			"source": "./",
+			"strict": false,
+			"skills": [
+				"./skills/remix-agent-publish",
+				"./skills/remix-api-auth",
+				"./skills/remix-api-reference",
+				"./skills/remix-glossary",
+				"./skills/remix-mcp-quickstart",
+				"./skills/remix-rest-snippets",
+				"./skills/remix-game-sdk",
+				"./skills/remix-submission-rules",
+				"./skills/remix-game-best-practices",
+				"./skills/remix-open-game",
+				"./skills/remix-game-creation",
+				"./skills/remix-upload-game",
+				"./skills/remix-add-image",
+				"./skills/remix-add-sprite",
+				"./skills/remix-multiplayer",
+				"./skills/remix-save-game",
+				"./skills/remix-shop-items",
+				"./skills/remix-upload-asset",
+				"./skills/phaser-2d-arcade",
+				"./skills/threejs-lite"
+			]
+		}
+	]
+}

@@ -54,68 +54,68 @@ OpenSea's API includes a cross-chain DEX aggregator for swapping ERC20 tokens wi
 
 | Task | CLI Command | Alternative |
 |------|------------|-------------|
-| Get swap quote with calldata | `opensea swaps quote --from-chain --from-address --to-chain --to-address --quantity --address ` | `get_token_swap_quote` (MCP) or `opensea-swap.sh` |
-| Get trending tokens | `opensea tokens trending [--chains] [--limit]` | `get_trending_tokens` (MCP) |
-| Get top tokens by volume | `opensea tokens top [--chains] [--limit]` | `get_top_tokens` (MCP) |
-| Get token details | `opensea tokens get ` | `get_tokens` (MCP) |
-| Search tokens | `opensea search --types token` | `search_tokens` (MCP) |
+| Get swap quote with calldata | `opensea swaps quote --from-chain <chain> --from-address <addr> --to-chain <chain> --to-address <addr> --quantity <qty> --address <wallet>` | `get_token_swap_quote` (MCP) or `opensea-swap.sh` |
+| Get trending tokens | `opensea tokens trending [--chains <chains>] [--limit <n>]` | `get_trending_tokens` (MCP) |
+| Get top tokens by volume | `opensea tokens top [--chains <chains>] [--limit <n>]` | `get_top_tokens` (MCP) |
+| Get token details | `opensea tokens get <chain> <address>` | `get_tokens` (MCP) |
+| Search tokens | `opensea search <query> --types token` | `search_tokens` (MCP) |
 | Check token balances | `get_token_balances` (MCP) | — |
 
 ### Reading NFT data
 
 | Task | CLI Command | Alternative |
 |------|------------|-------------|
-| Get collection details | `opensea collections get ` | `opensea-collection.sh ` |
-| Get collection stats | `opensea collections stats ` | `opensea-collection-stats.sh ` |
-| List NFTs in collection | `opensea nfts list-by-collection [--limit]` | `opensea-collection-nfts.sh [limit] [next]` |
-| Get single NFT | `opensea nfts get ` | `opensea-nft.sh ` |
-| List NFTs by wallet | `opensea nfts list-by-account [--limit]` | `opensea-account-nfts.sh [limit]` |
-| List NFTs by contract | `opensea nfts list-by-contract [--limit]` | — |
-| Get collection traits | `opensea collections traits ` | — |
-| Get contract details | `opensea nfts contract ` | — |
-| Refresh NFT metadata | `opensea nfts refresh ` | — |
+| Get collection details | `opensea collections get <slug>` | `opensea-collection.sh <slug>` |
+| Get collection stats | `opensea collections stats <slug>` | `opensea-collection-stats.sh <slug>` |
+| List NFTs in collection | `opensea nfts list-by-collection <slug> [--limit <n>]` | `opensea-collection-nfts.sh <slug> [limit] [next]` |
+| Get single NFT | `opensea nfts get <chain> <contract> <token_id>` | `opensea-nft.sh <chain> <contract> <token_id>` |
+| List NFTs by wallet | `opensea nfts list-by-account <chain> <address> [--limit <n>]` | `opensea-account-nfts.sh <chain> <address> [limit]` |
+| List NFTs by contract | `opensea nfts list-by-contract <chain> <contract> [--limit <n>]` | — |
+| Get collection traits | `opensea collections traits <slug>` | — |
+| Get contract details | `opensea nfts contract <chain> <address>` | — |
+| Refresh NFT metadata | `opensea nfts refresh <chain> <contract> <token_id>` | — |
 
 ### Marketplace queries
 
 | Task | CLI Command | Alternative |
 |------|------------|-------------|
-| Get best listings for collection | `opensea listings best [--limit]` | `opensea-best-listing.sh ` |
-| Get best listing for specific NFT | `opensea listings best-for-nft ` | `opensea-best-listing.sh ` |
-| Get best offer for NFT | `opensea offers best-for-nft ` | `opensea-best-offer.sh ` |
-| List all collection listings | `opensea listings all [--limit]` | `opensea-listings-collection.sh [limit]` |
-| List all collection offers | `opensea offers all [--limit]` | `opensea-offers-collection.sh [limit]` |
-| Get collection offers | `opensea offers collection [--limit]` | `opensea-offers-collection.sh [limit]` |
-| Get trait offers | `opensea offers traits --type --value ` | — |
-| Get order by hash | — | `opensea-order.sh ` |
+| Get best listings for collection | `opensea listings best <slug> [--limit <n>]` | `opensea-best-listing.sh <slug> <token_id>` |
+| Get best listing for specific NFT | `opensea listings best-for-nft <slug> <token_id>` | `opensea-best-listing.sh <slug> <token_id>` |
+| Get best offer for NFT | `opensea offers best-for-nft <slug> <token_id>` | `opensea-best-offer.sh <slug> <token_id>` |
+| List all collection listings | `opensea listings all <slug> [--limit <n>]` | `opensea-listings-collection.sh <slug> [limit]` |
+| List all collection offers | `opensea offers all <slug> [--limit <n>]` | `opensea-offers-collection.sh <slug> [limit]` |
+| Get collection offers | `opensea offers collection <slug> [--limit <n>]` | `opensea-offers-collection.sh <slug> [limit]` |
+| Get trait offers | `opensea offers traits <slug> --type <type> --value <value>` | — |
+| Get order by hash | — | `opensea-order.sh <chain> <order_hash>` |
 
 ### Marketplace actions (POST)
 
 | Task | Script |
 |------|--------|
-| Get fulfillment data (buy NFT) | `opensea-fulfill-listing.sh ` |
-| Get fulfillment data (accept offer) | `opensea-fulfill-offer.sh ` |
-| Generic POST request | `opensea-post.sh ` |
+| Get fulfillment data (buy NFT) | `opensea-fulfill-listing.sh <chain> <order_hash> <buyer>` |
+| Get fulfillment data (accept offer) | `opensea-fulfill-offer.sh <chain> <order_hash> <seller> <contract> <token_id>` |
+| Generic POST request | `opensea-post.sh <path> <json_body>` |
 
 ### Search
 
 | Task | CLI Command |
 |------|------------|
-| Search collections | `opensea search --types collection` |
-| Search NFTs | `opensea search --types nft` |
-| Search tokens | `opensea search --types token` |
-| Search accounts | `opensea search --types account` |
-| Search multiple types | `opensea search --types collection,nft,token` |
-| Search on specific chain | `opensea search --chains base,ethereum` |
+| Search collections | `opensea search <query> --types collection` |
+| Search NFTs | `opensea search <query> --types nft` |
+| Search tokens | `opensea search <query> --types token` |
+| Search accounts | `opensea search <query> --types account` |
+| Search multiple types | `opensea search <query> --types collection,nft,token` |
+| Search on specific chain | `opensea search <query> --chains base,ethereum` |
 
 ### Events and monitoring
 
 | Task | CLI Command | Alternative |
 |------|------------|-------------|
-| List recent events | `opensea events list [--event-type] [--limit]` | — |
-| Get collection events | `opensea events by-collection [--event-type]` | `opensea-events-collection.sh [event_type] [limit]` |
-| Get events for specific NFT | `opensea events by-nft ` | — |
-| Get events for account | `opensea events by-account ` | — |
-| Stream real-time events | — | `opensea-stream-collection.sh ` (requires websocat) |
+| List recent events | `opensea events list [--event-type <type>] [--limit <n>]` | — |
+| Get collection events | `opensea events by-collection <slug> [--event-type <type>]` | `opensea-events-collection.sh <slug> [event_type] [limit]` |
+| Get events for specific NFT | `opensea events by-nft <chain> <contract> <token_id>` | — |
+| Get events for account | `opensea events by-account <address>` | — |
+| Stream real-time events | — | `opensea-stream-collection.sh <slug>` (requires websocat) |
 
 Event types: `sale`, `transfer`, `mint`, `listing`, `offer`, `trait_offer`, `collection_offer`
 
@@ -123,14 +123,14 @@ Event types: `sale`, `transfer`, `mint`, `listing`, `offer`, `trait_offer`, `col
 
 | Task | CLI Command |
 |------|------------|
-| Get account details | `opensea accounts get ` |
+| Get account details | `opensea accounts get <address>` |
 
 ### Generic requests
 
 | Task | Script |
 |------|--------|
-| Any GET endpoint | `opensea-get.sh [query]` |
-| Any POST endpoint | `opensea-post.sh ` |
+| Any GET endpoint | `opensea-get.sh <path> [query]` |
+| Any POST endpoint | `opensea-post.sh <path> <json_body>` |
 
 ## Buy/Sell workflows
 
@@ -448,7 +448,7 @@ Add to your MCP config:
 }
 ```
 
-> **Note:** Replace ` ` above with the MCP token from your [OpenSea Developer Portal](https://opensea.io/settings/developer). Do not embed tokens directly in URLs or commit them to version control.
+> **Note:** Replace `<YOUR_MCP_TOKEN>` above with the MCP token from your [OpenSea Developer Portal](https://opensea.io/settings/developer). Do not embed tokens directly in URLs or commit them to version control.
 
 ### Token Swap Tools
 | MCP Tool | Purpose |

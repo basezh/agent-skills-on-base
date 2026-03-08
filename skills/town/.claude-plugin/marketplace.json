@@ -1,0 +1,13 @@
+{
+  "name": "towns-skills",
+  "owner": {
+    "name": "Towns Labs"
+  },
+  "plugins": [
+    {
+      "name": "towns",
+      "source": "./",
+      "description": "Comprehensive skill for creating Towns Protocol bots with @towns-protocol/bot SDK"
+    }
+  ]
+}

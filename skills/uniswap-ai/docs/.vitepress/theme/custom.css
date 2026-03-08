@@ -1,0 +1,402 @@
+/**
+ * Uniswap Brand Theme — VitePress Overrides
+ *
+ * Color tokens derived from the official Uniswap API documentation
+ * (api-docs.uniswap.org) which uses a warm-tinted gray palette.
+ *
+ * Gray scale (warm, pinkish tint):
+ *   --gray-50:  #faf4f8    --gray-500: #777176
+ *   --gray-100: #f5eff4    --gray-600: #575156
+ *   --gray-200: #e6e0e4    --gray-700: #464044
+ *   --gray-300: #d5cfd4    --gray-800: #2d272b
+ *   --gray-400: #a6a0a4    --gray-900: #1e181c
+ *                           --gray-950: #110b10
+ *
+ * Typography: Inter (body), JetBrains Mono (code)
+ * Primary brand: #ff37c7 (Uniswap Pink)
+ */
+
+/* ========================================================================
+   Typography
+   ======================================================================== */
+
+:root {
+  --vp-font-family-base: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    system-ui, sans-serif;
+  --vp-font-family-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', 'SF Mono', SFMono-Regular,
+    Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Courier New', monospace;
+}
+
+/* ========================================================================
+   Light Theme (default)
+   ======================================================================== */
+
+:root {
+  /* Brand / Accent — Uniswap Pink */
+  --vp-c-brand-1: #ff37c7;
+  --vp-c-brand-2: #e500a5;
+  --vp-c-brand-3: #c2008a;
+  --vp-c-brand-soft: rgba(255, 55, 199, 0.1);
+
+  /* Default — alias to brand */
+  --vp-c-default-1: var(--vp-c-brand-1);
+  --vp-c-default-2: var(--vp-c-brand-2);
+  --vp-c-default-3: var(--vp-c-brand-3);
+  --vp-c-default-soft: var(--vp-c-brand-soft);
+
+  /* Backgrounds — warm-tinted surfaces */
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #faf4f8;
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-bg-soft: #f5eff4;
+
+  /* Text — warm gray neutrals */
+  --vp-c-text-1: #1e181c;
+  --vp-c-text-2: #464044;
+  --vp-c-text-3: #777176;
+
+  /* Borders / Dividers — warm-tinted */
+  --vp-c-border: #e6e0e4;
+  --vp-c-divider: #f5eff4;
+  --vp-c-gutter: #faf4f8;
+
+  /* Tip — Uniswap accent */
+  --vp-c-tip-1: #ff37c7;
+  --vp-c-tip-2: rgba(255, 55, 199, 0.08);
+  --vp-c-tip-3: rgba(255, 55, 199, 0.12);
+  --vp-c-tip-soft: rgba(255, 55, 199, 0.06);
+
+  /* Warning */
+  --vp-c-warning-1: #996f01;
+  --vp-c-warning-2: rgba(153, 111, 1, 0.12);
+  --vp-c-warning-3: rgba(153, 111, 1, 0.16);
+  --vp-c-warning-soft: rgba(153, 111, 1, 0.06);
+
+  /* Danger / Critical */
+  --vp-c-danger-1: #e10f0f;
+  --vp-c-danger-2: rgba(225, 15, 15, 0.12);
+  --vp-c-danger-3: rgba(225, 15, 15, 0.16);
+  --vp-c-danger-soft: rgba(225, 15, 15, 0.06);
+
+  /* Success (used in custom containers) */
+  --vp-c-success: #0c8911;
+
+  /* Buttons — brand */
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: #ffffff;
+  --vp-button-brand-bg: var(--vp-c-brand-1);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: #ffffff;
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: #ffffff;
+  --vp-button-brand-active-bg: var(--vp-c-brand-3);
+
+  /* Buttons — alt */
+  --vp-button-alt-border: var(--vp-c-border);
+  --vp-button-alt-text: #1e181c;
+  --vp-button-alt-bg: #ffffff;
+  --vp-button-alt-hover-border: var(--vp-c-brand-1);
+  --vp-button-alt-hover-text: var(--vp-c-brand-1);
+  --vp-button-alt-hover-bg: #ffffff;
+  --vp-button-alt-active-border: var(--vp-c-brand-2);
+  --vp-button-alt-active-text: var(--vp-c-brand-2);
+  --vp-button-alt-active-bg: #ffffff;
+
+  /* Sidebar */
+  --vp-sidebar-bg-color: #ffffff;
+
+  /* Nav */
+  --vp-nav-bg-color: rgba(255, 255, 255, 0.85);
+}
+
+/* ========================================================================
+   Dark Theme
+   ======================================================================== */
+
+.dark {
+  /* Brand / Accent — consistent across themes */
+  --vp-c-brand-1: #ff37c7;
+  --vp-c-brand-2: #ff6dd6;
+  --vp-c-brand-3: #ff99e3;
+  --vp-c-brand-soft: rgba(255, 55, 199, 0.12);
+
+  /* Default — alias to brand */
+  --vp-c-default-1: var(--vp-c-brand-1);
+  --vp-c-default-2: var(--vp-c-brand-2);
+  --vp-c-default-3: var(--vp-c-brand-3);
+  --vp-c-default-soft: var(--vp-c-brand-soft);
+
+  /* Backgrounds — warm dark surfaces */
+  --vp-c-bg: #0e0a0f;
+  --vp-c-bg-alt: #1a141b;
+  --vp-c-bg-elv: #1a141b;
+  --vp-c-bg-soft: #1a141b;
+
+  /* Text — warm dark neutrals */
+  --vp-c-text-1: #ffffff;
+  --vp-c-text-2: rgba(255, 255, 255, 0.65);
+  --vp-c-text-3: rgba(255, 255, 255, 0.38);
+
+  /* Borders / Dividers — warm dark */
+  --vp-c-border: rgba(255, 255, 255, 0.12);
+  --vp-c-divider: rgba(255, 255, 255, 0.08);
+  --vp-c-gutter: #1a141b;
+
+  /* Tip */
+  --vp-c-tip-1: #ff37c7;
+  --vp-c-tip-2: rgba(255, 55, 199, 0.12);
+  --vp-c-tip-3: rgba(255, 55, 199, 0.16);
+  --vp-c-tip-soft: rgba(255, 55, 199, 0.08);
+
+  /* Warning */
+  --vp-c-warning-1: #ffbf17;
+  --vp-c-warning-2: rgba(255, 191, 23, 0.12);
+  --vp-c-warning-3: rgba(255, 191, 23, 0.16);
+  --vp-c-warning-soft: rgba(255, 191, 23, 0.08);
+
+  /* Danger / Critical */
+  --vp-c-danger-1: #ff593c;
+  --vp-c-danger-2: rgba(255, 89, 60, 0.12);
+  --vp-c-danger-3: rgba(255, 89, 60, 0.16);
+  --vp-c-danger-soft: rgba(255, 89, 60, 0.08);
+
+  /* Success */
+  --vp-c-success: #21c95e;
+
+  /* Buttons — brand */
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: #ffffff;
+  --vp-button-brand-bg: var(--vp-c-brand-1);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: #ffffff;
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: #ffffff;
+  --vp-button-brand-active-bg: var(--vp-c-brand-3);
+
+  /* Buttons — alt */
+  --vp-button-alt-border: var(--vp-c-border);
+  --vp-button-alt-text: #ffffff;
+  --vp-button-alt-bg: transparent;
+  --vp-button-alt-hover-border: var(--vp-c-brand-1);
+  --vp-button-alt-hover-text: var(--vp-c-brand-1);
+  --vp-button-alt-hover-bg: transparent;
+  --vp-button-alt-active-border: var(--vp-c-brand-2);
+  --vp-button-alt-active-text: var(--vp-c-brand-2);
+  --vp-button-alt-active-bg: transparent;
+
+  /* Sidebar */
+  --vp-sidebar-bg-color: #0e0a0f;
+
+  /* Nav */
+  --vp-nav-bg-color: rgba(14, 10, 15, 0.85);
+}
+
+/* ========================================================================
+   Nav Bar
+   ======================================================================== */
+
+.VPNav .VPNavBar {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.VPNavBar .title {
+  font-weight: 600;
+}
+
+/* ========================================================================
+   Sidebar
+   ======================================================================== */
+
+.VPSidebar .group .VPSidebarItem .text {
+  font-weight: 400;
+}
+
+.VPSidebar .is-active > .item > .link > .text {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+/* ========================================================================
+   Buttons
+   ======================================================================== */
+
+.VPButton.brand {
+  background-color: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.VPButton.brand:hover {
+  background-color: var(--vp-c-brand-2);
+  border-color: var(--vp-c-brand-2);
+}
+
+.VPButton.alt {
+  border-radius: 9999px;
+  font-weight: 600;
+  border-color: var(--vp-c-border);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.VPButton.alt:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+
+/* ========================================================================
+   Hero
+   ======================================================================== */
+
+.VPHero .VPImage {
+  border-radius: 24px;
+}
+
+.VPHero .name .clip {
+  background: linear-gradient(135deg, #ff37c7 0%, #e500a5 50%, #ff6dd6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.VPHero .name {
+  letter-spacing: -0.75px;
+}
+
+/* ========================================================================
+   Content
+   ======================================================================== */
+
+.vp-doc h1 {
+  letter-spacing: -0.75px;
+}
+
+.vp-doc h2 {
+  letter-spacing: -0.5px;
+}
+
+.vp-doc a {
+  color: var(--vp-c-text-1);
+  text-decoration: underline;
+  text-decoration-color: var(--vp-c-border);
+  text-underline-offset: 2px;
+  font-weight: 600;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.vp-doc a:hover {
+  color: var(--vp-c-brand-1);
+  text-decoration-color: var(--vp-c-brand-1);
+}
+
+.dark .vp-doc a {
+  color: var(--vp-c-text-1);
+  text-decoration-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .vp-doc a:hover {
+  color: var(--vp-c-brand-1);
+  text-decoration-color: var(--vp-c-brand-1);
+}
+
+/* Code blocks */
+.vp-doc div[class*='language-'] {
+  border-radius: 12px;
+  border: 1px solid var(--vp-c-divider);
+}
+
+.vp-doc :not(pre) > code {
+  border-radius: 6px;
+  padding: 2px 8px;
+  background-color: rgba(245, 239, 244, 0.5);
+  color: var(--vp-c-text-1);
+  font-weight: 500;
+}
+
+.dark .vp-doc :not(pre) > code {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--vp-c-text-1);
+}
+
+/* Tables */
+.vp-doc table {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.vp-doc tr {
+  border-color: var(--vp-c-divider);
+}
+
+.vp-doc th {
+  font-weight: 600;
+}
+
+/* ========================================================================
+   Custom Containers (tip, warning, danger, info)
+   ======================================================================== */
+
+.vp-doc .custom-block {
+  border-radius: 12px;
+}
+
+.vp-doc .custom-block.tip {
+  border-color: var(--vp-c-brand-1);
+}
+
+.vp-doc .custom-block.tip .custom-block-title {
+  color: var(--vp-c-brand-1);
+}
+
+/* ========================================================================
+   Feature Cards (home page)
+   ======================================================================== */
+
+.VPFeature {
+  border-radius: 16px !important;
+  border: 1px solid var(--vp-c-divider) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.VPFeature:hover {
+  border-color: var(--vp-c-brand-1) !important;
+  box-shadow: 0 4px 24px rgba(255, 55, 199, 0.08);
+}
+
+.VPFeature .title {
+  font-weight: 600;
+}
+
+/* ========================================================================
+   Footer
+   ======================================================================== */
+
+.VPFooter {
+  border-top-color: var(--vp-c-divider);
+}
+
+/* ========================================================================
+   Scrollbar (webkit)
+   ======================================================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--vp-c-divider);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--vp-c-border);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

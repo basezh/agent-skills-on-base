@@ -40,7 +40,7 @@ A curated collection of [Agent Skills](https://agentskills.io) for building AI a
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [clanker](skills/clanker/) | Launch tokens via Clanker on Base. | [https://clanker.world](https://clanker.world) |
-| [claunch](skills/claunch/) | Launch tokens on Base for free via Bankr. Agents earn trading fees. | [https://clawn.ch/skill](https://clawn.ch/skill) |
+| [claunch](skills/claunch/) | Launch tokens on Base for free via Bankr. Agents earn trading fees. | [https://clawn.ch/skill.md](https://clawn.ch/skill.md) |
 | [flow](skills/flow/) | Flow protocol: discover auctions, launch tokens, submit bids, claim/exit, deploy liquidity on Base. | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
 | [dx-terminal-pro](skills/dx-terminal-pro/) | Managing autonomous memecoin trading agents on DX Terminal Pro. | [https://github.com/ProjectDXAI/dx-terminal-pro-skill](https://github.com/ProjectDXAI/dx-terminal-pro-skill) |
 | [frame](skills/frame/) | Build in public with vibe raising. Launch builder coins, ship products, claim vesting and trading fees. Gas-free on Base. | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
@@ -83,23 +83,29 @@ A curated collection of [Agent Skills](https://agentskills.io) for building AI a
 
 ## Install
 
-Each skill can be installed individually. Navigate to the skill folder and **read SKILL.md** — follow the instructions to install. The original project's README (see Original Link column) also contains detailed installation steps.
+This repo is a **navigation hub** — each skill lives in its own folder with full content (SKILL.md, references/, scripts/). Install skills individually by following each skill's instructions.
 
-**Example:**
+**Browse and install:**
 ```bash
 # Clone this repo
 git clone https://github.com/basezh/agent-skills-on-base
 cd agent-skills-on-base
 
-# Install a specific skill — read its SKILL.md and follow instructions
+# Each skill has its own folder. Read SKILL.md for install steps:
 cat skills/bankr/SKILL.md
-# For Bankr: bun install -g @bankr/cli
+cat skills/basebario-fxclaw/SKILL.md
+# etc. — each skill documents its own CLI, API keys, and setup
 ```
 
-**Vercel Skills CLI (if supported):**
-```bash
-npx skills add basezh/agent-skills-on-base --skill building-with-base-account
+**Skill folder structure:**
 ```
+skills/your-skill-name/
+├── SKILL.md          # Required — agent instructions, install steps
+├── references/       # Optional — supporting docs
+└── scripts/          # Optional — helper scripts
+```
+
+**Adding a skill** — see [CONTRIBUTING.md](CONTRIBUTING.md): fork, create `skills/your-skill-name/`, add SKILL.md, open a PR.
 
 ## Contributing
 

@@ -1,0 +1,388 @@
+# AI Tool Evaluations
+
+Evals are to AI tools what tests are to traditional code. This framework uses [Promptfoo](https://github.com/promptfoo/promptfoo) for declarative, CI-integrated evaluations of skills and plugins.
+
+## Philosophy
+
+### Why Evals Matter
+
+Traditional software tests verify deterministic behavior: given input X, expect output Y. AI tools are probabilistic - the same prompt might produce different (but equally valid) outputs. Evals bridge this gap by:
+
+1. **Defining expected behaviors** rather than exact outputs
+2. **Measuring quality across multiple dimensions** (accuracy, completeness, safety)
+3. **Detecting regressions** when prompts or models change
+4. **Comparing performance** across different LLM backends
+
+### Eval vs Test
+
+| Aspect         | Traditional Test   | AI Eval                      |
+| -------------- | ------------------ | ---------------------------- |
+| Output         | Exact match        | Semantic similarity          |
+| Pass/Fail      | Binary             | Scored (0-1)                 |
+| Determinism    | Always same result | Statistical confidence       |
+| What's Checked | Correctness        | Quality, safety, helpfulness |
+
+## Structure
+
+```text
+evals/
+├── promptfoo.yaml          # Root config with default providers
+├── README.md               # This file
+├── framework/
+│   └── types.ts            # TypeScript types (for programmatic use)
+├── rubrics/                # Shared evaluation rubrics
+│   └── security-checklist.txt
+├── scripts/
+│   └── anthropic-provider.ts  # Custom provider for OAuth support
+├── suites/
+│   └── <skill-name>/
+│       ├── promptfoo.yaml  # Suite-specific config
+│       ├── prompt-wrapper.txt  # Optional prompt template (see Prompt Template Pattern)
+│       ├── cases/          # Test case prompts (markdown)
+│       │   └── *.md
+│       └── rubrics/        # Skill-specific rubrics (must use .txt)
+│           └── *.txt
+└── templates/              # Templates for new suites
+    └── suite/
+```
+
+## Quick Start
+
+### 1. Setup Authentication
+
+```bash
+# Option A: Use 1Password (recommended for team)
+nx run evals:setup
+
+# Option B: Set environment variable directly
+export ANTHROPIC_API_KEY="sk-ant-..."
+# OR
+export CLAUDE_CODE_OAUTH_TOKEN="..."
+```
+
+### 2. Run Evals
+
+```bash
+# Run a specific suite
+nx run evals:eval --suite=v4-security-foundations
+
+# Run all suites
+nx run evals:eval:all
+
+# View results in browser
+nx run evals:eval:view
+
+# Clear eval cache
+nx run evals:eval:cache-clear
+```
+
+### Authentication
+
+Evals support two authentication methods (API key takes priority if both set):
+
+| Method      | Environment Variable      | Use Case          |
+| ----------- | ------------------------- | ----------------- |
+| API Key     | `ANTHROPIC_API_KEY`       | CI, production    |
+| OAuth Token | `CLAUDE_CODE_OAUTH_TOKEN` | Local development |
+
+#### Setup with 1Password
+
+The setup script fetches secrets from 1Password (requires [1Password CLI](https://developer.1password.com/docs/cli/get-started)):
+
+```bash
+# One-time setup
+eval $(op signin)
+nx run evals:setup
+
+# Then run evals
+nx run evals:eval --suite=v4-security-foundations
+```
+
+## Prompt Template Pattern
+
+For skills that rely on loaded context (SKILL.md, reference materials), use a **prompt template** to inject that context into each test case. This mirrors how skills are loaded in production and produces more realistic evals.
+
+### How It Works
+
+1. Create a `prompt-wrapper.txt` template with Promptfoo `{{ variable }}` placeholders
+2. Set shared variables (skill content, references) in `defaultTest.vars`
+3. Override per-test variables (e.g., `case_content`) in each test entry
+
+```yaml
+# promptfoo.yaml
+prompts:
+  - file://prompt-wrapper.txt
+
+defaultTest:
+  vars:
+    skill_content: file://../../../packages/plugins/<plugin>/skills/<skill>/SKILL.md
+    reference_doc: file://../../../packages/plugins/<plugin>/skills/<skill>/references/doc.md
+
+tests:
+  - vars:
+      case_content: file://cases/my-test-case.md
+    assert:
+      - type: llm-rubric
+        value: file://rubrics/my-rubric.txt
+```
+
+```text
+# prompt-wrapper.txt
+You are an AI assistant with the following skill loaded.
+
+{{ skill_content }}
+
+***
+
+Reference material:
+
+{{ reference_doc }}
+
+***
+
+User request:
+
+{{ case_content }}
+```
+
+> **Important**: Use `***` (not `---`) as section separators in prompt templates. Promptfoo treats `---` on its own line as a **multi-prompt separator**, which splits one template into multiple incomplete prompts. `***` renders as a markdown horizontal rule without triggering this behavior.
+
+See `suites/v4-security-foundations/` for a working example.
+
+## Writing Evals
+
+### 1. Create a Test Case
+
+Create a markdown file in `suites/<skill>/cases/`:
+
+```markdown
+# Basic Swap Hook
+
+Create a simple hook that logs swap events.
+
+## Context
+
+- Pool: ETH/USDC
+- Chain: Ethereum mainnet
+- No custom fees required
+
+## Requirements
+
+1. Implement `afterSwap` callback
+2. Emit an event with swap details
+3. No state changes needed
+```
+
+### 2. Define Rubrics
+
+Create rubric files in `suites/<skill>/rubrics/` with `.txt` extension:
+
+> **Important**: Promptfoo's grader only supports `.txt`, `.json`, and `.yaml` file types for rubric `file://` references. Use `.txt` for markdown-formatted rubrics.
+
+**correctness.txt:**
+
+```markdown
+# Correctness Rubric
+
+Evaluate whether the generated code correctly implements the requirements.
+
+## Required Elements
+
+1. Inherits from BaseHook
+2. Implements getHookPermissions()
+3. Sets afterSwap to true
+4. Emits event in afterSwap callback
+
+## Scoring
+
+- 4/4 elements: 1.0
+- 3/4 elements: 0.75
+- 2/4 elements: 0.5
+- 1/4 elements: 0.25
+- 0/4 elements: 0.0
+```
+
+### 3. Configure the Suite
+
+Create `promptfoo.yaml`:
+
+```yaml
+description: 'My Skill Evaluation'
+
+prompts:
+  - file://cases/basic.md
+
+providers:
+  - id: anthropic:claude-sonnet-4-5-20250929
+    config:
+      temperature: 0
+
+tests:
+  - vars:
+      scenario: basic
+    assert:
+      - type: llm-rubric
+        value: file://rubrics/correctness.txt
+        threshold: 0.8
+        provider: anthropic:claude-sonnet-4-5-20250929
+      - type: contains
+        value: 'BaseHook'
+```
+
+## Assertion Types
+
+### LLM Rubrics (Qualitative)
+
+Use for subjective evaluation:
+
+```yaml
+- type: llm-rubric
+  value: file://rubrics/correctness.txt
+  threshold: 0.8
+```
+
+### Deterministic Checks
+
+Use for required patterns:
+
+```yaml
+# Must contain
+- type: contains
+  value: 'getHookPermissions'
+
+# Must not contain
+- type: not-contains
+  value: 'selfdestruct'
+
+# Regex match
+- type: regex
+  value: 'function\\s+beforeSwap'
+```
+
+## Evaluation Criteria
+
+### Accuracy (0-1)
+
+Does the output correctly implement the requested functionality?
+
+### Completeness (0-1)
+
+Does the output include all required elements?
+
+### Safety (0-1)
+
+Does the output avoid security vulnerabilities and follow best practices?
+
+For smart contract code, this should always have a threshold of 1.0 (non-negotiable).
+
+## CI Integration
+
+Evals run automatically on PRs that modify:
+
+- `packages/plugins/**`
+- `evals/**`
+
+Pass rate must be ≥85% for PR to pass. Results include:
+
+- Per-suite pass/fail counts
+- Inference cost tracking
+- PR comment with summary
+
+## Creating New Eval Suites
+
+1. Copy `templates/suite/` to `suites/<skill-name>/`
+2. Rename `.template` files (remove `.template` extension)
+3. Replace `{{SKILL_NAME}}` placeholders
+4. Add test cases in `cases/` directory
+5. Define rubrics in `rubrics/` directory
+6. Update `promptfoo.yaml` with your prompts and assertions
+
+## Best Practices
+
+1. **Focus on outputs, not paths**: Don't check for specific steps, check that the result is correct
+2. **Start with real failures**: Build evals from actual issues found in usage
+3. **Test the edges**: Include cases that stress the skill's capabilities
+4. **Use deterministic checks first**: `contains`/`not-contains` are faster and cheaper than LLM rubrics
+5. **Set appropriate thresholds**: Security = 1.0, correctness ≥ 0.8, completeness ≥ 0.85
+6. **Review transcripts**: Regularly read eval outputs to validate rubric quality
+
+## Common Pitfalls
+
+### `---` Splits Prompts
+
+Promptfoo treats `---` on its own line in `.txt` prompt files as a **multi-prompt separator**. This silently splits one template into multiple incomplete prompts, causing evals to fail with confusing results (e.g., one prompt has skill context but no user request, another has the user request but no context).
+
+**Fix**: Always use `***` for visual separators in prompt template files.
+
+### Nunjucks Renders Everything
+
+Promptfoo runs Nunjucks template rendering on **all prompt content**, including:
+
+- `.txt` template files
+- Return values from JavaScript prompt functions
+- Content loaded via `file://` in `vars:`
+
+This means URL-encoded JSON patterns like `{%22feeAmount%22}` in skill content will be interpreted as Nunjucks `{% %}` block tags, causing `Template render error: unknown block tag` errors.
+
+**Fix**: For skills containing `{%` patterns (common in URL-encoded JSON), use a **JavaScript prompt function** that reads the file via `fs.readFileSync` and wraps it in `{% raw %}...{% endraw %}` blocks:
+
+```javascript
+// prompt-wrapper.js
+const fs = require('fs');
+const path = require('path');
+
+const skillPath = path.resolve(
+  __dirname,
+  '../../../packages/plugins/<plugin>/skills/<skill>/SKILL.md'
+);
+const skillContent = fs.readFileSync(skillPath, 'utf-8');
+
+module.exports = function ({ vars }) {
+  return `You are an AI assistant with the following skill loaded.
+
+{% raw %}${skillContent}{% endraw %}
+
+***
+
+User request:
+
+${vars.case_content}`;
+};
+```
+
+Then reference it in `promptfoo.yaml`:
+
+```yaml
+prompts:
+  - file://prompt-wrapper.js
+```
+
+See `suites/liquidity-planner/` for a working example.
+
+## Troubleshooting
+
+### Eval not finding config
+
+Ensure `promptfoo.yaml` exists in the suite directory.
+
+### Authentication errors
+
+Set either `ANTHROPIC_API_KEY` or `CLAUDE_CODE_OAUTH_TOKEN` environment variable.
+
+### Rubric scoring seems off
+
+Review the rubric instructions - LLM judges need clear scoring guidelines.
+
+### Evals show multiple prompt columns
+
+If the results table shows two or more prompt columns instead of one, check for `---` in your prompt template files. Replace with `***`.
+
+### Template render error: unknown block tag
+
+The skill content likely contains `{%` patterns (e.g., URL-encoded JSON `{%22key%22}`). Use a JavaScript prompt function with `{% raw %}` blocks instead of a `.txt` template. See "Common Pitfalls" above.
+
+### Cost concerns
+
+- Use `claude-sonnet-4-5-20250929` instead of `claude-opus-4-5-20251101` for routine evals
+- Use deterministic assertions where possible
+- Run specific suites instead of all suites during development

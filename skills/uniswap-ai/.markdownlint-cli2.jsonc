@@ -1,0 +1,14 @@
+{
+  "config": {
+    "default": true,
+    "MD013": false,
+    "MD025": false,
+    "MD033": {
+      "allowed_elements": ["br", "img", "details", "summary"]
+    },
+    "MD036": false,
+    "MD041": false,
+    "MD060": false
+  },
+  "ignores": ["node_modules/**", "dist/**", ".nx/**", "docs/.vitepress/**"]
+}

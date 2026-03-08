@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Three.js Lite Starter</title>
+  <script src="https://cdn.jsdelivr.net/npm/@remix-gg/sdk@latest/dist/index.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #0d1117;
+    }
+    canvas { display: block; }
+    #hud {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      color: #fff;
+      font: 14px/1.4 sans-serif;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 8px 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div id="hud">Tap to score. Hold to finish.<br>Score: <span id="score">0</span></div>
+  <script type="module">
+    import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js'
+
+    const sdk = window.RemixSDK || null
+    if (sdk && typeof sdk.ready === 'function') await sdk.ready()
+
+    let isMuted = false
+    if (sdk && typeof sdk.onToggleMute === 'function') {
+      sdk.onToggleMute(({ isMuted: next }) => {
+        isMuted = Boolean(next)
+      })
+    }
+
+    const state = { score: 0, gameOver: false }
+    const scoreEl = document.getElementById('score')
+
+    function finishGame() {
+      if (state.gameOver) return
+      state.gameOver = true
+      if (sdk && sdk.singlePlayer && sdk.singlePlayer.actions) {
+        sdk.singlePlayer.actions.gameOver({ score: state.score })
+      }
+    }
+
+    const scene = new THREE.Scene()
+    scene.background = new THREE.Color(0x0d1117)
+
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100)
+    camera.position.set(0, 1.2, 4)
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true })
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
+    renderer.setSize(window.innerWidth, window.innerHeight)
+    document.body.appendChild(renderer.domElement)
+
+    const ambient = new THREE.AmbientLight(0xffffff, 0.8)
+    scene.add(ambient)
+
+    const dir = new THREE.DirectionalLight(0xffffff, 0.7)
+    dir.position.set(3, 4, 2)
+    scene.add(dir)
+
+    const floor = new THREE.Mesh(
+      new THREE.PlaneGeometry(12, 12),
+      new THREE.MeshStandardMaterial({ color: 0x1f2937 }),
+    )
+    floor.rotation.x = -Math.PI / 2
+    floor.position.y = -1
+    scene.add(floor)
+
+    const cube = new THREE.Mesh(
+      new THREE.BoxGeometry(1, 1, 1),
+      new THREE.MeshStandardMaterial({ color: 0x38bdf8 }),
+    )
+    scene.add(cube)
+
+    function resetGame() {
+      state.score = 0
+      state.gameOver = false
+      scoreEl.textContent = '0'
+      cube.rotation.set(0, 0, 0)
+    }
+
+    if (sdk && typeof sdk.onPlayAgain === 'function') {
+      sdk.onPlayAgain(() => resetGame())
+    }
+
+    let pointerDownAt = 0
+    window.addEventListener('pointerdown', () => {
+      pointerDownAt = performance.now()
+    })
+    window.addEventListener('pointerup', () => {
+      const held = performance.now() - pointerDownAt
+      if (held > 450) {
+        finishGame()
+        return
+      }
+      if (!state.gameOver) {
+        state.score += 1
+        scoreEl.textContent = String(state.score)
+      }
+    })
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight
+      camera.updateProjectionMatrix()
+      renderer.setSize(window.innerWidth, window.innerHeight)
+    })
+
+    function tick() {
+      const speed = state.gameOver ? 0.005 : 0.02
+      cube.rotation.x += speed
+      cube.rotation.y += speed * 1.2
+      renderer.render(scene, camera)
+      requestAnimationFrame(tick)
+    }
+    tick()
+
+    window.__THREE_LITE_STARTER__ = { resetGame, finishGame, getMuted: () => isMuted }
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "claudeagent-service",
+  "version": "1.0.0",
+  "description": "Farcaster agent service for @claudeagent - Rish trapped in an agent account",
+  "main": "api/webhook.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@farcaster/hub-nodejs": "^0.15.9",
+    "ethers": "^6.16.0",
+    "openai": "^4.0.0"
+  }
+}

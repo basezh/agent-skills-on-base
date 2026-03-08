@@ -65,7 +65,7 @@ useEffect(() => {
 
 ## Common Errors
 
-**"Property 'user' does not exist on type 'Promise '"**
+**"Property 'user' does not exist on type 'Promise<MiniAppContext>'"**
 → Await `sdk.context` before accessing properties
 
 **"Expected 0 arguments, but got 1"**

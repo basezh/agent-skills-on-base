@@ -134,7 +134,7 @@ forge create src/MyContract.sol:MyContract \
 
 ## Key Notes
 
-- Contract format: `path:ContractName`
+- Contract format: `<contract-path>:<contract-name>`
 - `--verify` flag auto-verifies on BaseScan (requires API key)
 - Explorers: basescan.org (mainnet), sepolia.basescan.org (testnet)
 - CDP Faucet docs: [docs.cdp.coinbase.com/faucets](https://docs.cdp.coinbase.com/faucets/introduction/quickstart)

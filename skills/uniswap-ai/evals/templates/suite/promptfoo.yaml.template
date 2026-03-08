@@ -1,0 +1,52 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+# Template: Copy this file to evals/suites/<skill-name>/promptfoo.yaml
+description: '{{SKILL_NAME}} Skill Evaluation'
+
+# Prompt template that injects skill context + case content via vars
+# If your SKILL.md contains URL-encoded JSON (e.g., {%22...%22}), use
+# prompt-wrapper.js instead to avoid Nunjucks template parsing errors.
+prompts:
+  - file://prompt-wrapper.txt
+
+# Provider configuration
+providers:
+  - id: anthropic:claude-sonnet-4-5-20250929
+    config:
+      temperature: 0
+
+# Default test configuration applied to all tests
+defaultTest:
+  options:
+    timeout: 120000 # 2 minutes per case
+  vars:
+    skill_content: file://../../../packages/plugins/{{PLUGIN_NAME}}/skills/{{SKILL_NAME}}/SKILL.md
+  assert:
+    # Add shared assertions here
+    # Security rubric (if applicable)
+    # - type: llm-rubric
+    #   value: file://rubrics/security.txt
+    #   threshold: 1.0
+    #   provider: anthropic:claude-sonnet-4-5-20250929
+
+# Test cases with specific assertions
+tests:
+  - vars:
+      case_content: file://cases/basic.md
+    assert:
+      # Correctness rubric
+      - type: llm-rubric
+        value: file://rubrics/correctness.txt
+        threshold: 0.8
+        provider: anthropic:claude-sonnet-4-5-20250929
+
+      # Completeness rubric
+      - type: llm-rubric
+        value: file://rubrics/completeness.txt
+        threshold: 0.85
+        provider: anthropic:claude-sonnet-4-5-20250929
+
+      # Deterministic checks (customize for your skill)
+      # - type: contains
+      #   value: 'RequiredPattern'
+      # - type: not-contains
+      #   value: 'ForbiddenPattern'
