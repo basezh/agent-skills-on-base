@@ -4,7 +4,7 @@ description: DeFi tools for portfolio analysis, token search, and swap execution
 metadata:
   clawdbot:
     emoji: "📺"
-    homepage: "https://bankr.bot"
+    homepage: "https://heyelsa.com"
     requires:
       bins: ["bankr"]
 ---

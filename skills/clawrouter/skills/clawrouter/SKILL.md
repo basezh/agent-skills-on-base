@@ -5,7 +5,7 @@ homepage: "https://github.com/BlockRunAI/ClawRouter"
 metadata:
   clawdbot:
     emoji: "📺"
-    homepage: "https://bankr.bot"
+    homepage: "https://github.com/BlockRunAI/ClawRouter"
     requires:
       bins: ["bankr"]
 ---

@@ -6,7 +6,7 @@ homepage: "https://fluid.io"
 metadata:
   clawdbot:
     emoji: "🕹️"
-    homepage: "https://bankr.bot"
+    homepage: "https://fluid.io"
     requires:
       bins: ["bankr"]
 ---

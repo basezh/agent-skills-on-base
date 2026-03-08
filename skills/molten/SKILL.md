@@ -6,7 +6,7 @@ homepage: "https://molten.gg"
 metadata:
   clawdbot:
     emoji: "📺"
-    homepage: "https://bankr.bot"
+    homepage: "https://molten.gg"
     requires:
       bins: ["bankr"]
 ---

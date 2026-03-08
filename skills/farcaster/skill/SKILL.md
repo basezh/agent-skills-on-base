@@ -4,7 +4,7 @@ description: Create Farcaster accounts and post casts autonomously. Official ski
 metadata:
   clawdbot:
     emoji: "📺"
-    homepage: "https://bankr.bot"
+    homepage: "https://www.farcaster.xyz"
     requires:
       bins: ["bankr"]
 ---

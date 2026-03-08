@@ -8,7 +8,7 @@ user-invocable: true
 metadata:
   clawdbot:
     emoji: "📺"
-    homepage: "https://bankr.bot"
+    homepage: "https://wallet.paysponge.com"
     requires:
       bins: ["bankr"]
 ---

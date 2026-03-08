@@ -5,7 +5,7 @@ homepage: "https://frame.fun"
 metadata:
   clawdbot:
     emoji: "🕹️"
-    homepage: "https://bankr.bot"
+    homepage: "https://frame.fun"
     requires:
       bins: ["bankr"]
 ---
