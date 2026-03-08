@@ -4,7 +4,7 @@
 
 <div align="right">
 
-[![English](https://img.shields.io/badge/English-0052CC?style=flat-square&logo=github&logoColor=white)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square&logo=github&logoColor=white)](#zh)
+[![English](https://pbs.twimg.com/profile_images/1945608199500910592/rnk6ixxH_400x400.jpg)](#en) [![中文](https://pbs.twimg.com/profile_images/2003674942701961216/TF5o3nAy_400x400.jpg)](#zh)
 
 </div>
 
