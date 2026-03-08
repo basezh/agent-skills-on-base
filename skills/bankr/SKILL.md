@@ -1,6 +1,6 @@
 ---
 name: bankr
-description: "Bankr Skills equip builders with plug-and-play tools to build more powerful agents."
+description: "Bankr Skills equip builders with plug-and-play tools to build more powerful agents. Includes Bankr (launch tokens, earn trading fees, built-in wallet with safeguards), SIWA (agent authentication), Bankr Signals (verified trading signals), Botchan (on-chain messaging), ERC-8004 (agent identity registry), ENS Primary Name (ENS management), OnchainKit (onchain UI components), QRcoin (QR auction game), Veil (private transactions), Yoink (social token game), Neynar (Farcaster API), and Hydrex (liquidity pools)."
 homepage: https://github.com/BankrBot/skills
 ---
 
