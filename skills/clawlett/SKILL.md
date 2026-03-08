@@ -1,26 +1,218 @@
 ---
 name: clawlett
-description: OpenClaw skill for autonomous token swaps and Trenches trading. Powered by Gnosis Safe + Zodiac Roles. Use when agents need autonomous DEX trading with Safe-based execution.
+description: OpenClaw skill for autonomous token swaps and Trenches trading, powered by Gnosis Safe + Zodiac Roles.
+homepage: https://openclaw.ai
 ---
 
-# Clawlett by creator.bid
+# Clawlett
 
-**Install:** Read the [original README](https://github.com/Creator-Bid/Clawlett) and follow the instructions. Clone to `~/.openclaw/workspace/skills/clawlett`.
+An [OpenClaw](https://openclaw.ai) skill for autonomous token swaps and Trenches trading, powered by Gnosis Safe + Zodiac Roles.
 
-OpenClaw skill for autonomous token swaps and Trenches trading via Gnosis Safe + Zodiac Roles.
+**Supported chains:** Base (default), BNB Chain. All scripts accept `--chain <chain>`.
 
-## Features
+## Overview
 
-- Autonomous token swaps
-- Trenches trading
-- Gnosis Safe integration
-- Zodiac Roles for permission management
+This skill enables AI agents to perform secure, permissioned token swaps and Trenches token creation/trading through a Gnosis Safe. The agent operates through Zodiac Roles module which restricts operations to:
 
-## Install
+- Swapping tokens via KyberSwap Aggregator (default) or CoW Protocol (MEV-protected)
+- Creating tokens on Trenches
+- Buying and selling Trenches tokens via factory
+- Approving tokens only for KyberSwap Router, CoW Vault Relayer, and AgentKeyFactoryV3
+- All swapped tokens return to the Safe (no external transfers)
 
-```bash
-# Clone to OpenClaw skills
-git clone https://github.com/Creator-Bid/Clawlett ~/.openclaw/workspace/skills/clawlett
+The human owner retains full control of the Safe while the agent can only execute swaps and trades.
+
+## Security Model
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                     Gnosis Safe                         │
+│                  (holds all funds)                      │
+│                                                         │
+│  Owner: Human Wallet (full control)                     │
+│  Module: Zodiac Roles (restricted agent access)         │
+└─────────────────────────────────────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────────┐
+│                   Zodiac Roles                          │
+│                                                         │
+│  Agent can ONLY:                                        │
+│  • Call ZodiacHelpers (swaps, approvals, wrapping)      │
+│  • Approve tokens for KyberSwap Router & CoW Relayer    │
+│  • Execute swaps via KyberSwap or CoW Protocol         │
+│                                                         │
+│  Agent CANNOT:                                          │
+│  • Transfer tokens out of Safe                          │
+│  • Change Safe settings                                 │
+│  • Add/remove owners                                    │
+└─────────────────────────────────────────────────────────┘
 ```
 
-**Source**: [Creator-Bid/Clawlett](https://github.com/Creator-Bid/Clawlett)
+## Installation
+
+```bash
+cd clawlett/scripts
+npm install
+```
+
+## Setup
+
+1. Initialize the wallet (deploys Safe + Roles):
+
+```bash
+node clawlett/scripts/initialize.js --owner <YOUR_WALLET_ADDRESS>
+# Or for BNB Chain:
+node clawlett/scripts/initialize.js --chain bnb --owner <YOUR_WALLET_ADDRESS>
+```
+
+2. Fund the agent address with ~0.001 native token for gas (address shown in output)
+
+3. Run the script again - it will complete the setup automatically
+
+4. Fund your Safe with tokens to trade
+
+## Usage
+
+### Check Balances
+
+```bash
+# ETH balance
+node clawlett/scripts/balance.js
+
+# Specific token
+node clawlett/scripts/balance.js --token USDC
+
+# All verified tokens
+node clawlett/scripts/balance.js --all
+```
+
+### Swap Tokens
+
+```bash
+# KyberSwap (default — optimal routes across DEXs)
+node clawlett/scripts/swap.js --from ETH --to USDC --amount 0.1
+node clawlett/scripts/swap.js --from ETH --to USDC --amount 0.1 --execute
+
+# CoW Protocol (MEV-protected)
+node clawlett/scripts/cow.js --from USDC --to WETH --amount 100
+node clawlett/scripts/cow.js --from USDC --to WETH --amount 100 --execute
+
+# Swap by address (for tokens not in verified list)
+node clawlett/scripts/swap.js --from USDC --to 0xa1832f7f4e534ae557f9b5ab76de54b1873e498b --amount 100 --execute
+```
+
+### Trenches Trading
+
+Create tokens and trade on Trenches bonding curves:
+
+```bash
+# Create a new token
+node clawlett/scripts/trenches.js create --name "My Token" --symbol MTK --description "A cool token"
+node clawlett/scripts/trenches.js create --name "My Token" --symbol MTK --description "desc" --initial-buy 0.01
+
+# Buy tokens with ETH
+node clawlett/scripts/trenches.js buy --token MTK --amount 0.01
+
+# Sell tokens for ETH
+node clawlett/scripts/trenches.js sell --token MTK --amount 1000
+node clawlett/scripts/trenches.js sell --token MTK --all
+
+# Token info
+node clawlett/scripts/trenches.js info MTK
+```
+
+### Token Discovery
+
+Browse trending and top-performing tokens on Trenches:
+
+```bash
+node clawlett/scripts/trenches.js trending
+node clawlett/scripts/trenches.js trending --window 1h --limit 5
+node clawlett/scripts/trenches.js new
+node clawlett/scripts/trenches.js top-volume
+node clawlett/scripts/trenches.js gainers
+node clawlett/scripts/trenches.js losers
+```
+
+### Custom RPC
+
+All scripts support `--rpc` flag for custom RPC endpoints:
+
+```bash
+node clawlett/scripts/balance.js --rpc https://base.llamarpc.com
+node clawlett/scripts/swap.js --from ETH --to USDC --amount 0.1 --rpc https://base.llamarpc.com
+```
+
+## Verified Tokens
+
+Protected tokens can only resolve to verified addresses (scam protection):
+
+| Token | Address |
+|-------|---------|
+| ETH | Native ETH (`0x0000000000000000000000000000000000000000`) |
+| WETH | `0x4200000000000000000000000000000000000006` |
+| USDC | `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913` |
+| USDT | `0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2` |
+| DAI | `0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb` |
+| USDS | `0x820C137fa70C8691f0e44Dc420a5e53c168921Dc` |
+| AERO | `0x940181a94A35A4569E4529A3CDfB74e38FD98631` |
+| cbBTC | `0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf` |
+| VIRTUAL | `0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b` |
+| DEGEN | `0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed` |
+| BRETT | `0x532f27101965dd16442E59d40670FaF5eBB142E4` |
+| TOSHI | `0xAC1Bd2486aAf3B5C0fc3Fd868558b082a531B2B4` |
+| WELL | `0xA88594D404727625A9437C3f886C7643872296AE` |
+| BID | `0xa1832f7f4e534ae557f9b5ab76de54b1873e498b` |
+
+## Configuration
+
+Config is stored per-chain in `config/<chain>/wallet.json` after initialization. The agent private key (`config/agent.pk`) is shared across all chains.
+
+```json
+{
+  "chainId": 8453,
+  "owner": "0x...",
+  "agent": "0x...",
+  "safe": "0x...",
+  "roles": "0x...",
+  "roleKey": "0x..."
+}
+```
+
+### Environment Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `BASE_RPC_URL` | `https://mainnet.base.org` | Base RPC endpoint |
+| `WALLET_CONFIG_DIR` | `./config` | Config directory |
+| `QUOTE_API_URL` | Production API | Quote/routing API |
+| `TRENCHES_API_URL` | `https://trenches.bid` | Trenches API endpoint |
+
+## OpenClaw Integration
+
+This skill is designed to work with [OpenClaw](https://openclaw.ai) agents. The agent can:
+
+- Check wallet balances on request
+- Get swap quotes via KyberSwap (default) or CoW Protocol
+- Execute swaps after user confirmation
+- Create tokens on Trenches
+- Buy and sell Trenches tokens via factory
+- Discover trending, new, and top-performing tokens
+- Protect users from scam tokens
+
+See [SKILL.md](./clawlett/SKILL.md) for the skill specification.
+
+## Troubleshooting
+
+Checkout [Troubleshooting Guide](TROUBLESHOOTING.md) for common issues.
+
+## Contributing
+
+Contributions are welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
+
+## License
+
+MIT
+
+Original: https://github.com/Creator-Bid/Clawlett

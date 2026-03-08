@@ -3,14 +3,9 @@ name: sponge-wallet
 version: 0.2.1
 
 description: Crypto wallet, token swaps, cross-chain bridges, and access to paid external services (search, image gen, web scraping, AI, and more) via x402 payments.
-homepage: "https://wallet.paysponge.com"
+homepage: https://wallet.paysponge.com
 user-invocable: true
-metadata:
-  clawdbot:
-    emoji: "📺"
-    homepage: "https://wallet.paysponge.com"
-    requires:
-      bins: ["bankr"]
+metadata: {"openclaw":{"emoji":"\ud83e\uddfd","category":"finance","primaryEnv":"SPONGE_API_KEY","requires":{"env":["SPONGE_API_KEY"]}}}
 ---
 
 ```
@@ -41,7 +36,6 @@ Wallet & tokens:
   GET  /api/solana/tokens/search         -> search Jupiter token list
   GET  /api/transactions/status/:txHash  -> transaction status
   GET  /api/transactions/history         -> transaction history
-  POST /api/funding-requests             -> request funding from owner
   POST /api/wallets/withdraw-to-main     -> withdraw to owner
 
 Secrets & checkout data:
@@ -82,10 +76,10 @@ This skill is **doc-only**. There is no local CLI. Agents must call the Sponge W
 1. **Manage crypto** — check balances, transfer tokens (EVM and Solana), swap on Solana/Base, bridge cross-chain
 2. **Create payment links** — generate reusable x402 payment URLs and check payment status
 3. **Access paid external services** — search, image generation, web scraping, AI models, data enrichment, and more. Always follow these 3 steps:
-   1. `GET /api/discover?query=...` — find a service
-   2. `GET /api/discover/{serviceId}` — get its endpoints, params, and payment config **(do not skip)**
-   3. `POST /api/x402/fetch` — call the endpoint using the URL and params from step 2 (auto-pays with USDC)
-   - If the target endpoint also requires SIWE auth, generate the signature first with MCP tool `generate_siwe` and include its output in the fetch headers.
+ 1. `GET /api/discover?query=...` — find a service
+ 2. `GET /api/discover/{serviceId}` — get its endpoints, params, and payment config **(do not skip)**
+ 3. `POST /api/x402/fetch` — call the endpoint using the URL and params from step 2 (auto-pays with USDC)
+ - If the target endpoint also requires SIWE auth, generate the signature first with MCP tool `generate_siwe` and include its output in the fetch headers.
 4. **Trade on prediction markets and perps** — Polymarket, Hyperliquid
 5. **Shop on Amazon** — search products and checkout
 6. **Store encrypted card data for checkout** — use the dedicated card tool (`store_credit_card` / `POST /api/credit-cards`)
@@ -121,7 +115,7 @@ export SPONGE_API_KEY="$(jq -r .apiKey ~/.spongewallet/credentials.json)"
 ## Base URL & Auth
 
 - Base URL: `https://api.wallet.paysponge.com`
-- Auth header: `Authorization: Bearer <SPONGE_API_KEY>`
+- Auth header: `Authorization: Bearer `
 - Content-Type: `application/json`
 
 Quick env setup:
@@ -256,7 +250,6 @@ All tool calls are plain REST requests with JSON payloads.
 | Bridge | POST | `/api/transactions/bridge` | Body: `sourceChain`, `destinationChain`, `token`, `amount`, `destinationToken`, `recipientAddress` |
 | Transaction status | GET | `/api/transactions/status/{txHash}` | Query: `chain` |
 | Transaction history | GET | `/api/transactions/history` | Query: `limit`, `chain` |
-| Request funding | POST | `/api/funding-requests` | Body: `amount`, `reason`, `chain`, `currency` |
 | Store credit card (encrypted) | POST | `/api/credit-cards` | Body (snake_case): `card_number`, `expiration` OR (`expiry_month` + `expiry_year`), `cvc`, `cardholder_name`, `email`, `billing_address`, `shipping_address`, optional `label`, `metadata` |
 | Store service key (non-card) | POST | `/api/agent-keys` | Body: `service`, `key`, optional `label`, `metadata` (`service=credit_card` is rejected) |
 | List stored keys | GET | `/api/agent-keys` | Query: `agentId` (optional) |
@@ -791,16 +784,16 @@ curl -sS "$SPONGE_API_URL/api/discover/ctg_abc123" \
 
 This returns everything you need to construct the fetch call:
 - **paymentsProtocolConfig**: Array of payment options, each with:
-  - `baseUrl`: The proxy URL to use in step 3
-  - `protocol`: `x402`
-  - `networks`: Supported networks (e.g. `["base", "solana"]`)
+ - `baseUrl`: The proxy URL to use in step 3
+ - `protocol`: `x402`
+ - `networks`: Supported networks (e.g. `["base", "solana"]`)
 - **endpoints**: List of callable endpoints, each with:
-  - `method`: HTTP method (GET, POST, etc.)
-  - `path`: Endpoint path to append to the baseUrl
-  - `description`: What the endpoint does
-  - `price` / `currency`: Cost per call
-  - `parameters`: JSON schema for query/path/body params — tells you exactly what to send
-  - `instructions`: Free-text usage guide with examples
+ - `method`: HTTP method (GET, POST, etc.)
+ - `path`: Endpoint path to append to the baseUrl
+ - `description`: What the endpoint does
+ - `price` / `currency`: Cost per call
+ - `parameters`: JSON schema for query/path/body params — tells you exactly what to send
+ - `instructions`: Free-text usage guide with examples
 - **docsUrl**: Link to the service's official API documentation (fallback reference)
 
 **Without this step, you don't know what endpoints exist, what parameters they accept, or what URL to use.**

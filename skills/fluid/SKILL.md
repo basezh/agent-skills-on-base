@@ -1,14 +1,14 @@
 ---
 name: fluid
 version: 1.0.1
-description: "Interact with Fluid Protocol — lending (ERC-4626 fTokens) and vaults (T1/T2/T3/T4). Lending: deposit, withdraw, check positions, query APY rates. Vaults: deposit collateral, borrow, repay, manage leveraged positions. Discover contracts programmatically via on-chain resolvers. No API keys needed."
-homepage: "https://fluid.io"
+description: Interact with Fluid Protocol — lending (ERC-4626 fTokens) and vaults (T1/T2/T3/T4). Lending: deposit, withdraw, check positions, query APY rates. Vaults: deposit collateral, borrow, repay, manage leveraged positions. Discover contracts programmatically via on-chain resolvers. No API keys needed.
+homepage: https://fluid.io
 metadata:
-  clawdbot:
-    emoji: "🕹️"
-    homepage: "https://fluid.io"
-    requires:
-      bins: ["bankr"]
+ {
+ 'protocol': 'fluid',
+ 'category': 'defi',
+ 'chains': ['ethereum', 'arbitrum', 'base', 'polygon', 'plasma'],
+ }
 ---
 
 # Fluid Protocol
@@ -19,11 +19,11 @@ Fluid is a DeFi protocol by Instadapp offering lending and vault products. All d
 
 ## Skill Files
 
-| File                     | URL                                                                                                                  | Status  |
+| File | URL | Status |
 | ------------------------ | -------------------------------------------------------------------------------------------------------------------- | ------- |
-| **SKILL.md** (this file) | `https://fluid.io/skill.md`                                                                                          | ✅ Live |
-| **Deployments**          | [deployments.md on GitHub](https://github.com/Instadapp/fluid-contracts-public/blob/main/deployments/deployments.md) | ✅ Live |
-| **Integration Docs**     | `https://fluid-integration-docs.vercel.app/`                                                                         | ✅ Live |
+| **SKILL.md** (this file) | `https://fluid.io/skill.md` | ✅ Live |
+| **Deployments** | [deployments.md on GitHub](https://github.com/Instadapp/fluid-contracts-public/blob/main/deployments/deployments.md) | ✅ Live |
+| **Integration Docs** | `https://fluid-integration-docs.vercel.app/` | ✅ Live |
 
 ---
 
@@ -69,13 +69,13 @@ No registration or API keys needed. Just call the on-chain resolver.
 
 ### Step 1: Pick your chain and RPC
 
-| Network  | Chain ID | LendingResolver Address                      | Public RPC                     |
+| Network | Chain ID | LendingResolver Address | Public RPC |
 | -------- | -------- | -------------------------------------------- | ------------------------------ |
-| Ethereum | 1        | `0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569` | `https://eth.llamarpc.com`     |
-| Arbitrum | 42161    | `0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569` | `https://arb1.arbitrum.io/rpc` |
-| Base     | 8453     | `0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569` | `https://mainnet.base.org`     |
-| Polygon  | 137      | `0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569` | `https://polygon-rpc.com`      |
-| Plasma   | 9745     | `0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569` | `https://rpc.plasma.to`        |
+| Ethereum | 1 | `0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569` | `https://eth.llamarpc.com` |
+| Arbitrum | 42161 | `0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569` | `https://arb1.arbitrum.io/rpc` |
+| Base | 8453 | `0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569` | `https://mainnet.base.org` |
+| Polygon | 137 | `0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569` | `https://polygon-rpc.com` |
+| Plasma | 9745 | `0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569` | `https://rpc.plasma.to` |
 
 > Same resolver address on all chains (CREATE2 deployment). Any RPC provider works (Alchemy, Infura, QuickNode, etc.).
 
@@ -140,22 +140,22 @@ cast send 0x90551c1795392094FE6D29B758EcCD233cFAa260 \
 
 ## Everything You Can Do
 
-| Action                               | Method                                                | Contract         |
+| Action | Method | Contract |
 | ------------------------------------ | ----------------------------------------------------- | ---------------- |
-| Get all fToken addresses             | `getAllFTokens()`                                     | LendingResolver  |
-| Get all fToken data (APY, TVL)       | `getFTokensEntireData()`                              | LendingResolver  |
-| Get single fToken details            | `getFTokenDetails(fToken)`                            | LendingResolver  |
-| Get user position (one fToken)       | `getUserPosition(fToken, user)`                       | LendingResolver  |
-| Get user positions (all fTokens)     | `getUserPositions(user)`                              | LendingResolver  |
-| Preview deposit/mint/withdraw/redeem | `getPreviews(fToken, assets, shares)`                 | LendingResolver  |
-| Deposit ERC-20 assets                | `deposit(assets, receiver)`                           | fToken           |
-| Mint exact shares                    | `mint(shares, receiver)`                              | fToken           |
-| Withdraw assets                      | `withdraw(assets, receiver, owner)`                   | fToken           |
-| Redeem shares                        | `redeem(shares, receiver, owner)`                     | fToken           |
-| Deposit native ETH                   | `depositNative(receiver)`                             | fToken (payable) |
-| Withdraw native ETH                  | `withdrawNative(assets, receiver, owner)`             | fToken           |
-| Check max deposit/withdraw           | `maxDeposit(receiver)` / `maxWithdraw(owner)`         | fToken           |
-| Check exchange rate                  | `convertToAssets(shares)` / `convertToShares(assets)` | fToken           |
+| Get all fToken addresses | `getAllFTokens()` | LendingResolver |
+| Get all fToken data (APY, TVL) | `getFTokensEntireData()` | LendingResolver |
+| Get single fToken details | `getFTokenDetails(fToken)` | LendingResolver |
+| Get user position (one fToken) | `getUserPosition(fToken, user)` | LendingResolver |
+| Get user positions (all fTokens) | `getUserPositions(user)` | LendingResolver |
+| Preview deposit/mint/withdraw/redeem | `getPreviews(fToken, assets, shares)` | LendingResolver |
+| Deposit ERC-20 assets | `deposit(assets, receiver)` | fToken |
+| Mint exact shares | `mint(shares, receiver)` | fToken |
+| Withdraw assets | `withdraw(assets, receiver, owner)` | fToken |
+| Redeem shares | `redeem(shares, receiver, owner)` | fToken |
+| Deposit native ETH | `depositNative(receiver)` | fToken (payable) |
+| Withdraw native ETH | `withdrawNative(assets, receiver, owner)` | fToken |
+| Check max deposit/withdraw | `maxDeposit(receiver)` / `maxWithdraw(owner)` | fToken |
+| Check exchange rate | `convertToAssets(shares)` / `convertToShares(assets)` | fToken |
 
 ---
 
@@ -167,37 +167,37 @@ cast send 0x90551c1795392094FE6D29B758EcCD233cFAa260 \
 
 Address: `0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569` — same on all chains (CREATE2). **Verified.**
 
-| Network  | Explorer (verified source)                                                                     |
+| Network | Explorer (verified source) |
 | -------- | ---------------------------------------------------------------------------------------------- |
-| Ethereum | [Etherscan](https://etherscan.io/address/0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569#code)      |
-| Arbitrum | [Arbiscan](https://arbiscan.io/address/0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569#code)        |
-| Base     | [Basescan](https://basescan.org/address/0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569#code)       |
-| Polygon  | [Polygonscan](https://polygonscan.com/address/0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569#code) |
-| Plasma   | [Plasmascan](https://plasmascan.to/address/0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569#code)    |
+| Ethereum | [Etherscan](https://etherscan.io/address/0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569#code) |
+| Arbitrum | [Arbiscan](https://arbiscan.io/address/0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569#code) |
+| Base | [Basescan](https://basescan.org/address/0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569#code) |
+| Polygon | [Polygonscan](https://polygonscan.com/address/0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569#code) |
+| Plasma | [Plasmascan](https://plasmascan.to/address/0x48D32f49aFeAEC7AE66ad7B9264f446fc11a1569#code) |
 
 ### LendingFactory
 
 Address: `0x54B91A0D94cb471F37f949c60F7Fa7935b551D03` — same on all chains (CREATE2). **Verified.**
 
-| Network  | Explorer (verified source)                                                                     |
+| Network | Explorer (verified source) |
 | -------- | ---------------------------------------------------------------------------------------------- |
-| Ethereum | [Etherscan](https://etherscan.io/address/0x54B91A0D94cb471F37f949c60F7Fa7935b551D03#code)      |
-| Arbitrum | [Arbiscan](https://arbiscan.io/address/0x54B91A0D94cb471F37f949c60F7Fa7935b551D03#code)        |
-| Base     | [Basescan](https://basescan.org/address/0x54B91A0D94cb471F37f949c60F7Fa7935b551D03#code)       |
-| Polygon  | [Polygonscan](https://polygonscan.com/address/0x54B91A0D94cb471F37f949c60F7Fa7935b551D03#code) |
-| Plasma   | [Plasmascan](https://plasmascan.to/address/0x54B91A0D94cb471F37f949c60F7Fa7935b551D03#code)    |
+| Ethereum | [Etherscan](https://etherscan.io/address/0x54B91A0D94cb471F37f949c60F7Fa7935b551D03#code) |
+| Arbitrum | [Arbiscan](https://arbiscan.io/address/0x54B91A0D94cb471F37f949c60F7Fa7935b551D03#code) |
+| Base | [Basescan](https://basescan.org/address/0x54B91A0D94cb471F37f949c60F7Fa7935b551D03#code) |
+| Polygon | [Polygonscan](https://polygonscan.com/address/0x54B91A0D94cb471F37f949c60F7Fa7935b551D03#code) |
+| Plasma | [Plasmascan](https://plasmascan.to/address/0x54B91A0D94cb471F37f949c60F7Fa7935b551D03#code) |
 
 **Source:** [deployments.md](https://github.com/Instadapp/fluid-contracts-public/blob/main/deployments/deployments.md)
 
 ### fTokens (Ethereum Mainnet)
 
-| Token   | fToken Address                               | Underlying    |
+| Token | fToken Address | Underlying |
 | ------- | -------------------------------------------- | ------------- |
-| fUSDC   | `0x9Fb7b4477576Fe5B32be4C1843aFB1e55F251B33` | USDC          |
-| fUSDT   | `0x5C20B550819128074FD538Edf79791733ccEdd18` | USDT          |
-| fWETH   | `0x90551c1795392094FE6D29B758EcCD233cFAa260` | WETH (native) |
-| fGHO    | Check resolver                               | GHO           |
-| fwstETH | Check resolver                               | wstETH        |
+| fUSDC | `0x9Fb7b4477576Fe5B32be4C1843aFB1e55F251B33` | USDC |
+| fUSDT | `0x5C20B550819128074FD538Edf79791733ccEdd18` | USDT |
+| fWETH | `0x90551c1795392094FE6D29B758EcCD233cFAa260` | WETH (native) |
+| fGHO | Check resolver | GHO |
+| fwstETH | Check resolver | wstETH |
 
 > Use `getAllFTokens()` on LendingResolver to get the complete, up-to-date list for any network.
 
@@ -1024,13 +1024,13 @@ No registration or API keys needed. Just call the on-chain resolver.
 
 ### Step 1: Pick your chain and RPC
 
-| Network  | Chain ID | VaultResolver Address                        | Public RPC                     |
+| Network | Chain ID | VaultResolver Address | Public RPC |
 | -------- | -------- | -------------------------------------------- | ------------------------------ |
-| Ethereum | 1        | `0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC` | `https://eth.llamarpc.com`     |
-| Arbitrum | 42161    | `0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC` | `https://arb1.arbitrum.io/rpc` |
-| Base     | 8453     | `0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC` | `https://mainnet.base.org`     |
-| Polygon  | 137      | `0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC` | `https://polygon-rpc.com`      |
-| Plasma   | 9745     | `0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC` | `https://rpc.plasma.to`        |
+| Ethereum | 1 | `0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC` | `https://eth.llamarpc.com` |
+| Arbitrum | 42161 | `0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC` | `https://arb1.arbitrum.io/rpc` |
+| Base | 8453 | `0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC` | `https://mainnet.base.org` |
+| Polygon | 137 | `0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC` | `https://polygon-rpc.com` |
+| Plasma | 9745 | `0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC` | `https://rpc.plasma.to` |
 
 > Same resolver address on all chains (CREATE2 deployment). Any RPC provider works (Alchemy, Infura, QuickNode, etc.).
 
@@ -1148,34 +1148,34 @@ cast send 0xD9A7Dcdc57C6e44f00740dC73664fA456B983669 \
 
 ### VaultResolver (read data)
 
-| Action                              | Method                                          | Contract              |
+| Action | Method | Contract |
 | ----------------------------------- | ----------------------------------------------- | --------------------- |
-| Get all vault addresses             | `getAllVaultsAddresses()`                        | VaultResolver         |
-| Get total number of vaults          | `getTotalVaults()`                              | VaultResolver         |
-| Get vault type                      | `getVaultType(vault)`                           | VaultResolver         |
-| Get complete vault data             | `getVaultEntireData(vault)`                     | VaultResolver         |
-| Get data for multiple vaults        | `getVaultsEntireData(vaults[])` / `getVaultsEntireData()` | VaultResolver |
-| Get vault state                     | `getVaultState(vault)`                          | VaultResolver         |
-| Get position by NFT ID              | `positionByNftId(nftId)`                        | VaultResolver         |
-| Get all positions for a user        | `positionsByUser(user)`                         | VaultResolver         |
-| Get NFT IDs owned by a user         | `positionsNftIdOfUser(user)`                    | VaultResolver         |
-| Find vault by NFT ID                | `vaultByNftId(nftId)`                           | VaultResolver         |
-| Get liquidation data                | `getVaultLiquidation(vault, tokenInAmt)`        | VaultResolver         |
-| Get all liquidation opportunities   | `getAllVaultsLiquidation()`                      | VaultResolver         |
-| Get total positions count           | `totalPositions()`                              | VaultResolver         |
+| Get all vault addresses | `getAllVaultsAddresses()` | VaultResolver |
+| Get total number of vaults | `getTotalVaults()` | VaultResolver |
+| Get vault type | `getVaultType(vault)` | VaultResolver |
+| Get complete vault data | `getVaultEntireData(vault)` | VaultResolver |
+| Get data for multiple vaults | `getVaultsEntireData(vaults[])` / `getVaultsEntireData()` | VaultResolver |
+| Get vault state | `getVaultState(vault)` | VaultResolver |
+| Get position by NFT ID | `positionByNftId(nftId)` | VaultResolver |
+| Get all positions for a user | `positionsByUser(user)` | VaultResolver |
+| Get NFT IDs owned by a user | `positionsNftIdOfUser(user)` | VaultResolver |
+| Find vault by NFT ID | `vaultByNftId(nftId)` | VaultResolver |
+| Get liquidation data | `getVaultLiquidation(vault, tokenInAmt)` | VaultResolver |
+| Get all liquidation opportunities | `getAllVaultsLiquidation()` | VaultResolver |
+| Get total positions count | `totalPositions()` | VaultResolver |
 
 ### Vault Operations (write — send transactions)
 
-| Action                              | Method                                                            | Vault Type |
+| Action | Method | Vault Type |
 | ----------------------------------- | ----------------------------------------------------------------- | ---------- |
-| Open/manage position (T1)           | `operate(nftId, newCol, newDebt, to)`                             | T1         |
-| Open/manage position (T2)           | `operate(nftId, newColToken0, newColToken1, colSharesMinMax, newDebt, to)` | T2 |
-| Open/manage position (T2 perfect)   | `operatePerfect(nftId, perfectColShares, colToken0MinMax, colToken1MinMax, newDebt, to)` | T2 |
-| Open/manage position (T3)           | `operate(nftId, newCol, newDebtToken0, newDebtToken1, debtSharesMinMax, to)` | T3 |
-| Open/manage position (T3 perfect)   | `operatePerfect(nftId, newCol, perfectDebtShares, debtToken0MinMax, debtToken1MinMax, to)` | T3 |
-| Open/manage position (T4)           | `operate(nftId, newColToken0, newColToken1, colSharesMinMax, newDebtToken0, newDebtToken1, debtSharesMinMax, to)` | T4 |
-| Open/manage position (T4 perfect)   | `operatePerfect(nftId, perfectColShares, colToken0MinMax, colToken1MinMax, perfectDebtShares, debtToken0MinMax, debtToken1MinMax, to)` | T4 |
-| Liquidate position (T1)             | `liquidate(debtAmt, colPerUnitDebt, to, absorb)`                  | T1         |
+| Open/manage position (T1) | `operate(nftId, newCol, newDebt, to)` | T1 |
+| Open/manage position (T2) | `operate(nftId, newColToken0, newColToken1, colSharesMinMax, newDebt, to)` | T2 |
+| Open/manage position (T2 perfect) | `operatePerfect(nftId, perfectColShares, colToken0MinMax, colToken1MinMax, newDebt, to)` | T2 |
+| Open/manage position (T3) | `operate(nftId, newCol, newDebtToken0, newDebtToken1, debtSharesMinMax, to)` | T3 |
+| Open/manage position (T3 perfect) | `operatePerfect(nftId, newCol, perfectDebtShares, debtToken0MinMax, debtToken1MinMax, to)` | T3 |
+| Open/manage position (T4) | `operate(nftId, newColToken0, newColToken1, colSharesMinMax, newDebtToken0, newDebtToken1, debtSharesMinMax, to)` | T4 |
+| Open/manage position (T4 perfect) | `operatePerfect(nftId, perfectColShares, colToken0MinMax, colToken1MinMax, perfectDebtShares, debtToken0MinMax, debtToken1MinMax, to)` | T4 |
+| Liquidate position (T1) | `liquidate(debtAmt, colPerUnitDebt, to, absorb)` | T1 |
 
 ---
 
@@ -1185,53 +1185,53 @@ The `operate()` function is the primary way to interact with vaults. It handles 
 
 ### T1: `operate(nftId, newCol, newDebt, to)`
 
-| Parameter | Type      | Description |
+| Parameter | Type | Description |
 | --------- | --------- | ----------- |
-| `nftId`   | `uint256` | Position NFT ID. Pass `0` to create a new position. |
-| `newCol`  | `int256`  | Collateral change. Positive = deposit, negative = withdraw. |
-| `newDebt` | `int256`  | Debt change. Positive = borrow, negative = repay. |
-| `to`      | `address` | Recipient for borrowed/withdrawn tokens. `address(0)` = `msg.sender`. |
+| `nftId` | `uint256` | Position NFT ID. Pass `0` to create a new position. |
+| `newCol` | `int256` | Collateral change. Positive = deposit, negative = withdraw. |
+| `newDebt` | `int256` | Debt change. Positive = borrow, negative = repay. |
+| `to` | `address` | Recipient for borrowed/withdrawn tokens. `address(0)` = `msg.sender`. |
 
 **Returns:** `(nftId, finalSupplyAmt, finalBorrowAmt)` — the NFT ID (useful when creating new positions) and final supply/borrow amounts (negative = withdraw/payback).
 
 ### T2: `operate(nftId, newColToken0, newColToken1, colSharesMinMax, newDebt, to)`
 
-| Parameter          | Type      | Description |
+| Parameter | Type | Description |
 | ------------------ | --------- | ----------- |
-| `nftId`            | `uint256` | Position NFT ID. Pass `0` to create a new position. |
-| `newColToken0`     | `int256`  | Token0 collateral change. Positive = deposit, negative = withdraw. |
-| `newColToken1`     | `int256`  | Token1 collateral change. Positive = deposit, negative = withdraw. |
-| `colSharesMinMax`  | `int256`  | Slippage protection. Min shares when depositing (positive), max shares when withdrawing (negative). |
-| `newDebt`          | `int256`  | Debt change. Positive = borrow, negative = repay. |
-| `to`               | `address` | Recipient for borrowed/withdrawn tokens. |
+| `nftId` | `uint256` | Position NFT ID. Pass `0` to create a new position. |
+| `newColToken0` | `int256` | Token0 collateral change. Positive = deposit, negative = withdraw. |
+| `newColToken1` | `int256` | Token1 collateral change. Positive = deposit, negative = withdraw. |
+| `colSharesMinMax` | `int256` | Slippage protection. Min shares when depositing (positive), max shares when withdrawing (negative). |
+| `newDebt` | `int256` | Debt change. Positive = borrow, negative = repay. |
+| `to` | `address` | Recipient for borrowed/withdrawn tokens. |
 
 > T2 also supports `operatePerfect()` for share-denominated operations with exact share amounts.
 
 ### T3: `operate(nftId, newCol, newDebtToken0, newDebtToken1, debtSharesMinMax, to)`
 
-| Parameter           | Type      | Description |
+| Parameter | Type | Description |
 | ------------------- | --------- | ----------- |
-| `nftId`             | `uint256` | Position NFT ID. Pass `0` to create a new position. |
-| `newCol`            | `int256`  | Collateral change. Positive = deposit, negative = withdraw. |
-| `newDebtToken0`     | `int256`  | Token0 debt change. Positive = borrow, negative = repay. |
-| `newDebtToken1`     | `int256`  | Token1 debt change. Positive = borrow, negative = repay. |
-| `debtSharesMinMax`  | `int256`  | Slippage protection. Max shares when borrowing (positive), min shares when repaying (negative). |
-| `to`                | `address` | Recipient for borrowed/withdrawn tokens. |
+| `nftId` | `uint256` | Position NFT ID. Pass `0` to create a new position. |
+| `newCol` | `int256` | Collateral change. Positive = deposit, negative = withdraw. |
+| `newDebtToken0` | `int256` | Token0 debt change. Positive = borrow, negative = repay. |
+| `newDebtToken1` | `int256` | Token1 debt change. Positive = borrow, negative = repay. |
+| `debtSharesMinMax` | `int256` | Slippage protection. Max shares when borrowing (positive), min shares when repaying (negative). |
+| `to` | `address` | Recipient for borrowed/withdrawn tokens. |
 
 > T3 also supports `operatePerfect()` for share-denominated operations with exact share amounts.
 
 ### T4: `operate(nftId, newColToken0, newColToken1, colSharesMinMax, newDebtToken0, newDebtToken1, debtSharesMinMax, to)`
 
-| Parameter           | Type      | Description |
+| Parameter | Type | Description |
 | ------------------- | --------- | ----------- |
-| `nftId`             | `uint256` | Position NFT ID. Pass `0` to create a new position. |
-| `newColToken0`      | `int256`  | Token0 collateral change. |
-| `newColToken1`      | `int256`  | Token1 collateral change. |
-| `colSharesMinMax`   | `int256`  | Slippage protection for collateral shares. |
-| `newDebtToken0`     | `int256`  | Token0 debt change. |
-| `newDebtToken1`     | `int256`  | Token1 debt change. |
-| `debtSharesMinMax`  | `int256`  | Slippage protection for debt shares. |
-| `to`                | `address` | Recipient for borrowed/withdrawn tokens. |
+| `nftId` | `uint256` | Position NFT ID. Pass `0` to create a new position. |
+| `newColToken0` | `int256` | Token0 collateral change. |
+| `newColToken1` | `int256` | Token1 collateral change. |
+| `colSharesMinMax` | `int256` | Slippage protection for collateral shares. |
+| `newDebtToken0` | `int256` | Token0 debt change. |
+| `newDebtToken1` | `int256` | Token1 debt change. |
+| `debtSharesMinMax` | `int256` | Slippage protection for debt shares. |
+| `to` | `address` | Recipient for borrowed/withdrawn tokens. |
 
 > T4 also supports `operatePerfect()` for share-denominated operations on both collateral and debt.
 
@@ -1249,25 +1249,25 @@ The `operatePerfect()` variant lets you specify exact share amounts for DEX LP p
 
 Address: `0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC` — same on all chains (CREATE2). **Verified.**
 
-| Network  | Explorer (verified source)                                                                     |
+| Network | Explorer (verified source) |
 | -------- | ---------------------------------------------------------------------------------------------- |
-| Ethereum | [Etherscan](https://etherscan.io/address/0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC#code)      |
-| Arbitrum | [Arbiscan](https://arbiscan.io/address/0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC#code)        |
-| Base     | [Basescan](https://basescan.org/address/0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC#code)       |
-| Polygon  | [Polygonscan](https://polygonscan.com/address/0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC#code) |
-| Plasma   | [Plasmascan](https://plasmascan.to/address/0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC#code)    |
+| Ethereum | [Etherscan](https://etherscan.io/address/0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC#code) |
+| Arbitrum | [Arbiscan](https://arbiscan.io/address/0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC#code) |
+| Base | [Basescan](https://basescan.org/address/0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC#code) |
+| Polygon | [Polygonscan](https://polygonscan.com/address/0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC#code) |
+| Plasma | [Plasmascan](https://plasmascan.to/address/0xA5C3E16523eeeDDcC34706b0E6bE88b4c6EA95cC#code) |
 
 ### VaultFactory (NFT minting, vault creation)
 
 Address: `0x324c5Dc1fC42c7a4D43d92df1eBA58a54d13Bf2d` — same on all chains (CREATE2). **Verified.**
 
-| Network  | Explorer (verified source)                                                                     |
+| Network | Explorer (verified source) |
 | -------- | ---------------------------------------------------------------------------------------------- |
-| Ethereum | [Etherscan](https://etherscan.io/address/0x324c5Dc1fC42c7a4D43d92df1eBA58a54d13Bf2d#code)      |
-| Arbitrum | [Arbiscan](https://arbiscan.io/address/0x324c5Dc1fC42c7a4D43d92df1eBA58a54d13Bf2d#code)        |
-| Base     | [Basescan](https://basescan.org/address/0x324c5Dc1fC42c7a4D43d92df1eBA58a54d13Bf2d#code)       |
-| Polygon  | [Polygonscan](https://polygonscan.com/address/0x324c5Dc1fC42c7a4D43d92df1eBA58a54d13Bf2d#code) |
-| Plasma   | [Plasmascan](https://plasmascan.to/address/0x324c5Dc1fC42c7a4D43d92df1eBA58a54d13Bf2d#code)    |
+| Ethereum | [Etherscan](https://etherscan.io/address/0x324c5Dc1fC42c7a4D43d92df1eBA58a54d13Bf2d#code) |
+| Arbitrum | [Arbiscan](https://arbiscan.io/address/0x324c5Dc1fC42c7a4D43d92df1eBA58a54d13Bf2d#code) |
+| Base | [Basescan](https://basescan.org/address/0x324c5Dc1fC42c7a4D43d92df1eBA58a54d13Bf2d#code) |
+| Polygon | [Polygonscan](https://polygonscan.com/address/0x324c5Dc1fC42c7a4D43d92df1eBA58a54d13Bf2d#code) |
+| Plasma | [Plasmascan](https://plasmascan.to/address/0x324c5Dc1fC42c7a4D43d92df1eBA58a54d13Bf2d#code) |
 
 ### VaultPositionsResolver
 
@@ -1283,33 +1283,33 @@ Address: `0xd8d1a39b1Fe519113b6D8e1E82Dc92aedaD40948` (Ethereum mainnet). **Veri
 
 #### T1 Vaults (Normal Collateral / Normal Debt)
 
-| Vault                | Address                                      | Collateral | Debt   |
+| Vault | Address | Collateral | Debt |
 | -------------------- | -------------------------------------------- | ---------- | ------ |
-| ETH / GHO            | `0xD9A7Dcdc57C6e44f00740dC73664fA456B983669` | ETH        | GHO    |
-| wstETH / GHO         | `0xB0F2B58af3F17F1A3377c37F6E85eA41c369D1C7` | wstETH     | GHO    |
-| USDC / ETH           | `0x348aD11DB2c90e7FdF8e57420C569F76dBe38a59` | USDC       | ETH    |
-| weETH / GHO          | `0xaF40e84C6AD7C214E4d89f63B3c07B3eb99632dF` | weETH      | GHO    |
+| ETH / GHO | `0xD9A7Dcdc57C6e44f00740dC73664fA456B983669` | ETH | GHO |
+| wstETH / GHO | `0xB0F2B58af3F17F1A3377c37F6E85eA41c369D1C7` | wstETH | GHO |
+| USDC / ETH | `0x348aD11DB2c90e7FdF8e57420C569F76dBe38a59` | USDC | ETH |
+| weETH / GHO | `0xaF40e84C6AD7C214E4d89f63B3c07B3eb99632dF` | weETH | GHO |
 
 #### T2 Vaults (Smart Collateral / Normal Debt)
 
-| Vault                         | Address                                      | Collateral (DEX LP) | Debt   |
+| Vault | Address | Collateral (DEX LP) | Debt |
 | ----------------------------- | -------------------------------------------- | ------------------- | ------ |
-| DEX-weETH-ETH / wstETH       | `0xb4a15526d427f4d20b0dAdaF3baB4177C85A699A` | weETH-ETH LP        | wstETH |
-| DEX-WBTC-cbBTC / USDC        | Check resolver                               | WBTC-cbBTC LP       | USDC   |
+| DEX-weETH-ETH / wstETH | `0xb4a15526d427f4d20b0dAdaF3baB4177C85A699A` | weETH-ETH LP | wstETH |
+| DEX-WBTC-cbBTC / USDC | Check resolver | WBTC-cbBTC LP | USDC |
 
 #### T3 Vaults (Normal Collateral / Smart Debt)
 
-| Vault                         | Address                                      | Collateral | Debt (DEX LP)  |
+| Vault | Address | Collateral | Debt (DEX LP) |
 | ----------------------------- | -------------------------------------------- | ---------- | -------------- |
-| wstETH / DEX-USDC-USDT       | `0x221E35b5655A1eEB3C42c4DeFc39648531f6C9CF` | wstETH     | USDC-USDT LP   |
-| ETH / DEX-USDC-USDT          | `0x3E11B9aEb9C7dBbda4DD41477223Cc2f3f24b9d7` | ETH        | USDC-USDT LP   |
+| wstETH / DEX-USDC-USDT | `0x221E35b5655A1eEB3C42c4DeFc39648531f6C9CF` | wstETH | USDC-USDT LP |
+| ETH / DEX-USDC-USDT | `0x3E11B9aEb9C7dBbda4DD41477223Cc2f3f24b9d7` | ETH | USDC-USDT LP |
 
 #### T4 Vaults (Smart Collateral / Smart Debt)
 
-| Vault                                    | Address                                      | Collateral (DEX LP)  | Debt (DEX LP)    |
+| Vault | Address | Collateral (DEX LP) | Debt (DEX LP) |
 | ---------------------------------------- | -------------------------------------------- | -------------------- | ---------------- |
-| DEX-wstETH-ETH / DEX-wstETH-ETH         | `0x528CF7DBBff878e02e48E83De5097F8071af768D` | wstETH-ETH LP        | wstETH-ETH LP   |
-| DEX-WBTC-cbBTC / DEX-WBTC-cbBTC         | `0xDCe03288F9A109150f314ED0Ca9b59a690300d9d` | WBTC-cbBTC LP        | WBTC-cbBTC LP   |
+| DEX-wstETH-ETH / DEX-wstETH-ETH | `0x528CF7DBBff878e02e48E83De5097F8071af768D` | wstETH-ETH LP | wstETH-ETH LP |
+| DEX-WBTC-cbBTC / DEX-WBTC-cbBTC | `0xDCe03288F9A109150f314ED0Ca9b59a690300d9d` | WBTC-cbBTC LP | WBTC-cbBTC LP |
 
 > Use `getAllVaultsAddresses()` on VaultResolver to get the complete, up-to-date list for any network.
 
@@ -1321,50 +1321,50 @@ Address: `0xd8d1a39b1Fe519113b6D8e1E82Dc92aedaD40948` (Ethereum mainnet). **Veri
 
 When you call `getVaultEntireData()`, you receive a comprehensive struct containing:
 
-| Field                      | Description                                                                          |
+| Field | Description |
 | -------------------------- | ------------------------------------------------------------------------------------ |
-| `vault`                    | Vault contract address                                                               |
-| `isSmartCol`               | `true` if collateral is a Fluid DEX LP position (T2 or T4)                          |
-| `isSmartDebt`              | `true` if debt is a Fluid DEX LP position (T3 or T4)                                |
-| `constantVariables`        | Immutable vault settings (tokens, factory, liquidity layer, slots)                    |
-| `configs`                  | Vault configuration (collateral factor, liquidation threshold, oracle, rates)          |
-| `exchangePricesAndRates`   | Current and stored exchange prices, supply/borrow rates at vault and liquidity level   |
-| `totalSupplyAndBorrow`     | Aggregate supply/borrow across the vault                                              |
-| `limitsAndAvailability`    | Withdrawal limits, borrow limits, and currently available amounts                     |
-| `vaultState`               | Total positions, top tick, branch state                                               |
-| `liquidityUserSupplyData`  | Supply data at the Liquidity layer (or DEX for smart col)                             |
-| `liquidityUserBorrowData`  | Borrow data at the Liquidity layer (or DEX for smart debt)                            |
+| `vault` | Vault contract address |
+| `isSmartCol` | `true` if collateral is a Fluid DEX LP position (T2 or T4) |
+| `isSmartDebt` | `true` if debt is a Fluid DEX LP position (T3 or T4) |
+| `constantVariables` | Immutable vault settings (tokens, factory, liquidity layer, slots) |
+| `configs` | Vault configuration (collateral factor, liquidation threshold, oracle, rates) |
+| `exchangePricesAndRates` | Current and stored exchange prices, supply/borrow rates at vault and liquidity level |
+| `totalSupplyAndBorrow` | Aggregate supply/borrow across the vault |
+| `limitsAndAvailability` | Withdrawal limits, borrow limits, and currently available amounts |
+| `vaultState` | Total positions, top tick, branch state |
+| `liquidityUserSupplyData` | Supply data at the Liquidity layer (or DEX for smart col) |
+| `liquidityUserBorrowData` | Borrow data at the Liquidity layer (or DEX for smart debt) |
 
 ### Configs
 
-| Field                    | Description                                                                    |
+| Field | Description |
 | ------------------------ | ------------------------------------------------------------------------------ |
-| `supplyRateMagnifier`    | Multiplier for supply rate (or absolute rate for smart col vaults)             |
-| `borrowRateMagnifier`    | Multiplier for borrow rate (or absolute rate for smart debt vaults)            |
-| `collateralFactor`       | Max LTV ratio in basis points (e.g., `8000` = 80%)                            |
-| `liquidationThreshold`   | LTV at which liquidation begins, in basis points (e.g., `8500` = 85%)         |
-| `liquidationMaxLimit`    | Maximum LTV during liquidation, in basis points (e.g., `9000` = 90%)          |
-| `withdrawalGap`          | Safety gap for withdrawals, in basis points                                    |
-| `liquidationPenalty`     | Penalty applied during liquidation, in basis points                            |
-| `borrowFee`              | One-time fee on new borrows, in basis points                                   |
-| `oracle`                 | Oracle contract address (returns debt-per-collateral price)                    |
-| `oraclePriceOperate`     | Current oracle price for operations (debt amount per 1 unit of collateral)     |
-| `oraclePriceLiquidate`   | Current oracle price for liquidations                                          |
+| `supplyRateMagnifier` | Multiplier for supply rate (or absolute rate for smart col vaults) |
+| `borrowRateMagnifier` | Multiplier for borrow rate (or absolute rate for smart debt vaults) |
+| `collateralFactor` | Max LTV ratio in basis points (e.g., `8000` = 80%) |
+| `liquidationThreshold` | LTV at which liquidation begins, in basis points (e.g., `8500` = 85%) |
+| `liquidationMaxLimit` | Maximum LTV during liquidation, in basis points (e.g., `9000` = 90%) |
+| `withdrawalGap` | Safety gap for withdrawals, in basis points |
+| `liquidationPenalty` | Penalty applied during liquidation, in basis points |
+| `borrowFee` | One-time fee on new borrows, in basis points |
+| `oracle` | Oracle contract address (returns debt-per-collateral price) |
+| `oraclePriceOperate` | Current oracle price for operations (debt amount per 1 unit of collateral) |
+| `oraclePriceLiquidate` | Current oracle price for liquidations |
 
 ### Exchange Prices and Rates
 
-| Field                       | Description                                                                   |
+| Field | Description |
 | --------------------------- | ----------------------------------------------------------------------------- |
-| `liquiditySupplyExchangePrice` | Current supply exchange price at liquidity layer (1e12 for smart col)      |
-| `liquidityBorrowExchangePrice` | Current borrow exchange price at liquidity layer (1e12 for smart debt)     |
-| `vaultSupplyExchangePrice`     | Current supply exchange price at the vault level                           |
-| `vaultBorrowExchangePrice`     | Current borrow exchange price at the vault level                           |
-| `supplyRateLiquidity`          | Supply interest rate at liquidity layer (0 for smart col)                  |
-| `borrowRateLiquidity`          | Borrow interest rate at liquidity layer (0 for smart debt)                 |
-| `supplyRateVault`              | Effective supply rate at the vault (can be negative for smart col)         |
-| `borrowRateVault`              | Effective borrow rate at the vault (can be negative for smart debt)        |
-| `rewardsOrFeeRateSupply`       | Rewards (positive) or fee (negative) rate for supply, in 1e2 precision     |
-| `rewardsOrFeeRateBorrow`       | Rewards (negative) or fee (positive) rate for borrow, in 1e2 precision     |
+| `liquiditySupplyExchangePrice` | Current supply exchange price at liquidity layer (1e12 for smart col) |
+| `liquidityBorrowExchangePrice` | Current borrow exchange price at liquidity layer (1e12 for smart debt) |
+| `vaultSupplyExchangePrice` | Current supply exchange price at the vault level |
+| `vaultBorrowExchangePrice` | Current borrow exchange price at the vault level |
+| `supplyRateLiquidity` | Supply interest rate at liquidity layer (0 for smart col) |
+| `borrowRateLiquidity` | Borrow interest rate at liquidity layer (0 for smart debt) |
+| `supplyRateVault` | Effective supply rate at the vault (can be negative for smart col) |
+| `borrowRateVault` | Effective borrow rate at the vault (can be negative for smart debt) |
+| `rewardsOrFeeRateSupply` | Rewards (positive) or fee (negative) rate for supply, in 1e2 precision |
+| `rewardsOrFeeRateBorrow` | Rewards (negative) or fee (positive) rate for borrow, in 1e2 precision |
 
 ### Understanding Vault Rates
 
@@ -1391,20 +1391,20 @@ const maxLtv = collateralFactor / 100; // e.g. 8000 → 80%
 
 ### UserPosition Structure
 
-| Field             | Description                                                         |
+| Field | Description |
 | ----------------- | ------------------------------------------------------------------- |
-| `nftId`           | Position NFT ID                                                     |
-| `owner`           | Current owner address                                               |
-| `isLiquidated`    | Whether the position has been (partially) liquidated                |
-| `isSupplyPosition`| `true` if supply-only (no borrow)                                   |
-| `tick`            | Current tick of the position (debt/collateral ratio)                |
-| `tickId`          | ID within the tick                                                  |
-| `supply`          | Current collateral amount (in token units or shares for smart col)  |
-| `borrow`          | Current debt amount (in token units or shares for smart debt)       |
-| `dustBorrow`      | Dust borrow amount (very small residual)                            |
-| `beforeSupply`    | Collateral before any liquidation adjustments                       |
-| `beforeBorrow`    | Debt before any liquidation adjustments                             |
-| `beforeDustBorrow`| Dust borrow before adjustments                                      |
+| `nftId` | Position NFT ID |
+| `owner` | Current owner address |
+| `isLiquidated` | Whether the position has been (partially) liquidated |
+| `isSupplyPosition`| `true` if supply-only (no borrow) |
+| `tick` | Current tick of the position (debt/collateral ratio) |
+| `tickId` | ID within the tick |
+| `supply` | Current collateral amount (in token units or shares for smart col) |
+| `borrow` | Current debt amount (in token units or shares for smart debt) |
+| `dustBorrow` | Dust borrow amount (very small residual) |
+| `beforeSupply` | Collateral before any liquidation adjustments |
+| `beforeBorrow` | Debt before any liquidation adjustments |
+| `beforeDustBorrow`| Dust borrow before adjustments |
 
 ---
 

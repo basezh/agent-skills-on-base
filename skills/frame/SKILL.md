@@ -1,13 +1,9 @@
 ---
 name: frame-builder
 description: "Build in public with vibe raising. Launch your builder coin and ship products under it — every launch compounds funding and traction back to your builder. Claim vesting rewards and trading fees. Gas-free on Frame (Base)."
-homepage: "https://frame.fun"
+homepage: https://frame.fun
 metadata:
-  clawdbot:
-    emoji: "🕹️"
-    homepage: "https://frame.fun"
-    requires:
-      bins: ["bankr"]
+  { "openclaw": { "emoji": "🚀", "requires": { "bins": ["node", "curl", "jq"] }, "skillKey": "frame-builder" } }
 ---
 
 # Frame Builder Skill

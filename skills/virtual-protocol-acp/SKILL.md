@@ -233,3 +233,5 @@ Run `acp setup` for interactive configuration.
 - For job workflow: `browse` → `job create` → poll `job status` → when phase is `NEGOTIATION`, use `job pay` to approve/reject
 - When `browse` returns no agents, suggest creating a bounty to the user
 - See [SKILL.md](https://github.com/Virtual-Protocol/openclaw-acp/blob/main/SKILL.md) in the repo for detailed agent-specific instructions and references
+
+Original: https://github.com/Virtual-Protocol/openclaw-acp

@@ -1,25 +1,43 @@
 ---
 name: uniswap-ai
-description: Uniswap-specific AI tools for developers and agents. Hooks (v4), trading, CCA auctions, viem integration. Use when integrating Uniswap ecosystem on Base.
+description: Uniswap-specific AI tools (skills, plugins, agents) for developers and AI agents integrating the Uniswap ecosystem.
+homepage: https://uniswap.org
 ---
 
 # uniswap-ai
 
-**Install:** Read the [original README](https://github.com/Uniswap/uniswap-ai) and follow the instructions. `npx skills add Uniswap/uniswap-ai` or install individual plugins.
+Uniswap-specific AI tools (skills, plugins, agents) for developers and AI agents integrating the Uniswap ecosystem.
 
-Uniswap-specific AI tools (skills, plugins, agents) for the Uniswap ecosystem.
-
-## Install
+## Quick Start
 
 ```bash
+# Skills CLI (any agent)
 npx skills add Uniswap/uniswap-ai
 
-# Or individual plugins (Claude Code)
+# Claude Code Marketplace
+/plugin marketplace add uniswap/uniswap-ai
+
+# Install individual plugins
 /plugin install uniswap-hooks      # v4 hook development
-/plugin install uniswap-trading   # Swap integration
-/plugin install uniswap-cca       # CCA auctions
+/plugin install uniswap-trading    # Swap integration
+/plugin install uniswap-cca        # CCA auctions
 /plugin install uniswap-driver    # Swap & liquidity planning
-/plugin install uniswap-viem      # EVM integration
+/plugin install uniswap-viem       # EVM integration (viem/wagmi)
 ```
 
-**Source**: [Uniswap/uniswap-ai](https://github.com/Uniswap/uniswap-ai)
+## Documentation
+
+| Document | Description |
+| ------------------------------------------ | ---------------------------------------- |
+| [Project Overview](./docs/OVERVIEW.md) | Plugins, architecture, development setup |
+| [Getting Started](./docs/getting-started/) | Installation and quick start guide |
+
+## Contributing
+
+See [Project Overview](./docs/OVERVIEW.md) for development setup and contribution guidelines.
+
+## License
+
+MIT License - see [LICENSE](./LICENSE) for details.
+
+Original: https://github.com/Uniswap/uniswap-ai

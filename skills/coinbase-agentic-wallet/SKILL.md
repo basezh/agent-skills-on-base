@@ -1,37 +1,70 @@
 ---
 name: coinbase-agentic-wallet
-description: Agent Skills for crypto wallet operations. Authenticate via email OTP, send USDC, trade tokens on Base using the awal CLI. Search x402 bazaar, pay for services, monetize APIs, query onchain data via CDP SQL.
+description: Agent Skills for crypto wallet operations. Authenticate, send USDC, trade tokens and more using the awal CLI.
+homepage: https://agentskills.io
 ---
 
 # Coinbase Agentic Wallet Skills
 
-**Install:** Read the [original README](https://github.com/coinbase/agentic-wallet-skills) and follow the instructions. `npx skills add coinbase/agentic-wallet-skills` or clone the repo.
+[Agent Skills](https://agentskills.io) for crypto wallet operations. These skills enable AI agents to authenticate, send USDC, trade tokens and more using the [`awal`](https://www.npmjs.com/package/awal) CLI.
 
-Agent Skills for crypto wallet operations using the [`awal`](https://www.npmjs.com/package/awal) CLI.
-
-## Available Sub-Skills
+## Available Skills
 
 | Skill | Description |
-|-------|-------------|
-| authenticate-wallet | Sign in via email OTP |
-| fund | Add money via Coinbase Onramp |
-| send-usdc | Send USDC to Ethereum addresses or ENS |
-| trade | Swap tokens on Base (USDC, ETH, WETH) |
-| search-for-service | Search x402 bazaar for paid API services |
-| pay-for-service | Make paid API requests via x402 |
-| monetize-service | Build and deploy paid API for other agents |
-| query-onchain-data | Query Base data via CDP SQL API (x402) |
+| ------------------------------------------------------------ | -------------------------------------------------------------- |
+| [authenticate-wallet](./skills/authenticate-wallet/SKILL.md) | Sign in to the wallet via email OTP |
+| [fund](./skills/fund/SKILL.md) | Add money to the wallet via Coinbase Onramp |
+| [send-usdc](./skills/send-usdc/SKILL.md) | Send USDC to Ethereum addresses or ENS names |
+| [trade](./skills/trade/SKILL.md) | Swap/trade tokens on Base (USDC, ETH, WETH) |
+| [search-for-service](./skills/search-for-service/SKILL.md) | Search the x402 bazaar for paid API services |
+| [pay-for-service](./skills/pay-for-service/SKILL.md) | Make paid API requests via x402 |
+| [monetize-service](./skills/monetize-service/SKILL.md) | Build and deploy a paid API that other agents can use via x402 |
+| [query-onchain-data](./skills/query-onchain-data/SKILL.md) | Query onchain data on Base using the CDP SQL API via x402 |
 
-## Install
+## Installation
+
+Install with [Vercel's Skills CLI](https://skills.sh):
 
 ```bash
 npx skills add coinbase/agentic-wallet-skills
 ```
 
-## Example Prompts
+## Usage
 
-- "Sign-in to my wallet with me@email.com"
-- "Send 10 USDC to barmstrong.eth"
-- "Swap 0.1 ETH to USDC on Base"
+Skills are automatically available once installed. The agent will use them when relevant tasks are detected.
 
-**Source**: [coinbase/agentic-wallet-skills](https://github.com/coinbase/agentic-wallet-skills)
+**Examples:**
+
+```text
+Sign-in to my wallet with me@email.com
+```
+
+```text
+Send 10 USDC to barmstrong.eth
+```
+
+## Contributing
+
+To add a new skill:
+
+1. Create a folder in `./skills/` with a lowercase, hyphenated name
+2. Add a `SKILL.md` file with YAML frontmatter and instructions
+
+See the [Agent Skills specification](https://agentskills.io/specification) for the complete format.
+
+### Updating the `awal` version
+
+All skills pin a specific version of the `awal` CLI. When a new version is published to npm, run:
+
+```bash
+# Make sure you're using Node v22+
+node ./scripts/bump-awal.js
+```
+
+This fetches the latest version from the npm registry and updates all skill files automatically.
+
+## License
+
+MIT
+
+Original: https://github.com/coinbase/agentic-wallet-skills
