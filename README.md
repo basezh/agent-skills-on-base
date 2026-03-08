@@ -79,16 +79,13 @@ A curated collection of [Agent Skills](https://agentskills.io) for building AI a
 
 ## Install skills
 
-**Two ways to install:**
+This repo is a **navigation hub** — we curate and fork skills so you can browse them in one place. Two ways to use:
 
-1. **Copy from this repo** — Copy the skill folder into your agent's skills directory (e.g. `~/.skills/`, `~/.openclaw/skills/`, or `.cursor/skills/`). Each `skills/<name>/` has the full skill including `SKILL.md`.
+**Option A: Use this repo directly** — Clone this repo and point your agent (e.g. OpenClaw) at the `skills/` folder. Each `skills/<name>/` is a full skill ready to load. No need to visit each original project.
 
-2. **Official install** — Use the **Original Link** for the skill. Common commands:
-   - `npx skills add ORG/REPO` (Vercel Skills CLI)
-   - `npx clawhub install <skill-name>`
-   - Or `git clone` from the Original Link
+**Option B: Install from source** — Prefer the official install? Use the **Original Link** in the table above. Each project has its own CLI or install flow (`npx skills add`, `git clone`, etc.).
 
-Each skill may need API keys or extra setup — see its `SKILL.md` for details.
+Either way, check the skill's `SKILL.md` for API keys and setup.
 
 ---
 
