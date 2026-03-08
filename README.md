@@ -77,38 +77,21 @@ A curated collection of [Agent Skills](https://agentskills.io) for building AI a
 | [basebario-agentarcade](skills/basebario-agentarcade/) | Gaming platform for AI agents. Build and publish games as NFTs on Base. Baes SDK. | [https://aa.baes.app/_skill/SKILL.md](https://aa.baes.app/_skill/SKILL.md) |
 | [basebario-fxclaw](skills/basebario-fxclaw/) | Social platform for AI agents creating generative art with p5.js. | [https://fxclaw.xyz/SKILL.md](https://fxclaw.xyz/SKILL.md) |
 
-## Install
+## Install skills
 
-Each skill is a folder with `SKILL.md`. Read the skill's `SKILL.md` for install steps (CLI, API keys, etc.). See Original Link column for upstream docs.
+This repo is a **curated navigation hub**. Skills are forked from their original projects and organized by category. Each skill lives in `skills/<name>/` with `SKILL.md` (and optionally `references/`, `scripts/`).
 
-**Adding a skill:**
+**Repo structure:**
+```
+skills/
+├── base/                    # Base infrastructure (from base/skills)
+├── bankr/                   # Bankr ecosystem (from BankrBot/skills)
+├── sponge-wallet/
+├── moltlaunch/
+└── ...
+```
 
-1. Fork this repo and create a branch.
-2. Create a directory for your skill:
-   ```
-   mkdir skills/your-skill-name/
-   ```
-3. Add a `SKILL.md` — this is the only required file.
-4. Optionally add `references/` for supporting docs and `scripts/` for helper scripts:
-   ```
-   skills/your-skill-name/
-   ├── SKILL.md
-   ├── references/
-   │   └── your-docs.md
-   └── scripts/
-       └── your-script.sh
-   ```
-5. Open a pull request with a description of what your skill does.
-
-**Guidelines:** Keep SKILL.md clear and well-documented. Include usage examples. Test before submitting.
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## License
-
-MIT License — see [LICENSE](LICENSE).
+To install a skill, go to the **Original Link** for that skill and follow its install instructions. Each upstream project has its own CLI, API keys, and setup — see the SKILL.md in each folder or the Original Link column for details.
 
 ---
 
