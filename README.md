@@ -2,7 +2,7 @@
 
 # Agent Skills on Base
 
-[![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh) <span style="display:inline-block;width:1px;height:20px;background:#d0d7de;margin:0 10px;vertical-align:middle"></span> [![X](https://img.shields.io/badge/@basezh-X-000000?style=flat-square&logo=x)](https://x.com/basezh) [![Telegram](https://img.shields.io/badge/@basezh-Telegram-26A5E4?style=flat-square&logo=telegram)](https://t.me/basezh) [![Farcaster](https://img.shields.io/badge/@basezh-Farcaster-6A3CFF?style=flat-square&logo=farcaster)](https://farcaster.xyz/basezh)
+[![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh) [![X](https://img.shields.io/badge/@basezh-X-000000?style=flat-square&logo=x)](https://x.com/basezh) [![Telegram](https://img.shields.io/badge/@basezh-Telegram-26A5E4?style=flat-square&logo=telegram)](https://t.me/basezh) [![Farcaster](https://img.shields.io/badge/@basezh-Farcaster-6A3CFF?style=flat-square&logo=farcaster)](https://farcaster.xyz/basezh)
 
 Base is the onchain home for AI agents!
 
@@ -114,15 +114,15 @@ Some skills require API keys or additional configuration. Check each skill's `SK
 
 # Agent Skills on Base
 
-[![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh) <span style="display:inline-block;width:1px;height:20px;background:#d0d7de;margin:0 10px;vertical-align:middle"></span> [![X](https://img.shields.io/badge/@basezh-X-000000?style=flat-square&logo=x)](https://x.com/basezh) [![Telegram](https://img.shields.io/badge/@basezh-Telegram-26A5E4?style=flat-square&logo=telegram)](https://t.me/basezh) [![Farcaster](https://img.shields.io/badge/@basezh-Farcaster-6A3CFF?style=flat-square&logo=farcaster)](https://farcaster.xyz/basezh)
+[![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh) [![X](https://img.shields.io/badge/@basezh-X-000000?style=flat-square&logo=x)](https://x.com/basezh) [![Telegram](https://img.shields.io/badge/@basezh-Telegram-26A5E4?style=flat-square&logo=telegram)](https://t.me/basezh) [![Farcaster](https://img.shields.io/badge/@basezh-Farcaster-6A3CFF?style=flat-square&logo=farcaster)](https://farcaster.xyz/basezh)
 
 Base 是 AI agents 的链上家园。
 
 本仓库精选 [Agent Skills](https://agentskills.io)，用于在 [Base](https://base.org) 上构建 AI agents。这些 skills 让 agents 能够连接 Base 基础设施、管理钱包、发行代币、参与 agent 市场、与 DeFi 协议交互等。
 
-## Available Skills
+## 可用 Skills
 
-### Infrastructure
+### 基础设施
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -130,7 +130,7 @@ Base 是 AI agents 的链上家园。
 | [quicknode](skills/quicknode/) | 区块链基础设施：RPC、Streams、Webhooks、IPFS，支持 80+ 链的增强 API，x402 按需付费。 | [https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill](https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill) |
 | [alchemy](skills/alchemy/) | 面向 agents 的区块链数据 API：Node API、Token API、Webhooks，x402 按量计费。 | [https://agents.alchemy.com/](https://agents.alchemy.com/) |
 
-### Agent Wallets
+### Agent 钱包
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -139,7 +139,7 @@ Base 是 AI agents 的链上家园。
 | [sponge-wallet](skills/sponge-wallet/) | 加密钱包、代币兑换、跨链桥接，x402 支付外部服务（搜索、图像生成、AI 等）。 | [https://wallet.paysponge.com/skill.md](https://wallet.paysponge.com/skill.md) |
 | [clawlett](skills/clawlett/) | OpenClaw skill：基于 Gnosis Safe + Zodiac Roles 的自主代币兑换与 Trenches 交易。 | [https://github.com/Creator-Bid/Clawlett](https://github.com/Creator-Bid/Clawlett) |
 
-### Agent Marketplaces
+### Agent 市场
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -149,7 +149,7 @@ Base 是 AI agents 的链上家园。
 | [moltdao](skills/moltdao/) | 面向 AI 的 DAO：投票、提案、使用 Base Sepolia 上的 USDC 参与治理。 | [https://moltdao.app/skill.html](https://moltdao.app/skill.html) |
 | [molten](skills/molten/) | 意图解析层：描述需求，Molten 自动匹配最佳能力。 | [https://molten.gg/skill.md](https://molten.gg/skill.md) |
 
-### Token Launch Platforms
+### 代币发行平台
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -160,7 +160,7 @@ Base 是 AI agents 的链上家园。
 | [frame](skills/frame/) | 公开构建与 vibe raising：发行 builder 代币、发布产品、领取 vesting 与交易费，Base 上 gas-free。 | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
 | [bankr](skills/bankr/) | Bankr Skills：代币发行、交易、SIWA、Farcaster、ENS、DeFi，从 BankrBot/skills 安装。 | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
 
-### DeFi Protocols
+### DeFi 协议
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -169,7 +169,7 @@ Base 是 AI agents 的链上家园。
 | [elsa](skills/elsa/) | Elsa x402 DeFi API 的 OpenClaw skill，Base 上 USDC 小额支付。 | [https://github.com/HeyElsa/elsa-openclaw](https://github.com/HeyElsa/elsa-openclaw) |
 | [fluid](skills/fluid/) | Fluid Protocol：借贷（ERC-4626 fTokens）、金库（T1–T4），存入、借出、管理仓位，无需 API key。 | [https://fluid.io/skill.md](https://fluid.io/skill.md) |
 
-### Social / Messaging
+### 社交 / 消息
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -179,7 +179,7 @@ Base 是 AI agents 的链上家园。
 | [moltline](skills/moltline/) | Molt 私信：认领 handle、与其他 molt 私聊，基于 XMTP。 | [https://www.moltline.com/skill.md](https://www.moltline.com/skill.md) |
 | [town](skills/town/) | Towns Protocol 机器人，在 Base 上构建社区机器人。 | [https://github.com/towns-protocol/skills](https://github.com/towns-protocol/skills) |
 
-### AI / LLM Capability
+### AI / LLM 能力
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -187,7 +187,7 @@ Base 是 AI agents 的链上家园。
 | [heurist-mesh](skills/heurist-mesh/) | 通过 30+ 专业 AI agents 获取 Web3/加密情报：分析、代币数据、钱包分析。 | [https://github.com/heurist-network/heurist-mesh-skill](https://github.com/heurist-network/heurist-mesh-skill) |
 | [venice-ai](skills/venice-ai/) | Venice AI 平台：文本、搜索、embedding、TTS、图像、视频，私有、无审查推理。 | [https://clawhub.ai/jonisjongithub/venice-ai](https://clawhub.ai/jonisjongithub/venice-ai) |
 
-### Gaming / Art Creation
+### 游戏 / 艺术创作
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -195,7 +195,7 @@ Base 是 AI agents 的链上家园。
 | [basebario-agentarcade](skills/basebario-agentarcade/) | AI agents 游戏平台，在 Base 上构建并发布游戏为 NFT，Baes SDK。 | [https://aa.baes.app/_skill/SKILL.md](https://aa.baes.app/_skill/SKILL.md) |
 | [basebario-fxclaw](skills/basebario-fxclaw/) | AI agents 用 p5.js 创作生成艺术的社交平台。 | [https://fxclaw.xyz/SKILL.md](https://fxclaw.xyz/SKILL.md) |
 
-## Install skills
+## 安装 skills
 
 本仓库为精选导航站，所有 skill 均已 fork 并可直接加载。克隆本仓库并将 skill 文件夹复制到 OpenClaw 的 `skills/` 目录，或通过上表中的 Original Link 单独安装。
 
