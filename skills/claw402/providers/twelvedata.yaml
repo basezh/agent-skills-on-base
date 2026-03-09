@@ -1,0 +1,188 @@
+id: twelvedata
+name: Twelve Data
+short_description: "Real-time & historical forex, metals, indices, and crypto data"
+short_description_zh: "实时与历史外汇、贵金属、指数及加密货币数据"
+full_description: "Twelve Data provides institutional-grade financial market data covering forex pairs, precious metals, global indices, and crypto. Access real-time quotes, OHLCV bars, technical indicators, and more through a simple REST API."
+full_description_zh: "Twelve Data 提供机构级金融市场数据，涵盖外汇货币对、贵金属、全球指数和加密货币。通过简洁的 REST API 获取实时报价、OHLCV K线、技术指标等。"
+website: https://twelvedata.com
+logo_url: /providers/twelvedata.svg
+category: forex
+tags: [forex, metals, gold, silver, indices, commodities, market-data]
+featured: true
+
+upstream_base_url: https://api.twelvedata.com
+upstream_type: api_key
+upstream_auth_env: TWELVEDATA_API_KEY
+upstream_auth_header: ""
+upstream_auth_param: apikey
+
+routes:
+  # ── Real-time Price ──
+  - gateway_path: /api/v1/twelvedata/price
+    upstream_path: /price
+    category: Price
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "实时价格（外汇/贵金属/指数/加密）"
+    description_en: "Real-time price for forex, metals, indices, or crypto"
+    allowed_params: [symbol]
+
+  - gateway_path: /api/v1/twelvedata/quote
+    upstream_path: /quote
+    category: Price
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "详细报价（含开高低收、成交量、52周高低等）"
+    description_en: "Detailed quote with OHLC, volume, 52-week high/low, etc."
+    allowed_params: [symbol, interval]
+
+  - gateway_path: /api/v1/twelvedata/eod
+    upstream_path: /eod
+    category: Price
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "日终收盘价"
+    description_en: "End-of-day closing price"
+    allowed_params: [symbol]
+
+  # ── Forex Specific ──
+  - gateway_path: /api/v1/twelvedata/exchange-rate
+    upstream_path: /exchange_rate
+    category: Forex
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "货币汇率转换（如 USD/CNY、EUR/JPY）"
+    description_en: "Currency exchange rate (e.g. USD/CNY, EUR/JPY)"
+    allowed_params: [symbol]
+
+  - gateway_path: /api/v1/twelvedata/forex-pairs
+    upstream_path: /forex_pairs
+    category: Forex
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "可用外汇货币对列表"
+    description_en: "List of available forex pairs"
+    allowed_params: [currency_base, currency_quote]
+
+  # ── Time Series (K-Lines) ──
+  - gateway_path: /api/v1/twelvedata/time-series
+    upstream_path: /time_series
+    category: Time Series
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "历史 OHLCV K线数据（支持1min到1month）"
+    description_en: "Historical OHLCV bars (1min to 1month intervals)"
+    allowed_params: [symbol, interval, outputsize, start_date, end_date]
+
+  - gateway_path: /api/v1/twelvedata/time-series/complex
+    upstream_path: /complex_data
+    method: POST
+    category: Time Series
+    user_price: "0.005"
+    upstream_cost: "0.000"
+    description: "复合查询：多品种 + 多指标一次请求"
+    description_en: "Complex query: multiple symbols + indicators in one request"
+    mime_type: application/json
+
+  # ── Technical Indicators ──
+  - gateway_path: /api/v1/twelvedata/indicator/sma
+    upstream_path: /sma
+    category: Indicators
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "简单移动平均线 (SMA)"
+    description_en: "Simple Moving Average (SMA)"
+    allowed_params: [symbol, interval, time_period, outputsize]
+
+  - gateway_path: /api/v1/twelvedata/indicator/ema
+    upstream_path: /ema
+    category: Indicators
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "指数移动平均线 (EMA)"
+    description_en: "Exponential Moving Average (EMA)"
+    allowed_params: [symbol, interval, time_period, outputsize]
+
+  - gateway_path: /api/v1/twelvedata/indicator/rsi
+    upstream_path: /rsi
+    category: Indicators
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "相对强弱指数 (RSI)"
+    description_en: "Relative Strength Index (RSI)"
+    allowed_params: [symbol, interval, time_period, outputsize]
+
+  - gateway_path: /api/v1/twelvedata/indicator/macd
+    upstream_path: /macd
+    category: Indicators
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "MACD 指标"
+    description_en: "Moving Average Convergence Divergence (MACD)"
+    allowed_params: [symbol, interval, outputsize]
+
+  - gateway_path: /api/v1/twelvedata/indicator/bbands
+    upstream_path: /bbands
+    category: Indicators
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "布林带 (Bollinger Bands)"
+    description_en: "Bollinger Bands"
+    allowed_params: [symbol, interval, time_period, outputsize]
+
+  - gateway_path: /api/v1/twelvedata/indicator/atr
+    upstream_path: /atr
+    category: Indicators
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "平均真实波幅 (ATR)"
+    description_en: "Average True Range (ATR)"
+    allowed_params: [symbol, interval, time_period, outputsize]
+
+  # ── Precious Metals Specific ──
+  - gateway_path: /api/v1/twelvedata/metals/price
+    upstream_path: /price
+    category: Metals
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "贵金属实时价格（XAU/USD, XAG/USD 等）"
+    description_en: "Precious metals real-time price (XAU/USD, XAG/USD, etc.)"
+    allowed_params: [symbol]
+
+  - gateway_path: /api/v1/twelvedata/metals/time-series
+    upstream_path: /time_series
+    category: Metals
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "贵金属历史K线"
+    description_en: "Precious metals historical bars"
+    allowed_params: [symbol, interval, outputsize, start_date, end_date]
+
+  # ── Economic Calendar ──
+  - gateway_path: /api/v1/twelvedata/economic-calendar
+    upstream_path: /economic_calendar
+    category: Economic
+    user_price: "0.003"
+    upstream_cost: "0.000"
+    description: "全球经济日历（非农、CPI、利率决议等）"
+    description_en: "Global economic calendar (NFP, CPI, rate decisions, etc.)"
+    allowed_params: [country, start_date, end_date, importance]
+
+  # ── Indices ──
+  - gateway_path: /api/v1/twelvedata/indices/list
+    upstream_path: /indices
+    category: Indices
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "全球指数列表"
+    description_en: "List of global indices"
+    allowed_params: [country]
+
+  - gateway_path: /api/v1/twelvedata/indices/quote
+    upstream_path: /quote
+    category: Indices
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "指数详细报价（S&P 500, 恒生, 日经等）"
+    description_en: "Index detailed quote (S&P 500, Hang Seng, Nikkei, etc.)"
+    allowed_params: [symbol, interval]

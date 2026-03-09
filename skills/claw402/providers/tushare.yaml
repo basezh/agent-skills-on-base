@@ -1,0 +1,181 @@
+id: tushare
+order: 10
+name: Tushare Pro
+short_description: "Comprehensive A-share market data & fundamentals"
+full_description: "Tushare Pro is the leading data platform for Chinese A-share markets, providing daily quotes, financials, north-bound capital flows, margin trading, institutional holdings, and more."
+website: https://tushare.pro
+logo_url: /providers/tushare.svg
+category: cn_stocks
+tags: [a-shares, china, fundamentals, margin, northbound-capital, financial-statements]
+featured: true
+
+upstream_base_url: https://api.tushare.pro
+upstream_type: tushare
+upstream_auth_env: TUSHARE_TOKEN
+
+routes:
+  # ── Daily Quotes ──
+  - gateway_path: /api/v1/stocks/cn/daily
+    upstream_path: /
+    tushare_api_name: daily
+    category: Quote
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "A股日线行情（OHLCV + 涨跌幅）"
+    description_en: "A-share daily OHLCV + price change"
+    allowed_params: [ts_code, trade_date, start_date, end_date]
+
+  - gateway_path: /api/v1/stocks/cn/weekly
+    upstream_path: /
+    tushare_api_name: weekly
+    category: Quote
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "A股周线行情"
+    description_en: "A-share weekly OHLCV"
+    allowed_params: [ts_code, trade_date, start_date, end_date]
+
+  - gateway_path: /api/v1/stocks/cn/monthly
+    upstream_path: /
+    tushare_api_name: monthly
+    category: Quote
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "A股月线行情"
+    description_en: "A-share monthly OHLCV"
+    allowed_params: [ts_code, trade_date, start_date, end_date]
+
+  - gateway_path: /api/v1/stocks/cn/daily-basic
+    upstream_path: /
+    tushare_api_name: daily_basic
+    category: Quote
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "A股每日指标（PE/PB/换手率/市值）"
+    description_en: "Daily valuation metrics: PE, PB, turnover rate, market cap"
+    allowed_params: [ts_code, trade_date, start_date, end_date]
+
+  # ── Stock List ──
+  - gateway_path: /api/v1/stocks/cn/stock-basic
+    upstream_path: /
+    tushare_api_name: stock_basic
+    category: Reference
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "A股股票列表（代码/名称/上市日期/行业）"
+    description_en: "A-share stock list: code, name, listing date, industry"
+    allowed_params: [exchange, list_status, is_hs]
+
+  - gateway_path: /api/v1/stocks/cn/trade-cal
+    upstream_path: /
+    tushare_api_name: trade_cal
+    category: Reference
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "A股交易日历（判断开市/闭市）"
+    description_en: "Trading calendar — open/closed market days"
+    allowed_params: [exchange, start_date, end_date, is_open]
+
+  # ── Financials ──
+  - gateway_path: /api/v1/stocks/cn/income
+    upstream_path: /
+    tushare_api_name: income
+    category: Financials
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "A股利润表（营业收入/净利润/毛利率等）"
+    description_en: "Income statement: revenue, net profit, gross margin"
+    allowed_params: [ts_code, ann_date, start_date, end_date, period, report_type]
+
+  - gateway_path: /api/v1/stocks/cn/balance-sheet
+    upstream_path: /
+    tushare_api_name: balancesheet
+    category: Financials
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "A股资产负债表"
+    description_en: "Balance sheet: assets, liabilities, equity"
+    allowed_params: [ts_code, ann_date, start_date, end_date, period, report_type]
+
+  - gateway_path: /api/v1/stocks/cn/cash-flow
+    upstream_path: /
+    tushare_api_name: cashflow
+    category: Financials
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "A股现金流量表"
+    description_en: "Cash flow statement: operating, investing, financing"
+    allowed_params: [ts_code, ann_date, start_date, end_date, period, report_type]
+
+  - gateway_path: /api/v1/stocks/cn/dividend
+    upstream_path: /
+    tushare_api_name: dividend
+    category: Financials
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "A股分红配股历史"
+    description_en: "Historical dividends and rights offerings"
+    allowed_params: [ts_code, ann_date, record_date, ex_date, imp_ann_date]
+
+  # ── Capital Flow ──
+  - gateway_path: /api/v1/stocks/cn/northbound
+    upstream_path: /
+    tushare_api_name: moneyflow_hsgt
+    category: Capital Flow
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "沪深港通北向资金每日净流入（陆股通）"
+    description_en: "Northbound capital flow (Stock Connect daily net inflow)"
+    allowed_params: [trade_date, start_date, end_date]
+
+  - gateway_path: /api/v1/stocks/cn/moneyflow
+    upstream_path: /
+    tushare_api_name: moneyflow
+    category: Capital Flow
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "个股资金流向（主力/散户净流入）"
+    description_en: "Individual stock capital flow: big money vs. retail net inflow"
+    allowed_params: [ts_code, trade_date, start_date, end_date]
+
+  # ── Margin Trading ──
+  - gateway_path: /api/v1/stocks/cn/margin
+    upstream_path: /
+    tushare_api_name: margin
+    category: Margin
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "融资融券汇总数据（两融余额）"
+    description_en: "Margin trading summary: total margin balance"
+    allowed_params: [trade_date, start_date, end_date, exchange_id]
+
+  - gateway_path: /api/v1/stocks/cn/margin-detail
+    upstream_path: /
+    tushare_api_name: margin_detail
+    category: Margin
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "个股融资融券明细"
+    description_en: "Per-stock margin trading detail (rzye, rqye)"
+    allowed_params: [ts_code, trade_date, start_date, end_date]
+
+  # ── Dragon Tiger List ──
+  - gateway_path: /api/v1/stocks/cn/top-list
+    upstream_path: /
+    tushare_api_name: top_list
+    category: Market
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "龙虎榜每日上榜股票"
+    description_en: "Dragon-Tiger list — notable institutional activity stocks"
+    allowed_params: [trade_date, ts_code]
+
+  - gateway_path: /api/v1/stocks/cn/top-inst
+    upstream_path: /
+    tushare_api_name: top_inst
+    category: Market
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "龙虎榜机构席位买卖明细"
+    description_en: "Dragon-Tiger institutional seat buy/sell details"
+    allowed_params: [trade_date, ts_code]

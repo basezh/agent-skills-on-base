@@ -1,0 +1,78 @@
+id: grok
+order: 11
+name: Grok (xAI)
+short_description: "Grok-4.1 & Grok-3-mini by xAI — pay per request with USDC"
+short_description_zh: "xAI Grok-4.1 & Grok-3-mini — 用 USDC 按次付费"
+full_description: "Access xAI's latest Grok model family without an account or API key. Grok-4.1 Fast is the latest flagship with reasoning capabilities, and Grok-3-mini delivers fast responses at low cost. OpenAI-compatible API."
+full_description_zh: "无需注册 xAI 账号或 API Key，直接用 USDC 按次调用 Grok 最新系列模型。Grok-4.1 Fast 是最新旗舰模型，支持推理能力；Grok-3-mini 提供快速响应，成本极低。兼容 OpenAI API 格式。"
+website: https://x.ai
+logo_url: /providers/grok.svg
+category: ai
+tags: [ai, llm, grok, xai, chat, reasoning, agents]
+featured: true
+
+upstream_base_url: https://api.x.ai
+upstream_type: api_key
+upstream_auth_env: XAI_API_KEY
+upstream_auth_header: Authorization
+
+routes:
+  # ── Chat Completions ──
+  - gateway_path: /api/v1/ai/grok/chat/4.1
+    upstream_path: /v1/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: grok-4-1-fast-reasoning
+    user_price: "0.06"
+    upstream_cost: "0.015"
+    description: "Grok-4.1 Fast 对话补全（最新旗舰，带推理能力）"
+    description_en: "Chat completions with Grok-4.1 Fast (latest flagship, with reasoning)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/grok/chat/4.1-fast
+    upstream_path: /v1/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: grok-4-1-fast-non-reasoning
+    user_price: "0.04"
+    upstream_cost: "0.010"
+    description: "Grok-4.1 Fast 对话补全（无推理模式，更快）"
+    description_en: "Chat completions with Grok-4.1 Fast non-reasoning (faster)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/grok/chat/4
+    upstream_path: /v1/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: grok-4-0709
+    user_price: "0.05"
+    upstream_cost: "0.011"
+    description: "Grok-4 对话补全（稳定版，256K 上下文）"
+    description_en: "Chat completions with Grok-4 (stable, 256K context)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/grok/chat/3-mini
+    upstream_path: /v1/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: grok-3-mini
+    user_price: "0.003"
+    upstream_cost: "0.001"
+    description: "Grok-3-mini 快速对话（低延迟，性价比之选）"
+    description_en: "Chat completions with Grok-3-mini (fast, great value)"
+    mime_type: application/json
+
+  # ── Models List ──
+  - gateway_path: /api/v1/ai/grok/models
+    upstream_path: /v1/models
+    method: GET
+    category: Models
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "可用 Grok 模型列表"
+    description_en: "List available Grok models"
+    mime_type: application/json

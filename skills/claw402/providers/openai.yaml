@@ -1,0 +1,124 @@
+id: openai
+order: 4
+name: OpenAI
+short_description: "GPT-5.4, GPT-5.3, GPT-5-mini and more — pay per request with USDC"
+short_description_zh: "GPT-5.4、GPT-5.3、GPT-5-mini 等模型 — 用 USDC 按次付费"
+full_description: "Access OpenAI's latest GPT-5 model family without an account or API key. From the flagship GPT-5.4 Pro to the ultra-fast GPT-5-mini, pay per request with USDC via x402."
+full_description_zh: "无需注册 OpenAI 账号或 API Key，直接用 USDC 按次调用 OpenAI 最新 GPT-5 系列模型。从旗舰 GPT-5.4 Pro 到超快 GPT-5-mini，按次付费。"
+website: https://openai.com
+logo_url: /providers/openai.svg
+category: ai
+tags: [ai, llm, gpt, gpt5, chat, embeddings, images, agents]
+featured: true
+
+upstream_base_url: https://api.openai.com
+upstream_type: api_key
+upstream_auth_env: OPENAI_API_KEY
+upstream_auth_header: Authorization
+
+routes:
+  # ── Chat Completions (GPT-5.x) ──
+  - gateway_path: /api/v1/ai/openai/chat/5.4
+    upstream_path: /v1/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: gpt-5.4
+    body_key_renames:
+      max_tokens: max_completion_tokens
+    user_price: "0.05"
+    upstream_cost: "0.015"
+    description: "GPT-5.4 对话补全（最强旗舰，1M 上下文）"
+    description_en: "Chat completions with GPT-5.4 (flagship, 1M context)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/openai/chat/5.4-pro
+    upstream_path: /v1/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: gpt-5.4-pro
+    body_key_renames:
+      max_tokens: max_completion_tokens
+    user_price: "0.50"
+    upstream_cost: "0.18"
+    description: "GPT-5.4 Pro 深度推理（最高精度）"
+    description_en: "Chat completions with GPT-5.4 Pro (highest precision)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/openai/chat/5.3
+    upstream_path: /v1/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: gpt-5.3-chat-latest
+    body_key_renames:
+      max_tokens: max_completion_tokens
+    user_price: "0.01"
+    upstream_cost: "0.003"
+    description: "GPT-5.3 Instant 快速对话（性价比之选）"
+    description_en: "Chat completions with GPT-5.3 Instant (fast, great value)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/openai/chat/5-mini
+    upstream_path: /v1/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: gpt-5-mini
+    body_key_renames:
+      max_tokens: max_completion_tokens
+    user_price: "0.005"
+    upstream_cost: "0.001"
+    description: "GPT-5-mini 轻量对话（最快最便宜）"
+    description_en: "Chat completions with GPT-5-mini (fastest, cheapest)"
+    mime_type: application/json
+
+  # ── Embeddings ──
+  - gateway_path: /api/v1/ai/openai/embeddings
+    upstream_path: /v1/embeddings
+    method: POST
+    category: Embeddings
+    body_overrides:
+      model: text-embedding-3-small
+    user_price: "0.002"
+    upstream_cost: "0.0001"
+    description: "文本向量嵌入（text-embedding-3-small）"
+    description_en: "Text embeddings with text-embedding-3-small"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/openai/embeddings/large
+    upstream_path: /v1/embeddings
+    method: POST
+    category: Embeddings
+    body_overrides:
+      model: text-embedding-3-large
+    user_price: "0.005"
+    upstream_cost: "0.0004"
+    description: "高维度文本向量嵌入（text-embedding-3-large）"
+    description_en: "Text embeddings with text-embedding-3-large"
+    mime_type: application/json
+
+  # ── Image Generation ──
+  - gateway_path: /api/v1/ai/openai/images
+    upstream_path: /v1/images/generations
+    method: POST
+    category: Images
+    body_overrides:
+      model: gpt-image-1
+    user_price: "0.05"
+    upstream_cost: "0.02"
+    description: "GPT Image 图像生成"
+    description_en: "Image generation with GPT Image"
+    mime_type: application/json
+
+  # ── Models List ──
+  - gateway_path: /api/v1/ai/openai/models
+    upstream_path: /v1/models
+    method: GET
+    category: Models
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "可用模型列表"
+    description_en: "List available models"
+    mime_type: application/json

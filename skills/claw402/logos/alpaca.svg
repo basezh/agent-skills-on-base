@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="12" fill="#fcd72b"/>
+  <!-- Alpaca circle mark simplified -->
+  <circle cx="60" cy="52" r="34" fill="#fcd72b" stroke="#1a1a1a" stroke-width="3"/>
+  <!-- simplified alpaca head shape -->
+  <ellipse cx="60" cy="42" rx="14" ry="16" fill="#1a1a1a"/>
+  <ellipse cx="54" cy="32" rx="4" ry="8" fill="#1a1a1a"/>
+  <ellipse cx="66" cy="32" rx="4" ry="8" fill="#1a1a1a"/>
+  <ellipse cx="60" cy="46" rx="9" ry="10" fill="#fcd72b"/>
+  <text x="60" y="102" text-anchor="middle"
+        font-family="Arial Black, Arial, sans-serif" font-size="14" font-weight="900"
+        fill="#1a1a1a" letter-spacing="2">ALPACA</text>
+</svg>

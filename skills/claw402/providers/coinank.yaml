@@ -1,0 +1,724 @@
+id: coinank
+name: CoinAnk
+order: 1
+short_description: "Professional crypto derivatives & on-chain data"
+short_description_zh: "专业加密货币衍生品与链上数据"
+full_description: "CoinAnk provides comprehensive crypto market data including open interest, funding rates, liquidation data, order book analytics, and more across major exchanges."
+full_description_zh: "CoinAnk 提供全面的加密货币市场数据，包括持仓量、资金费率、爆仓数据、订单簿分析等，覆盖各大主流交易所。"
+website: https://coinank.com
+logo_url: /providers/coinank.svg
+category: crypto
+tags: [derivatives, on-chain, defi, market-data, exchanges]
+featured: true
+
+upstream_base_url: https://open-api.coinank.com
+upstream_type: api_key
+upstream_auth_env: COINANK_API_KEY
+upstream_auth_header: apikey
+
+routes:
+  # ── 1. K-Line (VIP1) ──
+  - gateway_path: /api/v1/coinank/kline/lists
+    upstream_path: /api/kline/lists
+    category: K-Line
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "K线行情数据（SWAP/SPOT，支持多交易所）"
+    description_en: "Candlestick data (SWAP/SPOT, multi-exchange)"
+    allowed_params: [symbol, exchange, endTime, size, interval, productType]
+
+  # ── 2. ETF (VIP1) ──
+  - gateway_path: /api/v1/coinank/etf/us-btc
+    upstream_path: /api/etf/getUsBtcEtf
+    category: ETF
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "美国 BTC ETF 列表（IBIT, FBTC 等）"
+    description_en: "US Bitcoin ETF list (IBIT, FBTC, etc.)"
+
+  - gateway_path: /api/v1/coinank/etf/us-eth
+    upstream_path: /api/etf/getUsEthEtf
+    category: ETF
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "美国 ETH ETF 列表"
+    description_en: "US Ethereum ETF list"
+
+  - gateway_path: /api/v1/coinank/etf/us-btc-inflow
+    upstream_path: /api/etf/usBtcInflow
+    category: ETF
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "美国 BTC ETF 历史净流入数据"
+    description_en: "US BTC ETF historical net inflow data"
+
+  - gateway_path: /api/v1/coinank/etf/us-eth-inflow
+    upstream_path: /api/etf/usEthInflow
+    category: ETF
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "美国 ETH ETF 历史净流入数据"
+    description_en: "US ETH ETF historical net inflow data"
+
+  - gateway_path: /api/v1/coinank/etf/hk-inflow
+    upstream_path: /api/etf/hkEtfInflow
+    category: ETF
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "港股 ETF 历史净流入数据"
+    description_en: "Hong Kong ETF historical net inflow data"
+
+  # ── 3. HyperLiquid (VIP2) ──
+  - gateway_path: /api/v1/coinank/hyper/top-position
+    upstream_path: /api/hyper/topPosition
+    category: HyperLiquid
+    user_price: "0.001"
+    upstream_cost: "0.012"
+    description: "HyperLiquid 鲸鱼持仓排行"
+    description_en: "HyperLiquid whale position rankings"
+    allowed_params: [sortBy, sortType, page, size]
+
+  - gateway_path: /api/v1/coinank/hyper/top-action
+    upstream_path: /api/hyper/topAction
+    category: HyperLiquid
+    user_price: "0.001"
+    upstream_cost: "0.012"
+    description: "HyperLiquid 鲸鱼最新操作动态"
+    description_en: "HyperLiquid whale latest trade actions"
+
+  # ── 4. Net Positions (VIP3) ──
+  - gateway_path: /api/v1/coinank/net-positions
+    upstream_path: /api/netPositions/getNetPositions
+    category: Net Positions
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "净多头/净空头历史数据"
+    description_en: "Net long/short positions historical data"
+    allowed_params: [exchange, symbol, interval, endTime, size]
+
+  # ── 5. Large Trades (VIP3) ──
+  - gateway_path: /api/v1/coinank/trades/large
+    upstream_path: /api/trades/largeTrades
+    category: Large Trades
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "大额市价订单列表（大单监控）"
+    description_en: "Large market order list (whale trade monitor)"
+    allowed_params: [symbol, productType, amount, endTime, size]
+
+  - gateway_path: /api/v1/coinank/big-order/list
+    upstream_path: /api/bigOrder/queryOrderList
+    category: Large Trades
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "大额限价挂单列表"
+    description_en: "Large limit order list"
+    allowed_params: [symbol, exchangeType, size, amount, side, exchange, isHistory, startTime]
+
+  # ── 6. Coin Info (VIP1) ──
+  - gateway_path: /api/v1/coinank/price/last
+    upstream_path: /api/instruments/getLastPrice
+    category: Coin Info
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "交易对实时最新价格"
+    description_en: "Trading pair latest real-time price"
+    allowed_params: [symbol, exchange, productType]
+
+  - gateway_path: /api/v1/coinank/coin/market-cap
+    upstream_path: /api/instruments/getCoinMarketCap
+    category: Coin Info
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "币种市值信息"
+    description_en: "Coin market cap information"
+    allowed_params: [baseCoin]
+
+  - gateway_path: /api/v1/coinank/coin/list
+    upstream_path: /api/baseCoin/list
+    category: Coin Info
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "支持的币种列表"
+    description_en: "Supported coins list"
+    allowed_params: [productType]
+
+  - gateway_path: /api/v1/coinank/coin/symbols
+    upstream_path: /api/baseCoin/symbols
+    category: Coin Info
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "支持的交易对列表（按交易所）"
+    description_en: "Supported trading pairs list (by exchange)"
+    allowed_params: [exchange, productType]
+
+  # ── 7. Long/Short (VIP1/VIP3) ──
+  - gateway_path: /api/v1/coinank/longshort/buy-sell
+    upstream_path: /api/longshort/buySell
+    category: Long/Short
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "全市场多空买卖比历史（VIP3）"
+    description_en: "Global long/short buy-sell ratio history"
+    allowed_params: [baseCoin, interval, endTime, size]
+
+  - gateway_path: /api/v1/coinank/longshort/realtime
+    upstream_path: /api/longshort/realtimeAll
+    category: Long/Short
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "各交易所实时多空比（VIP1）"
+    description_en: "Real-time long/short ratio by exchange"
+    allowed_params: [baseCoin, interval]
+
+  - gateway_path: /api/v1/coinank/longshort/person
+    upstream_path: /api/longshort/person
+    category: Long/Short
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "多空持仓人数比历史（VIP1，支持 Binance/OKX/Bybit）"
+    description_en: "Long/short account count ratio history (Binance/OKX/Bybit)"
+    allowed_params: [exchange, symbol, interval, endTime, size]
+
+  - gateway_path: /api/v1/coinank/longshort/position
+    upstream_path: /api/longshort/position
+    category: Long/Short
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "大户多空持仓比（持仓量维度，VIP1）"
+    description_en: "Whale long/short position ratio (by position size)"
+    allowed_params: [exchange, symbol, interval, endTime, size]
+
+  - gateway_path: /api/v1/coinank/longshort/account
+    upstream_path: /api/longshort/account
+    category: Long/Short
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "大户多空比（账户数维度，VIP1）"
+    description_en: "Whale long/short ratio by account count (VIP1)"
+    allowed_params: [exchange, symbol, interval, endTime, size]
+
+  - gateway_path: /api/v1/coinank/longshort/kline
+    upstream_path: /api/longshort/kline
+    category: Long/Short
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "多空比 K 线（type: longShortPerson/longShortPosition/longShortAccount，VIP1）"
+    description_en: "Long/short ratio candlestick (VIP1; type: longShortPerson/Position/Account)"
+    allowed_params: [exchange, symbol, interval, endTime, size, type]
+
+  # ── 8. Market Orders (VIP3) ──
+  - gateway_path: /api/v1/coinank/market-order/cvd
+    upstream_path: /api/marketOrder/getCvd
+    category: Market Orders
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "CVD 主动买卖量差（单交易对，VIP3）"
+    description_en: "CVD cumulative volume delta — single pair (VIP3)"
+    allowed_params: [exchange, symbol, interval, endTime, size, productType]
+
+  - gateway_path: /api/v1/coinank/market-order/buy-sell-count
+    upstream_path: /api/marketOrder/getBuySellCount
+    category: Market Orders
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "主动买卖笔数（单交易对，VIP3）"
+    description_en: "Market buy/sell order count — single pair (VIP3)"
+    allowed_params: [exchange, symbol, interval, endTime, size, productType]
+
+  - gateway_path: /api/v1/coinank/market-order/buy-sell-value
+    upstream_path: /api/marketOrder/getBuySellValue
+    category: Market Orders
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "主动买卖额（USD，单交易对，VIP3）"
+    description_en: "Market buy/sell value in USD — single pair (VIP3)"
+    allowed_params: [exchange, symbol, interval, endTime, size, productType]
+
+  - gateway_path: /api/v1/coinank/market-order/buy-sell-volume
+    upstream_path: /api/marketOrder/getBuySellVolume
+    category: Market Orders
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "主动买卖量（币本位，单交易对，VIP3）"
+    description_en: "Market buy/sell volume in coins — single pair (VIP3)"
+    allowed_params: [exchange, symbol, interval, endTime, size, productType]
+
+  - gateway_path: /api/v1/coinank/market-order/agg-cvd
+    upstream_path: /api/marketOrder/getAggCvd
+    category: Market Orders
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "聚合 CVD（跨交易所，exchanges 传空字符串=聚合全部，VIP3）"
+    description_en: "Aggregated CVD across exchanges (VIP3)"
+    allowed_params: [baseCoin, interval, endTime, size, productType, exchanges]
+
+  - gateway_path: /api/v1/coinank/market-order/agg-buy-sell-count
+    upstream_path: /api/marketOrder/getAggBuySellCount
+    category: Market Orders
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "聚合买卖笔数（跨交易所，VIP3）"
+    description_en: "Aggregated buy/sell count across exchanges (VIP3)"
+    allowed_params: [baseCoin, interval, endTime, size, productType, exchanges]
+
+  - gateway_path: /api/v1/coinank/market-order/agg-buy-sell-value
+    upstream_path: /api/marketOrder/getAggBuySellValue
+    category: Market Orders
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "聚合买卖额（跨交易所，VIP3）"
+    description_en: "Aggregated buy/sell value across exchanges (VIP3)"
+    allowed_params: [baseCoin, interval, endTime, size, productType, exchanges]
+
+  - gateway_path: /api/v1/coinank/market-order/agg-buy-sell-volume
+    upstream_path: /api/marketOrder/getAggBuySellVolume
+    category: Market Orders
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "聚合买卖量（跨交易所，VIP3）"
+    description_en: "Aggregated buy/sell volume across exchanges (VIP3)"
+    allowed_params: [baseCoin, interval, endTime, size, productType, exchanges]
+
+  # ── 9. News (VIP2) ──
+  - gateway_path: /api/v1/coinank/news/list
+    upstream_path: /api/news/getNewsList
+    category: News
+    user_price: "0.001"
+    upstream_cost: "0.012"
+    description: "新闻/快讯列表（type:1=快讯,2=新闻；lang:zh/en）"
+    description_en: "News/flash list (type:1=flash,2=news; lang:zh/en)"
+    allowed_params: [type, lang, page, pageSize, isPopular, search]
+
+  - gateway_path: /api/v1/coinank/news/detail
+    upstream_path: /api/news/getNewsDetail
+    category: News
+    user_price: "0.001"
+    upstream_cost: "0.012"
+    description: "新闻/快讯详情（id 从 news/list 获取）"
+    description_en: "News/flash detail (id from news/list)"
+    allowed_params: [id]
+
+  # ── 10. Indicators (VIP1) ──
+  - gateway_path: /api/v1/coinank/indicator/btc-multiplier
+    upstream_path: /api/indicator/getBtcMultiplier
+    category: Indicators
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "BTC 两年 MA 乘数指标"
+    description_en: "BTC 2-year MA multiplier indicator"
+
+  - gateway_path: /api/v1/coinank/indicator/fear-greed
+    upstream_path: /api/indicator/getCnnEntity
+    category: Indicators
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "加密货币贪婪恐惧指数"
+    description_en: "Crypto fear & greed index"
+
+  - gateway_path: /api/v1/coinank/indicator/ahr999
+    upstream_path: /api/indicator/getAhr999
+    category: Indicators
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "ahr999 囤币指标"
+    description_en: "AHR999 Bitcoin accumulation indicator"
+
+  - gateway_path: /api/v1/coinank/indicator/puell-multiple
+    upstream_path: /api/indicator/getPuellMultiple
+    category: Indicators
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "普尔系数（Puell Multiple）"
+    description_en: "Puell Multiple indicator"
+
+  - gateway_path: /api/v1/coinank/indicator/btc-pi
+    upstream_path: /api/indicator/getBtcPi
+    category: Indicators
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "Pi 循环顶部指标"
+    description_en: "Pi Cycle Top indicator"
+
+  - gateway_path: /api/v1/coinank/indicator/ma-heatmap
+    upstream_path: /api/indicator/getMovingAvgHeatmap
+    category: Indicators
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "200 周均线热力图"
+    description_en: "200-week moving average heatmap"
+
+  - gateway_path: /api/v1/coinank/indicator/altcoin-season
+    upstream_path: /api/indicator/getAltcoinSeason
+    category: Indicators
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "山寨季指数"
+    description_en: "Altcoin Season Index"
+
+  - gateway_path: /api/v1/coinank/indicator/market-cap-rank
+    upstream_path: /api/indicator/getMarketCapRank
+    category: Indicators
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "币种市值占比排名"
+    description_en: "Coin market cap dominance rankings"
+    allowed_params: [symbol]
+
+  - gateway_path: /api/v1/coinank/indicator/grayscale
+    upstream_path: /api/indicator/getGrayscaleOpenInterest
+    category: Indicators
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "灰度持仓数据（GBTC/ETHE 等）"
+    description_en: "Grayscale holdings data (GBTC/ETHE, etc.)"
+    allowed_params: [symbol]
+
+  - gateway_path: /api/v1/coinank/indicator/charts
+    upstream_path: /api/indicator/index/charts
+    category: Indicators
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "综合指标图表（彩虹图等，type=bitcoin-rainbow-v2）"
+    description_en: "Composite indicator charts (type=bitcoin-rainbow-v2)"
+    allowed_params: [type]
+
+  # ── 11. Open Interest (VIP1/VIP2) ──
+  - gateway_path: /api/v1/coinank/oi/all
+    upstream_path: /api/openInterest/all
+    category: Open Interest
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "实时各交易所持仓量列表（VIP1）"
+    description_en: "Real-time open interest list by exchange"
+    allowed_params: [baseCoin]
+
+  - gateway_path: /api/v1/coinank/oi/agg-chart
+    upstream_path: /api/openInterest/v2/chart
+    category: Open Interest
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "币种聚合持仓历史（exchange 传空=全部，VIP1）"
+    description_en: "Coin aggregated OI history (exchange=empty for all)"
+    allowed_params: [baseCoin, exchange, interval, size, type, endTime]
+
+  - gateway_path: /api/v1/coinank/oi/symbol-chart
+    upstream_path: /api/openInterest/symbol/Chart
+    category: Open Interest
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "交易对持仓历史（VIP1）"
+    description_en: "Trading pair open interest history"
+    allowed_params: [exchange, symbol, interval, endTime, size, type]
+
+  - gateway_path: /api/v1/coinank/oi/kline
+    upstream_path: /api/openInterest/kline
+    category: Open Interest
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "交易对持仓 K 线（VIP1）"
+    description_en: "Trading pair open interest candlestick"
+    allowed_params: [exchange, symbol, interval, endTime, size]
+
+  - gateway_path: /api/v1/coinank/oi/agg-kline
+    upstream_path: /api/openInterest/aggKline
+    category: Open Interest
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "聚合持仓 K 线（VIP1）"
+    description_en: "Aggregated open interest candlestick"
+    allowed_params: [baseCoin, interval, endTime, size]
+
+  - gateway_path: /api/v1/coinank/oi/by-exchange
+    upstream_path: /api/tickers/topOIByEx
+    category: Open Interest
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "实时持仓按交易所统计（VIP1）"
+    description_en: "Real-time open interest breakdown by exchange"
+    allowed_params: [baseCoin]
+
+  - gateway_path: /api/v1/coinank/oi/vs-market-cap-hist
+    upstream_path: /api/instruments/oiVsMc
+    category: Open Interest
+    user_price: "0.001"
+    upstream_cost: "0.012"
+    description: "历史持仓市值比（VIP2）"
+    description_en: "Historical open interest to market cap ratio"
+    allowed_params: [baseCoin, endTime, size, interval]
+
+  # ── 12. Rankings (VIP2) ──
+  - gateway_path: /api/v1/coinank/rank/screener
+    upstream_path: /api/instruments/visualScreener
+    category: Rankings
+    user_price: "0.001"
+    upstream_cost: "0.012"
+    description: "视觉筛选器（多维度综合排行，VIP2）"
+    description_en: "Visual screener (multi-dimensional rankings)"
+    allowed_params: [interval]
+
+  - gateway_path: /api/v1/coinank/rank/oi-vs-market-cap
+    upstream_path: /api/instruments/oiVsMarketCap
+    category: Rankings
+    user_price: "0.001"
+    upstream_cost: "0.012"
+    description: "持仓/市值排行（VIP2）"
+    description_en: "Open interest vs market cap rankings (VIP2)"
+    allowed_params: [page, size, sortBy, sortType]
+
+  - gateway_path: /api/v1/coinank/rank/long-short
+    upstream_path: /api/instruments/longShortRank
+    category: Rankings
+    user_price: "0.001"
+    upstream_cost: "0.012"
+    description: "多空持仓人数比排行（VIP2）"
+    description_en: "Long/short account count ratio rankings"
+    allowed_params: [sortBy, sortType, size, page]
+
+  - gateway_path: /api/v1/coinank/rank/oi
+    upstream_path: /api/instruments/oiRank
+    category: Rankings
+    user_price: "0.001"
+    upstream_cost: "0.012"
+    description: "持仓量排行榜（VIP2）"
+    description_en: "Open interest amount rankings"
+    allowed_params: [sortBy, sortType, size, page]
+
+  - gateway_path: /api/v1/coinank/rank/trade-count
+    upstream_path: /api/trades/count
+    category: Rankings
+    user_price: "0.001"
+    upstream_cost: "0.012"
+    description: "交易笔数排行（sortBy: h1Count/h4Count/d1Count，VIP2）"
+    description_en: "Trade count rankings (VIP2; sortBy: h1Count/h4Count/d1Count)"
+    allowed_params: [productType, sortBy, sortType]
+
+  - gateway_path: /api/v1/coinank/rank/liquidation
+    upstream_path: /api/instruments/liquidationRank
+    category: Rankings
+    user_price: "0.001"
+    upstream_cost: "0.012"
+    description: "爆仓排行榜（sortBy: liquidationH24 等，VIP2）"
+    description_en: "Liquidation amount rankings"
+    allowed_params: [sortBy, sortType, page, size]
+
+  - gateway_path: /api/v1/coinank/rank/price
+    upstream_path: /api/instruments/priceRank
+    category: Rankings
+    user_price: "0.001"
+    upstream_cost: "0.012"
+    description: "价格变化排行（sortBy: priceChangeH24/priceChangeH1 等，VIP2）"
+    description_en: "Price change rankings (sortBy: priceChangeH24/priceChangeH1)"
+    allowed_params: [sortBy, sortType]
+
+  - gateway_path: /api/v1/coinank/rank/volume
+    upstream_path: /api/instruments/volumeRank
+    category: Rankings
+    user_price: "0.001"
+    upstream_cost: "0.012"
+    description: "交易量变化排行（sortBy: h24Volume/h1Volume 等，VIP2）"
+    description_en: "Volume change rankings (sortBy: h24Volume/h1Volume)"
+    allowed_params: [sortBy, sortType]
+
+  # ── 13. Liquidation (VIP1/VIP3/VIP4) ──
+  - gateway_path: /api/v1/coinank/liquidation/intervals
+    upstream_path: /api/liquidation/allExchange/intervals
+    category: Liquidation
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "各时间段实时爆仓统计（VIP1）"
+    description_en: "Liquidation statistics across time periods"
+    allowed_params: [baseCoin]
+
+  - gateway_path: /api/v1/coinank/liquidation/agg-history
+    upstream_path: /api/liquidation/aggregated-history
+    category: Liquidation
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "聚合爆仓历史（VIP1）"
+    description_en: "Aggregated liquidation history"
+    allowed_params: [baseCoin, interval, endTime, size]
+
+  - gateway_path: /api/v1/coinank/liquidation/history
+    upstream_path: /api/liquidation/history
+    category: Liquidation
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "交易对爆仓历史（VIP1）"
+    description_en: "Trading pair liquidation history"
+    allowed_params: [exchange, symbol, interval, endTime, size]
+
+  - gateway_path: /api/v1/coinank/liquidation/orders
+    upstream_path: /api/liquidation/orders
+    category: Liquidation
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "爆仓订单列表（VIP3）"
+    description_en: "Liquidation order list"
+    allowed_params: [baseCoin, exchange, side, amount, endTime]
+
+  - gateway_path: /api/v1/coinank/liquidation/liq-map
+    upstream_path: /api/liqMap/getLiqMap
+    category: Liquidation
+    user_price: "0.001"
+    upstream_cost: "0.020"
+    description: "清算地图（VIP4）"
+    description_en: "Liquidation map (price level distribution)"
+    allowed_params: [symbol, exchange, interval]
+
+  - gateway_path: /api/v1/coinank/liquidation/agg-liq-map
+    upstream_path: /api/liqMap/getAggLiqMap
+    category: Liquidation
+    user_price: "0.001"
+    upstream_cost: "0.020"
+    description: "聚合清算地图（VIP4）"
+    description_en: "Aggregated liquidation map (VIP4)"
+    allowed_params: [baseCoin, interval]
+
+  - gateway_path: /api/v1/coinank/liquidation/heat-map
+    upstream_path: /api/liqMap/getLiqHeatMap
+    category: Liquidation
+    user_price: "0.001"
+    upstream_cost: "0.020"
+    description: "清算热力图（VIP4）"
+    description_en: "Liquidation heatmap"
+    allowed_params: [exchange, symbol, interval]
+
+  - gateway_path: /api/v1/coinank/liquidation/heat-map-symbols
+    upstream_path: /api/liqMap/getLiqHeatMapSymbol
+    category: Liquidation
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "清算热力图支持的交易对列表（VIP1）"
+    description_en: "Supported symbols for liquidation heatmap"
+
+  # ── 14. Order Book (VIP3/VIP4) ──
+  - gateway_path: /api/v1/coinank/orderbook/by-symbol
+    upstream_path: /api/orderBook/v2/bySymbol
+    category: Order Book
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "按交易对查询挂单深度历史（VIP3）"
+    description_en: "Order book depth history by trading pair (VIP3)"
+    allowed_params: [symbol, exchange, rate, productType, interval, endTime, size]
+
+  - gateway_path: /api/v1/coinank/orderbook/by-exchange
+    upstream_path: /api/orderBook/v2/byExchange
+    category: Order Book
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "按交易所查询挂单深度历史（VIP3）"
+    description_en: "Order book depth history by exchange (VIP3)"
+    allowed_params: [baseCoin, productType, interval, endTime, size, exchanges, type]
+
+  - gateway_path: /api/v1/coinank/orderbook/heatmap
+    upstream_path: /api/orderBook/getHeatMap
+    category: Order Book
+    user_price: "0.001"
+    upstream_cost: "0.020"
+    description: "挂单流动性热力图（VIP4，endTime 必须传当前时间戳）"
+    description_en: "Order book liquidity heatmap (VIP4)"
+    allowed_params: [exchange, symbol, interval, endTime, size]
+
+  # ── 15. Fund Flow (VIP3) ──
+  - gateway_path: /api/v1/coinank/fund/realtime
+    upstream_path: /api/fund/fundReal
+    category: Fund Flow
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "实时资金流排行（sortBy: h1net/h4net/h8net/h24net，VIP3）"
+    description_en: "Real-time fund flow rankings (sortBy: h1net/h4net/h8net/h24net)"
+    allowed_params: [productType, page, size, sortBy, sortType, baseCoin]
+
+  - gateway_path: /api/v1/coinank/fund/history
+    upstream_path: /api/fund/getFundHisList
+    category: Fund Flow
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "历史资金流（VIP3）"
+    description_en: "Historical fund flow data"
+    allowed_params: [baseCoin, endTime, productType, size, interval]
+
+  # ── 16. Order Flow (VIP3) ──
+  - gateway_path: /api/v1/coinank/order-flow/lists
+    upstream_path: /api/orderFlow/lists
+    category: Order Flow
+    user_price: "0.001"
+    upstream_cost: "0.016"
+    description: "订单流数据（VIP3）"
+    description_en: "Order flow data"
+    allowed_params: [exchange, symbol, interval, endTime, size, productType, tickCount]
+
+  # ── 17. Funding Rate (VIP1) ──
+  - gateway_path: /api/v1/coinank/funding-rate/hist
+    upstream_path: /api/fundingRate/hist
+    category: Funding Rate
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "历史资金费率（跨交易所，VIP1）"
+    description_en: "Historical funding rates (cross-exchange)"
+    allowed_params: [baseCoin, exchangeType, endTime, size]
+
+  - gateway_path: /api/v1/coinank/funding-rate/current
+    upstream_path: /api/fundingRate/current
+    category: Funding Rate
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "实时资金费率排行（type: current/day/week/month/year，VIP1）"
+    description_en: "Real-time funding rate rankings (type: current/day/week/month/year)"
+    allowed_params: [type]
+
+  - gateway_path: /api/v1/coinank/funding-rate/accumulated
+    upstream_path: /api/fundingRate/accumulated
+    category: Funding Rate
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "累计资金费率（type: day/week/month/year，VIP1）"
+    description_en: "Accumulated funding rates (type: day/week/month/year)"
+    allowed_params: [type]
+
+  - gateway_path: /api/v1/coinank/funding-rate/indicator
+    upstream_path: /api/fundingRate/indicator
+    category: Funding Rate
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "交易对资金费率历史（VIP1）"
+    description_en: "Trading pair funding rate history (VIP1)"
+    allowed_params: [exchange, symbol, interval, endTime, size]
+
+  - gateway_path: /api/v1/coinank/funding-rate/kline
+    upstream_path: /api/fundingRate/kline
+    category: Funding Rate
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "资金费率 K 线（VIP1）"
+    description_en: "Funding rate candlestick"
+    allowed_params: [exchange, symbol, interval, endTime, size]
+
+  - gateway_path: /api/v1/coinank/funding-rate/weighted
+    upstream_path: /api/fundingRate/getWeiFr
+    category: Funding Rate
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "加权资金费率（VIP1）"
+    description_en: "Weighted average funding rate"
+    allowed_params: [baseCoin, interval, endTime, size]
+
+  - gateway_path: /api/v1/coinank/funding-rate/heatmap
+    upstream_path: /api/fundingRate/frHeatmap
+    category: Funding Rate
+    user_price: "0.001"
+    upstream_cost: "0.008"
+    description: "资金费率热力图（type: openInterest/marketCap；interval: 1D/1W/1M/6M，VIP1）"
+    description_en: "Funding rate heatmap (type: openInterest/marketCap)"
+    allowed_params: [type, interval]
+
+  # ── 18. RSI (VIP2) ──
+  - gateway_path: /api/v1/coinank/rsi/list
+    upstream_path: /api/rsiMap/list
+    category: RSI
+    user_price: "0.001"
+    upstream_cost: "0.012"
+    description: "RSI 指标筛选（interval 大写: 1H/4H/1D；VIP2）"
+    description_en: "RSI screener (interval uppercase: 1H/4H/1D)"
+    allowed_params: [interval, exchange]

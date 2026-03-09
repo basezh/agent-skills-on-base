@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="12" fill="#1a1a2e"/>
+  <polyline points="15,90 35,60 55,72 80,32 105,45"
+            fill="none" stroke="#00c853" stroke-width="7"
+            stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="105" cy="45" r="6" fill="#00c853"/>
+  <text x="60" y="112" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="10" font-weight="700"
+        fill="#00c853" letter-spacing="1">ALPHAVANTAGE</text>
+</svg>

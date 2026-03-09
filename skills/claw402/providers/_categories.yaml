@@ -1,0 +1,16 @@
+categories:
+  - id: crypto
+    label: Crypto
+    icon: bitcoin
+  - id: stocks
+    label: Stocks
+    icon: trending-up
+  - id: forex
+    label: Forex & Metals
+    icon: globe
+  - id: ai
+    label: AI & ML
+    icon: brain
+  - id: cn_stocks
+    label: A-Shares
+    icon: bar-chart

@@ -1,0 +1,103 @@
+id: gemini
+order: 12
+name: Gemini (Google)
+short_description: "Gemini 3.1 Pro, Flash & Flash-Lite — pay per request with USDC"
+short_description_zh: "Google Gemini 3.1 Pro、Flash 与 Flash-Lite — 用 USDC 按次付费"
+full_description: "Access Google's latest Gemini 3.x model family without an account or API key. From the powerful Gemini 3.1 Pro to the ultra-fast 3.1 Flash-Lite, plus stable 2.5 series. OpenAI-compatible API."
+full_description_zh: "无需注册 Google 账号或 API Key，直接用 USDC 按次调用 Gemini 最新 3.x 系列模型。从 Gemini 3.1 Pro 到超快 3.1 Flash-Lite，还有稳定版 2.5 系列。兼容 OpenAI API 格式。"
+website: https://gemini.google.com
+logo_url: /providers/gemini.svg
+category: ai
+tags: [ai, llm, gemini, google, chat, multimodal, agents]
+featured: true
+
+upstream_base_url: https://generativelanguage.googleapis.com
+upstream_type: api_key
+upstream_auth_env: GEMINI_API_KEY
+upstream_auth_header: Authorization
+
+routes:
+  # ── Gemini 3.x (Latest Preview) ──
+  - gateway_path: /api/v1/ai/gemini/chat/3.1-pro
+    upstream_path: /v1beta/openai/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: gemini-3.1-pro-preview
+    user_price: "0.03"
+    upstream_cost: "0.010"
+    description: "Gemini 3.1 Pro 对话补全（最新最强，高级推理）"
+    description_en: "Chat completions with Gemini 3.1 Pro (latest, advanced reasoning)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/gemini/chat/3-flash
+    upstream_path: /v1beta/openai/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: gemini-3-flash-preview
+    user_price: "0.005"
+    upstream_cost: "0.002"
+    description: "Gemini 3 Flash 快速对话（前沿性能，低成本）"
+    description_en: "Chat completions with Gemini 3 Flash (frontier performance, reduced cost)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/gemini/chat/3.1-flash-lite
+    upstream_path: /v1beta/openai/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: gemini-3.1-flash-lite-preview
+    user_price: "0.003"
+    upstream_cost: "0.001"
+    description: "Gemini 3.1 Flash-Lite 超轻量对话（最快最便宜）"
+    description_en: "Chat completions with Gemini 3.1 Flash-Lite (fastest, cheapest)"
+    mime_type: application/json
+
+  # ── Gemini 2.5 (Stable) ──
+  - gateway_path: /api/v1/ai/gemini/chat/2.5-pro
+    upstream_path: /v1beta/openai/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: gemini-2.5-pro
+    user_price: "0.02"
+    upstream_cost: "0.007"
+    description: "Gemini 2.5 Pro 对话补全（稳定版，1M 上下文）"
+    description_en: "Chat completions with Gemini 2.5 Pro (stable, 1M context)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/gemini/chat/2.5-flash
+    upstream_path: /v1beta/openai/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: gemini-2.5-flash
+    user_price: "0.003"
+    upstream_cost: "0.001"
+    description: "Gemini 2.5 Flash 快速对话（稳定版，性价比之选）"
+    description_en: "Chat completions with Gemini 2.5 Flash (stable, best value)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/gemini/chat/2.5-flash-lite
+    upstream_path: /v1beta/openai/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: gemini-2.5-flash-lite
+    user_price: "0.002"
+    upstream_cost: "0.001"
+    description: "Gemini 2.5 Flash-Lite 超轻量对话（稳定版，最快最便宜）"
+    description_en: "Chat completions with Gemini 2.5 Flash-Lite (stable, fastest, cheapest)"
+    mime_type: application/json
+
+  # ── Models List ──
+  - gateway_path: /api/v1/ai/gemini/models
+    upstream_path: /v1beta/openai/models
+    method: GET
+    category: Models
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "可用 Gemini 模型列表"
+    description_en: "List available Gemini models"
+    mime_type: application/json

@@ -1,0 +1,36 @@
+id: anthropic
+order: 5
+name: Anthropic
+short_description: "Verified Claude Opus 4.6 via Anthropic official channel — pay per request with USDC"
+short_description_zh: "通过 Anthropic 官方渠道接入的已验证 Claude Opus 4.6 — 用 USDC 按次付费"
+full_description: "Anthropic official-channel access. This gateway currently publishes only the verified Claude Opus 4.6 chat endpoint for production use via x402 payment."
+full_description_zh: "Anthropic 官方渠道接入。当前网关仅对外发布已验证可用的 Claude Opus 4.6 对话接口，通过 x402 按次付费。"
+website: https://anthropic.com
+logo_url: /providers/anthropic.svg
+category: ai
+tags: [ai, llm, claude, chat, reasoning, agents]
+featured: true
+
+upstream_base_url: https://bedrock-runtime.us-east-1.amazonaws.com
+upstream_type: bedrock
+
+routes:
+  - gateway_path: /api/v1/ai/anthropic/messages/opus
+    upstream_path: /model
+    method: POST
+    category: Chat
+    bedrock_region: us-east-1
+    bedrock_model_env: BEDROCK_ANTHROPIC_OPUS_MODEL_ID
+    bedrock_model_id: global.anthropic.claude-opus-4-6-v1
+    pricing_mode: token_estimate
+    token_input_per_mtok: "7"
+    token_output_per_mtok: "35"
+    token_safety_margin: "0.35"
+    token_min_price: "0.12"
+    token_default_max_out: 1024
+    token_max_out_cap: 8192
+    user_price: "0.12"
+    upstream_cost: "0.05"
+    description: "Claude Opus 对话（最强推理能力）"
+    description_en: "Messages API with Claude Opus (strongest reasoning)"
+    mime_type: application/json

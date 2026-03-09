@@ -1,0 +1,160 @@
+id: alpaca
+name: Alpaca Markets
+short_description: "Commission-free US stock trading & real-time market data"
+short_description_zh: "免佣金美股交易与实时行情数据"
+full_description: "Alpaca provides commission-free stock trading APIs and real-time/historical US equity market data. Access quotes, bars, snapshots, trade history, and more for thousands of US-listed securities through a simple REST API."
+full_description_zh: "Alpaca 提供免佣金的美股交易 API 和实时/历史行情数据。通过简洁的 REST API 获取报价、K线、快照、成交记录等，覆盖数千只美国上市证券。"
+website: https://alpaca.markets
+logo_url: /providers/alpaca.svg
+category: stocks
+tags: [stocks, equities, us-market, trading, market-data, real-time]
+featured: true
+
+upstream_base_url: https://data.alpaca.markets
+upstream_type: api_key
+upstream_auth_env: ALPACA_API_KEY
+upstream_auth_header: APCA-API-KEY-ID
+
+routes:
+  # ── Quotes ──
+  - gateway_path: /api/v1/alpaca/quotes/latest
+    upstream_path: /v2/stocks/quotes/latest
+    category: Quotes
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取单只或多只美股的最新报价"
+    description_en: "Latest quote for one or more US stocks"
+    allowed_params: [symbols, feed, currency]
+
+  - gateway_path: /api/v1/alpaca/quotes/history
+    upstream_path: /v2/stocks/quotes
+    category: Quotes
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "美股历史逐笔报价"
+    description_en: "Historical tick-level quotes for US stocks"
+    allowed_params: [symbols, start, end, limit, feed, sort]
+
+  # ── Bars / Candles ──
+  - gateway_path: /api/v1/alpaca/bars
+    upstream_path: /v2/stocks/bars
+    category: Bars
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "美股K线/柱状图数据"
+    description_en: "Historical OHLCV bars for US stocks"
+    allowed_params: [symbols, timeframe, start, end, limit, adjustment, feed, sort]
+
+  - gateway_path: /api/v1/alpaca/bars/latest
+    upstream_path: /v2/stocks/bars/latest
+    category: Bars
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "美股最新K线"
+    description_en: "Latest bar for US stocks"
+    allowed_params: [symbols, feed, currency]
+
+  # ── Trades ──
+  - gateway_path: /api/v1/alpaca/trades/latest
+    upstream_path: /v2/stocks/trades/latest
+    category: Trades
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "美股最新成交"
+    description_en: "Latest trade for US stocks"
+    allowed_params: [symbols, feed, currency]
+
+  - gateway_path: /api/v1/alpaca/trades/history
+    upstream_path: /v2/stocks/trades
+    category: Trades
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "美股历史成交记录"
+    description_en: "Historical trades for US stocks"
+    allowed_params: [symbols, start, end, limit, feed, sort]
+
+  # ── Snapshots ──
+  - gateway_path: /api/v1/alpaca/snapshots
+    upstream_path: /v2/stocks/snapshots
+    category: Snapshots
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "美股综合快照（含报价、成交、K线、涨跌幅）"
+    description_en: "Full market snapshot with quote, trade, minute/daily bar and prev close"
+    allowed_params: [symbols, feed, currency]
+
+  - gateway_path: /api/v1/alpaca/snapshot
+    upstream_path: /v2/stocks/snapshots
+    category: Snapshots
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "单只美股快照"
+    description_en: "Snapshot for a single US stock"
+    allowed_params: [symbols, feed, currency]
+
+  # ── Market Movers ──
+  - gateway_path: /api/v1/alpaca/movers
+    upstream_path: /v1beta1/screener/stocks/movers
+    category: Screener
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "美股涨跌幅排行"
+    description_en: "Top market movers by percentage change"
+    allowed_params: [top, market_type]
+
+  - gateway_path: /api/v1/alpaca/most-actives
+    upstream_path: /v1beta1/screener/stocks/most-actives
+    category: Screener
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "美股成交量排行"
+    description_en: "Most active stocks by volume"
+    allowed_params: [top, market_type]
+
+  # ── News ──
+  - gateway_path: /api/v1/alpaca/news
+    upstream_path: /v1beta1/news
+    category: News
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "美股新闻资讯"
+    description_en: "Real-time financial news for US stocks"
+    allowed_params: [symbols, start, end, limit, sort, include_content]
+
+  # ── Corporate Actions ──
+  - gateway_path: /api/v1/alpaca/corporate-actions
+    upstream_path: /v1/corporate-actions
+    category: Corporate Actions
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "公司行为事件（分红、拆股等）"
+    description_en: "Corporate action events (dividends, splits, etc.)"
+    allowed_params: [symbols, types, start, end, limit, sort]
+
+  # ── Options ──
+  - gateway_path: /api/v1/alpaca/options/bars
+    upstream_path: /v1beta1/options/bars
+    category: Options
+    user_price: "0.003"
+    upstream_cost: "0.000"
+    description: "期权K线数据"
+    description_en: "Historical OHLCV bars for options contracts"
+    allowed_params: [symbols, timeframe, start, end, limit]
+
+  - gateway_path: /api/v1/alpaca/options/quotes/latest
+    upstream_path: /v1beta1/options/quotes/latest
+    category: Options
+    user_price: "0.003"
+    upstream_cost: "0.000"
+    description: "期权最新报价"
+    description_en: "Latest quotes for options contracts"
+    allowed_params: [symbols, feed]
+
+  - gateway_path: /api/v1/alpaca/options/snapshots
+    upstream_path: /v1beta1/options/snapshots
+    category: Options
+    user_price: "0.003"
+    upstream_cost: "0.000"
+    description: "期权快照"
+    description_en: "Snapshots for options contracts"
+    allowed_params: [symbols, feed]

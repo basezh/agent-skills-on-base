@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="12" fill="#ffffff"/>
+  <text x="60" y="70" text-anchor="middle"
+        font-family="Arial Black, Arial, sans-serif" font-size="54" font-weight="900"
+        fill="#0a0a0a">P</text>
+  <text x="60" y="100" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="13" font-weight="600"
+        fill="#6b6b6b" letter-spacing="1">POLYGON.IO</text>
+</svg>

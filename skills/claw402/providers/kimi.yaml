@@ -1,0 +1,54 @@
+id: kimi
+order: 13
+name: Kimi (Moonshot AI)
+short_description: "Kimi K2.5 & K2 by Moonshot AI — pay per request with USDC"
+short_description_zh: "Moonshot AI Kimi K2.5 & K2 — 用 USDC 按次付费"
+full_description: "Access Moonshot AI's Kimi models without an account or API key. Kimi K2.5 is the latest thinking model with agent swarm capabilities, and K2 is the stable workhorse. Both are 1T MoE models with 256K context. OpenAI-compatible API."
+full_description_zh: "无需注册 Moonshot AI 账号或 API Key，直接用 USDC 按次调用 Kimi 模型。Kimi K2.5 是最新思维模型，支持 Agent Swarm；K2 是稳定版。均为万亿参数 MoE 模型（256K 上下文）。兼容 OpenAI API 格式。"
+website: https://moonshot.ai
+logo_url: /providers/kimi.svg
+category: ai
+tags: [ai, llm, kimi, moonshot, chat, coding, reasoning, agents, china]
+featured: true
+
+upstream_base_url: https://api.moonshot.ai
+upstream_type: api_key
+upstream_auth_env: MOONSHOT_API_KEY
+upstream_auth_header: Authorization
+
+routes:
+  # ── Chat Completions ──
+  - gateway_path: /api/v1/ai/kimi/chat/k2.5
+    upstream_path: /v1/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: kimi-k2.5
+    user_price: "0.008"
+    upstream_cost: "0.003"
+    description: "Kimi K2.5 对话补全（最新思维模型，Agent Swarm，256K 上下文）"
+    description_en: "Chat completions with Kimi K2.5 (latest thinking model, agent swarm, 256K context)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/kimi/chat/k2
+    upstream_path: /v1/chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: kimi-k2-0905
+    user_price: "0.005"
+    upstream_cost: "0.002"
+    description: "Kimi K2 对话补全（稳定版，万亿参数 MoE，256K 上下文）"
+    description_en: "Chat completions with Kimi K2 (stable, 1T MoE model, 256K context)"
+    mime_type: application/json
+
+  # ── Models List ──
+  - gateway_path: /api/v1/ai/kimi/models
+    upstream_path: /v1/models
+    method: GET
+    category: Models
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "可用 Kimi 模型列表"
+    description_en: "List available Kimi models"
+    mime_type: application/json

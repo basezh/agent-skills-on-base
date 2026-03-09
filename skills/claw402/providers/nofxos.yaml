@@ -1,0 +1,189 @@
+id: nofxos
+order: 3
+name: nofxos.ai
+short_description: "AI-powered crypto trading intelligence"
+short_description_zh: "AI 驱动的加密货币交易情报"
+full_description: "nofxos.ai provides AI-driven trading signals, on-chain analytics, and market intelligence for crypto derivatives traders."
+full_description_zh: "nofxos.ai 提供 AI 驱动的交易信号、链上分析和市场情报，专为加密货币衍生品交易者打造。"
+website: https://nofxos.ai
+logo_url: /providers/nofxos.svg
+category: ai
+tags: [ai, trading, signals, crypto, derivatives]
+featured: true
+
+upstream_base_url: https://nofxos.ai
+upstream_type: api_key
+upstream_auth_env: NOFX_API_KEY
+upstream_auth_header: Authorization
+
+routes:
+  # ── AI500 ──
+  - gateway_path: /api/v1/nofx/ai500/list
+    upstream_path: /api/ai500/list
+    category: AI500
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "AI500 高潜力币种列表（AI Score > 70）"
+    description_en: "AI500 high-potential coins list (AI Score > 70)"
+    allowed_params: [limit]
+
+  - gateway_path: /api/v1/nofx/ai500/stats
+    upstream_path: /api/ai500/stats
+    category: AI500
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "AI500 整体指数统计数据"
+    description_en: "AI500 index overall statistics"
+
+  # ── AI300 ──
+  - gateway_path: /api/v1/nofx/ai300/list
+    upstream_path: /api/ai300/list
+    category: AI300
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "AI300 量化模型排行（按资金流强度）"
+    description_en: "AI300 quant model rankings (by fund flow strength)"
+    allowed_params: [limit]
+
+  - gateway_path: /api/v1/nofx/ai300/stats
+    upstream_path: /api/ai300/stats
+    category: AI300
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "AI300 模型统计（按信号强度分布）"
+    description_en: "AI300 model statistics (by signal strength distribution)"
+
+  # ── Open Interest ──
+  - gateway_path: /api/v1/nofx/oi/top-ranking
+    upstream_path: /api/oi/top-ranking
+    category: Open Interest
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "持仓量增仓最大排行"
+    description_en: "Top open interest increase rankings"
+    allowed_params: [limit, duration]
+
+  - gateway_path: /api/v1/nofx/oi/low-ranking
+    upstream_path: /api/oi/low-ranking
+    category: Open Interest
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "持仓量减仓最大排行"
+    description_en: "Top open interest decrease rankings"
+    allowed_params: [limit, duration]
+
+  # ── Net Flow ──
+  - gateway_path: /api/v1/nofx/netflow/top-ranking
+    upstream_path: /api/netflow/top-ranking
+    category: Net Flow
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "净资金流入最大排行"
+    description_en: "Top net capital inflow rankings"
+    allowed_params: [limit, duration, type, trade]
+
+  - gateway_path: /api/v1/nofx/netflow/low-ranking
+    upstream_path: /api/netflow/low-ranking
+    category: Net Flow
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "净资金流出最大排行"
+    description_en: "Top net capital outflow rankings"
+    allowed_params: [limit, duration, type, trade]
+
+  # ── Price ──
+  - gateway_path: /api/v1/nofx/price/ranking
+    upstream_path: /api/price/ranking
+    category: Price
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "价格涨跌幅排行（gainers & losers）"
+    description_en: "Price change rankings (gainers & losers)"
+    allowed_params: [duration]
+
+  # ── Long/Short ──
+  - gateway_path: /api/v1/nofx/long-short/list
+    upstream_path: /api/long-short/list
+    category: Long/Short
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "多空比异常币种列表"
+    description_en: "Long/short ratio anomaly coin list"
+    allowed_params: [limit]
+
+  # ── Funding Rate ──
+  - gateway_path: /api/v1/nofx/funding-rate/top
+    upstream_path: /api/funding-rate/top
+    category: Funding Rate
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "最高正资金费率排行"
+    description_en: "Top positive funding rate rankings"
+    allowed_params: [limit]
+
+  - gateway_path: /api/v1/nofx/funding-rate/low
+    upstream_path: /api/funding-rate/low
+    category: Funding Rate
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "最低负资金费率排行"
+    description_en: "Top negative funding rate rankings"
+    allowed_params: [limit]
+
+  # ── OI Cap ──
+  - gateway_path: /api/v1/nofx/oi-cap/ranking
+    upstream_path: /api/oi-cap/ranking
+    category: OI Cap
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "未平仓合约市值排行"
+    description_en: "Open interest market cap rankings"
+    allowed_params: [limit]
+
+  # ── Upbit ──
+  - gateway_path: /api/v1/nofx/upbit/hot
+    upstream_path: /api/upbit/hot
+    category: Upbit
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "Upbit 热门币种排行（按交易量）"
+    description_en: "Upbit hot coins rankings (by trading volume)"
+    allowed_params: [limit]
+
+  - gateway_path: /api/v1/nofx/upbit/netflow/top-ranking
+    upstream_path: /api/upbit/netflow/top-ranking
+    category: Upbit
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "Upbit 净流入排行"
+    description_en: "Upbit net inflow rankings"
+    allowed_params: [limit, duration]
+
+  - gateway_path: /api/v1/nofx/upbit/netflow/low-ranking
+    upstream_path: /api/upbit/netflow/low-ranking
+    category: Upbit
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "Upbit 净流出排行"
+    description_en: "Upbit net outflow rankings"
+    allowed_params: [limit, duration]
+
+  # ── Heatmap ──
+  - gateway_path: /api/v1/nofx/heatmap/list
+    upstream_path: /api/heatmap/list
+    category: Heatmap
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "订单簿热力图概览（全币种）"
+    description_en: "Order book heatmap overview (all coins)"
+    allowed_params: [trade, limit]
+
+  # ── Query Rank ──
+  - gateway_path: /api/v1/nofx/query-rank/list
+    upstream_path: /api/query-rank/list
+    category: Query Rank
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "今日最热搜查询币种排行"
+    description_en: "Today's most searched coin rankings"
+    allowed_params: [limit]

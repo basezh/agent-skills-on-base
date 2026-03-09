@@ -1,0 +1,256 @@
+id: polygon
+name: Polygon.io
+short_description: "Premium US stock market data with tick-level precision"
+full_description: "Polygon.io (now Massive) provides institutional-grade US stock, options, and futures data with tick-level trades, NBBO quotes, and comprehensive reference data covering all US exchanges."
+website: https://polygon.io
+logo_url: /providers/polygon.svg
+category: stocks
+tags: [stocks, us-market, tick-data, options, real-time, market-data]
+featured: true
+
+upstream_base_url: https://api.polygon.io
+upstream_type: api_key
+upstream_auth_env: POLYGON_API_KEY
+upstream_auth_header: Authorization
+
+routes:
+  # ── Aggregates (Bars/Candles) - Dynamic ticker support ──
+  - gateway_path: /api/v1/polygon/aggs/ticker
+    upstream_path: /v2/aggs/ticker/{stocksTicker}/range/{multiplier}/{timespan}/{from}/{to}
+    category: Market Data
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取股票K线数据（支持任意股票代码）"
+    description_en: "Get aggregate bars (OHLCV) for any stock ticker"
+    allowed_params: [stocksTicker, multiplier, timespan, from, to, adjusted, sort, limit]
+    # Example: ?stocksTicker=AAPL&multiplier=1&timespan=day&from=2023-01-01&to=2023-12-31
+
+  - gateway_path: /api/v1/polygon/aggs/grouped
+    upstream_path: /v2/aggs/grouped/locale/us/market/stocks/{date}
+    category: Market Data
+    user_price: "0.005"
+    upstream_cost: "0.000"
+    description: "获取全市场指定日期聚合数据（所有美股）"
+    description_en: "Get aggregate bars for entire US market on a specific date"
+    allowed_params: [date, adjusted, include_otc]
+    # Example: ?date=2024-01-09
+
+  - gateway_path: /api/v1/polygon/prev-close
+    upstream_path: /v2/aggs/ticker/{stocksTicker}/prev
+    category: Market Data
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取股票前一交易日收盘数据（任意股票）"
+    description_en: "Get previous day close for any ticker"
+    allowed_params: [stocksTicker, adjusted]
+    # Example: ?stocksTicker=NVDA&adjusted=true
+
+  # ── Snapshots - Real-time Market State ──
+  - gateway_path: /api/v1/polygon/snapshot/ticker
+    upstream_path: /v2/snapshot/locale/us/markets/stocks/tickers/{stocksTicker}
+    category: Snapshots
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取股票实时快照（价格、成交量、涨跌幅）"
+    description_en: "Get real-time snapshot for any ticker"
+    allowed_params: [stocksTicker]
+    # Example: ?stocksTicker=TSLA
+
+  - gateway_path: /api/v1/polygon/snapshot/all
+    upstream_path: /v2/snapshot/locale/us/markets/stocks/tickers
+    category: Snapshots
+    user_price: "0.005"
+    upstream_cost: "0.000"
+    description: "获取全市场实时快照（所有股票）"
+    description_en: "Get snapshots for all US stock tickers"
+    allowed_params: [tickers, include_otc]
+
+  - gateway_path: /api/v1/polygon/snapshot/gainers
+    upstream_path: /v2/snapshot/locale/us/markets/stocks/gainers
+    category: Snapshots
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取当日涨幅榜前20（美股）"
+    description_en: "Get top 20 gainers of the day"
+    allowed_params: [include_otc]
+
+  - gateway_path: /api/v1/polygon/snapshot/losers
+    upstream_path: /v2/snapshot/locale/us/markets/stocks/losers
+    category: Snapshots
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取当日跌幅榜前20（美股）"
+    description_en: "Get top 20 losers of the day"
+    allowed_params: [include_otc]
+
+  # ── Tick Data - Trades & Quotes ──
+  - gateway_path: /api/v1/polygon/trades
+    upstream_path: /v3/trades/{stockTicker}
+    category: Tick Data
+    user_price: "0.005"
+    upstream_cost: "0.000"
+    description: "获取Tick级逐笔成交数据（高精度）"
+    description_en: "Get tick-by-tick trade data for any stock"
+    allowed_params: [stockTicker, timestamp.gte, timestamp.lte, timestamp.gt, timestamp.lt, order, limit, sort]
+    # Example: ?stockTicker=AAPL&limit=1000&order=desc
+
+  - gateway_path: /api/v1/polygon/last-trade
+    upstream_path: /v2/last/trade/{stocksTicker}
+    category: Tick Data
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取股票最新成交记录"
+    description_en: "Get most recent trade for a ticker"
+    allowed_params: [stocksTicker]
+
+  - gateway_path: /api/v1/polygon/quotes
+    upstream_path: /v3/quotes/{stockTicker}
+    category: Tick Data
+    user_price: "0.005"
+    upstream_cost: "0.000"
+    description: "获取Tick级报价数据（买卖盘）"
+    description_en: "Get NBBO quotes for any stock"
+    allowed_params: [stockTicker, timestamp.gte, timestamp.lte, timestamp.gt, timestamp.lt, order, limit, sort]
+
+  - gateway_path: /api/v1/polygon/last-quote
+    upstream_path: /v2/last/nbbo/{stocksTicker}
+    category: Tick Data
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取股票最新报价（NBBO）"
+    description_en: "Get most recent NBBO quote for a ticker"
+    allowed_params: [stocksTicker]
+
+  # ── Reference Data ──
+  - gateway_path: /api/v1/polygon/tickers
+    upstream_path: /v3/reference/tickers
+    category: Reference
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "查询美股股票列表（支持搜索过滤）"
+    description_en: "Query all ticker symbols with optional filters"
+    allowed_params: [ticker, type, market, exchange, cusip, cik, date, search, active, order, limit, sort]
+    # Example: ?search=tesla or ?ticker=AAPL
+
+  - gateway_path: /api/v1/polygon/ticker-details
+    upstream_path: /v3/reference/tickers/{ticker}
+    category: Reference
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取股票详细信息（公司名称、行业、市值等）"
+    description_en: "Get detailed information about any ticker"
+    allowed_params: [ticker, date]
+    # Example: ?ticker=AAPL
+
+  - gateway_path: /api/v1/polygon/ticker-news
+    upstream_path: /v2/reference/news
+    category: Reference
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取股票相关新闻"
+    description_en: "Get news articles for tickers"
+    allowed_params: [ticker, published_utc, published_utc.gte, published_utc.lte, order, limit, sort]
+    # Example: ?ticker=AAPL&limit=10
+
+  - gateway_path: /api/v1/polygon/market-holidays
+    upstream_path: /v1/marketstatus/upcoming
+    category: Reference
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取美股市场即将到来的假期"
+    description_en: "Get upcoming US market holidays and early closes"
+
+  - gateway_path: /api/v1/polygon/market-status
+    upstream_path: /v1/marketstatus/now
+    category: Reference
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取当前美股市场状态（开盘/收盘）"
+    description_en: "Get current US market trading status"
+
+  - gateway_path: /api/v1/polygon/exchanges
+    upstream_path: /v3/reference/exchanges
+    category: Reference
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取所有交易所列表"
+    description_en: "List all stock exchanges"
+    allowed_params: [asset_class, locale]
+
+  # ── Technical Indicators ──
+  - gateway_path: /api/v1/polygon/sma
+    upstream_path: /v1/indicators/sma/{stockTicker}
+    category: Technical Indicators
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "计算简单移动平均线（SMA）"
+    description_en: "Get Simple Moving Average (SMA) for any stock"
+    allowed_params: [stockTicker, timestamp, timespan, adjusted, window, series_type, expand_underlying, order, limit]
+    # Example: ?stockTicker=AAPL&timespan=day&window=50
+
+  - gateway_path: /api/v1/polygon/ema
+    upstream_path: /v1/indicators/ema/{stockTicker}
+    category: Technical Indicators
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "计算指数移动平均线（EMA）"
+    description_en: "Get Exponential Moving Average (EMA) for any stock"
+    allowed_params: [stockTicker, timestamp, timespan, adjusted, window, series_type, expand_underlying, order, limit]
+
+  - gateway_path: /api/v1/polygon/macd
+    upstream_path: /v1/indicators/macd/{stockTicker}
+    category: Technical Indicators
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "计算MACD指标"
+    description_en: "Get Moving Average Convergence/Divergence (MACD)"
+    allowed_params: [stockTicker, timestamp, timespan, adjusted, short_window, long_window, signal_window, series_type, expand_underlying, order, limit]
+
+  - gateway_path: /api/v1/polygon/rsi
+    upstream_path: /v1/indicators/rsi/{stockTicker}
+    category: Technical Indicators
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "计算RSI相对强弱指标"
+    description_en: "Get Relative Strength Index (RSI)"
+    allowed_params: [stockTicker, timestamp, timespan, adjusted, window, series_type, expand_underlying, order, limit]
+
+  # ── Options ──
+  - gateway_path: /api/v1/polygon/options/contracts
+    upstream_path: /v3/reference/options/contracts
+    category: Options
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "查询期权合约列表"
+    description_en: "Query for historical options contracts"
+    allowed_params: [underlying_ticker, contract_type, expiration_date, expiration_date.gte, expiration_date.gt, expiration_date.lte, expiration_date.lt, as_of, strike_price, strike_price.gte, strike_price.gt, strike_price.lte, strike_price.lt, expired, order, limit, sort]
+
+  - gateway_path: /api/v1/polygon/options/contract-details
+    upstream_path: /v3/reference/options/contracts/{options_ticker}
+    category: Options
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取单个期权合约详细信息"
+    description_en: "Get details for a single options contract"
+    allowed_params: [options_ticker, as_of]
+    # Example: ?options_ticker=O:AAPL230616C00150000
+
+  - gateway_path: /api/v1/polygon/options/snapshot
+    upstream_path: /v3/snapshot/options/{underlyingAsset}
+    category: Options
+    user_price: "0.002"
+    upstream_cost: "0.000"
+    description: "获取期权链快照（含Greeks）"
+    description_en: "Get snapshot of options chain for an underlying asset"
+    allowed_params: [underlyingAsset, strike_price, strike_price.gte, strike_price.gt, strike_price.lte, strike_price.lt, expiration_date, expiration_date.gte, expiration_date.gt, expiration_date.lte, expiration_date.lt, contract_type, order, limit]
+    # Example: ?underlyingAsset=AAPL&contract_type=call
+
+  - gateway_path: /api/v1/polygon/options/snapshot/contract
+    upstream_path: /v3/snapshot/options/{underlyingAsset}/{optionContract}
+    category: Options
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取单个期权合约快照"
+    description_en: "Get snapshot of a single options contract"
+    allowed_params: [underlyingAsset, optionContract]
+    # Example: ?underlyingAsset=AAPL&optionContract=O:AAPL230616C00150000

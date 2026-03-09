@@ -1,0 +1,283 @@
+id: rootdata
+order: 2
+name: RootData
+short_description: "Web3 project, VC & on-chain intelligence data"
+short_description_zh: "Web3 项目、机构与链上情报数据"
+full_description: "RootData is the leading Web3 intelligence platform covering 70,000+ crypto projects, 10,000+ VCs and funds, trending project rankings, ecosystem maps, and personnel movement data. Access it all on-chain — no account required."
+full_description_zh: "RootData 是领先的 Web3 情报平台，覆盖 70,000+ 加密项目、10,000+ 风投机构，提供热门项目排行、生态系统图谱、人员动态等数据，无需注册账号即可访问。"
+website: https://www.rootdata.com
+logo_url: /providers/rootdata.png
+category: crypto
+tags: [crypto, web3, vc, projects, funding, trending, on-chain, intelligence]
+featured: true
+
+upstream_base_url: https://api.rootdata.com
+upstream_type: api_key
+upstream_auth_env: ROOTDATA_API_KEY
+upstream_auth_header: apikey
+
+routes:
+  # ── Search ──
+  - gateway_path: /api/v1/crypto/rootdata/search
+    upstream_path: /open/ser_inv
+    method: POST
+    category: Search
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "按关键词搜索项目、机构或人物。body: {query: string, precise_x_search?: bool}"
+    description_en: "Search projects, VCs, and people by keyword. Body: {query: string, precise_x_search?: bool}. Default query: Bitcoin"
+    mime_type: application/json
+    allowed_params: [query, precise_x_search]
+    body_defaults:
+      query: "Bitcoin"
+
+  # ── Project ──
+  - gateway_path: /api/v1/crypto/rootdata/project
+    upstream_path: /open/get_item
+    method: POST
+    category: Projects
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取项目详情（融资、团队、投资方）。body: {project_id: int} 或 {contract_address: string}。可选: include_team, include_investors (bool)"
+    description_en: "Get project details. Body: {project_id: int} OR {contract_address: string}. Optional: include_team, include_investors (bool). Find IDs via /search or /id-map"
+    mime_type: application/json
+    allowed_params: [project_id, contract_address, include_team, include_investors]
+    body_defaults:
+      project_id: 312
+      include_team: true
+      include_investors: true
+
+  # ── Organization / VC ──
+  - gateway_path: /api/v1/crypto/rootdata/org
+    upstream_path: /open/get_org
+    method: POST
+    category: Organizations
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取 VC/机构详情（团队、投资组合）。body: {org_id: int}。可选: include_team, include_investments (bool)"
+    description_en: "Get VC/org details. Body: {org_id: int}. Optional: include_team, include_investments (bool). Find IDs via /search or /id-map"
+    mime_type: application/json
+    allowed_params: [org_id, include_team, include_investments]
+    body_defaults:
+      org_id: 2
+      include_team: true
+      include_investments: true
+
+  # ── People ──
+  - gateway_path: /api/v1/crypto/rootdata/people
+    upstream_path: /open/get_people
+    method: POST
+    category: People
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取个人资料（X 影响力、从业经历）。body: {people_id: int}。可通过 /search 或 /id-map 查找 ID"
+    description_en: "Get person profile with X metrics. Body: {people_id: int}. Find IDs via /search or /id-map"
+    mime_type: application/json
+    allowed_params: [people_id]
+    body_defaults:
+      people_id: 1
+
+  # ── Investors (batch) ──
+  - gateway_path: /api/v1/crypto/rootdata/investors
+    upstream_path: /open/get_invest
+    method: POST
+    category: Organizations
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "批量获取投资机构列表。body: {page?: int, page_size?: int (max 100)}"
+    description_en: "Batch list investors. Body: {page?: int, page_size?: int (max 100)}. Defaults: page=1, page_size=10"
+    mime_type: application/json
+    allowed_params: [page, page_size]
+    body_defaults:
+      page: 1
+      page_size: 10
+
+  # ── Funding Rounds (batch) ──
+  - gateway_path: /api/v1/crypto/rootdata/funding
+    upstream_path: /open/get_fac
+    method: POST
+    category: Projects
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "批量获取融资轮次。可按时间、金额、项目 ID 筛选"
+    description_en: "Batch list funding rounds. Optional filters: start_time, end_time (unix sec), min_amount, max_amount (USD), project_id (int), page, page_size"
+    mime_type: application/json
+    allowed_params: [page, page_size, start_time, end_time, min_amount, max_amount, project_id]
+    body_defaults:
+      page: 1
+      page_size: 10
+
+  # ── Data Changes ──
+  - gateway_path: /api/v1/crypto/rootdata/changes
+    upstream_path: /open/ser_change
+    method: POST
+    category: Projects
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "同步数据变更。body: {begin_time: int (unix 秒)}，可选: end_time"
+    description_en: "Sync recent data changes. Body: {begin_time: int (unix seconds)}. Optional: end_time. Note: param is begin_time (not start_time)"
+    mime_type: application/json
+    allowed_params: [begin_time, end_time]
+
+  # ── Trending ──
+  - gateway_path: /api/v1/crypto/rootdata/hot
+    upstream_path: /open/hot_index
+    method: POST
+    category: Trending
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "Top 100 热门项目排行。body: {days: 1 (24h) 或 7 (7天)}"
+    description_en: "Top 100 trending projects. Body: {days: int}. Values: 1 = 24h ranking, 7 = 7-day ranking"
+    mime_type: application/json
+    allowed_params: [days]
+    body_defaults:
+      days: 1
+
+  - gateway_path: /api/v1/crypto/rootdata/hot-x
+    upstream_path: /open/hot_project_on_x
+    method: POST
+    category: Trending
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "X/Twitter 上热门加密项目。body: {heat: bool, influence: bool, followers: bool} 至少一个 true"
+    description_en: "Trending crypto projects on X. Body: {heat: bool, influence: bool, followers: bool}. Set at least one to true"
+    mime_type: application/json
+    allowed_params: [heat, influence, followers]
+    body_defaults:
+      heat: true
+      influence: true
+      followers: true
+
+  - gateway_path: /api/v1/crypto/rootdata/kol
+    upstream_path: /open/leading_figures_on_crypto_x
+    method: POST
+    category: Trending
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "X 上加密领域 KOL 排行。body: {rank_type: 'heat'|'influence', page?: int, page_size?: int}"
+    description_en: "Crypto KOL rankings on X. Body: {rank_type: 'heat' or 'influence'}. Optional: page, page_size"
+    mime_type: application/json
+    allowed_params: [rank_type, page, page_size]
+    body_defaults:
+      rank_type: "heat"
+      page: 1
+      page_size: 10
+
+  - gateway_path: /api/v1/crypto/rootdata/job-changes
+    upstream_path: /open/job_changes
+    method: POST
+    category: People
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "加密行业人员变动。body: {recent_joinees: bool, recent_resignations: bool} 至少一个 true"
+    description_en: "Crypto personnel movements. Body: {recent_joinees: bool, recent_resignations: bool}. Set at least one to true"
+    mime_type: application/json
+    allowed_params: [recent_joinees, recent_resignations]
+    body_defaults:
+      recent_joinees: true
+      recent_resignations: true
+
+  - gateway_path: /api/v1/crypto/rootdata/new-tokens
+    upstream_path: /open/new_tokens
+    method: POST
+    category: Trending
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "最新发行代币项目。可选: page, page_size"
+    description_en: "Recently launched token projects. Optional: page, page_size"
+    mime_type: application/json
+    allowed_params: [page, page_size]
+    body_defaults:
+      page: 1
+      page_size: 10
+
+  # ── Mapping / Reference ──
+  - gateway_path: /api/v1/crypto/rootdata/id-map
+    upstream_path: /open/id_map
+    method: POST
+    category: Reference
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取 ID 列表。body: {type: 1=项目, 2=机构, 3=人物}"
+    description_en: "Get all entity IDs. Body: {type: int}. Values: 1=projects, 2=VCs, 3=people"
+    mime_type: application/json
+    allowed_params: [type]
+    body_defaults:
+      type: 1
+
+  - gateway_path: /api/v1/crypto/rootdata/ecosystem-map
+    upstream_path: /open/ecosystem_map
+    method: POST
+    category: Reference
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取所有生态系统 ID 和项目数。无需参数"
+    description_en: "Get all ecosystem IDs and project counts. No parameters required"
+    mime_type: application/json
+    allowed_params: []
+
+  - gateway_path: /api/v1/crypto/rootdata/tag-map
+    upstream_path: /open/tag_map
+    method: POST
+    category: Reference
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "获取所有标签/分类 ID。无需参数"
+    description_en: "Get all tag/category IDs. No parameters required"
+    mime_type: application/json
+    allowed_params: []
+
+  - gateway_path: /api/v1/crypto/rootdata/projects-by-ecosystem
+    upstream_path: /open/projects_by_ecosystems
+    method: POST
+    category: Projects
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "按生态系统查项目。body: {ecosystem_ids: string (逗号分隔 ID)}。先调 /ecosystem-map 获取 ID"
+    description_en: "Projects by ecosystem. Body: {ecosystem_ids: string (comma-separated)}. Get IDs from /ecosystem-map first"
+    mime_type: application/json
+    allowed_params: [ecosystem_ids, page, page_size]
+    body_defaults:
+      ecosystem_ids: "1"
+      page: 1
+      page_size: 10
+
+  - gateway_path: /api/v1/crypto/rootdata/projects-by-tag
+    upstream_path: /open/projects_by_tags
+    method: POST
+    category: Projects
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "按标签查项目。body: {tag_ids: string (逗号分隔 ID)}。先调 /tag-map 获取 ID"
+    description_en: "Projects by tag. Body: {tag_ids: string (comma-separated)}. Get IDs from /tag-map first"
+    mime_type: application/json
+    allowed_params: [tag_ids, page, page_size]
+    body_defaults:
+      tag_ids: "1"
+      page: 1
+      page_size: 10
+
+  - gateway_path: /api/v1/crypto/rootdata/twitter-map
+    upstream_path: /open/twitter_map
+    method: POST
+    category: Reference
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "批量导出 X/Twitter 数据。body: {type: 1=项目, 2=机构, 3=人物}"
+    description_en: "Bulk export X/Twitter data. Body: {type: int}. Values: 1=projects, 2=VCs, 3=people"
+    mime_type: application/json
+    allowed_params: [type]
+    body_defaults:
+      type: 1
+
+  # ── Account ──
+  - gateway_path: /api/v1/crypto/rootdata/credits
+    upstream_path: /open/quotacredits
+    method: POST
+    category: Account
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "查询 API Credits 余额。无需参数"
+    description_en: "Check API credits balance. No parameters required"
+    mime_type: application/json
+    allowed_params: []

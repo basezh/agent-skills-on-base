@@ -1,0 +1,233 @@
+id: coinmarketcap
+order: 8
+name: CoinMarketCap
+short_description: "Crypto quotes, listings, DEX pairs — native x402 pay-per-call"
+short_description_zh: "加密货币报价、排行、DEX 交易对 — 原生 x402 按次付费"
+full_description: >
+  CoinMarketCap x402 API provides real-time crypto market data via native x402 payments on Base chain.
+  No API key needed — claw402 pays upstream $0.01/call automatically and charges you $0.015/call.
+  Includes: cryptocurrency quotes & listings, DEX pair quotes & search, and an MCP endpoint for AI agents.
+full_description_zh: >
+  CoinMarketCap x402 API 通过 Base 链上的 x402 原生支付提供实时加密货币市场数据。
+  无需 API Key — claw402 自动向上游付 $0.01/次，向用户收 $0.015/次（赚差价 $0.005）。
+  包含：加密货币报价与排行、DEX 交易对报价与搜索、AI Agent MCP 端点。
+website: https://coinmarketcap.com
+logo_url: /providers/coinmarketcap.svg
+category: crypto
+tags: [crypto, quotes, listings, dex, market-data, x402-native, mcp, ai-agent]
+featured: true
+
+upstream_base_url: https://pro-api.coinmarketcap.com
+upstream_type: x402
+
+routes:
+  # ────────────────────────────────────────────
+  # Cryptocurrency Quotes
+  # ────────────────────────────────────────────
+  - gateway_path: /api/v1/crypto/cmc/quotes
+    upstream_path: /x402/v3/cryptocurrency/quotes/latest
+    category: Cryptocurrency
+    user_price: "0.015"
+    upstream_cost: "0.01"
+    description: >
+      加密货币实时报价。返回价格、市值、24h 成交量、涨跌幅等。
+      必须提供 id/slug/symbol 中的至少一个。
+      id: CMC ID，逗号分隔，如 "1,1027"（1=BTC, 1027=ETH）。
+      slug: 币种 slug，如 "bitcoin,ethereum"。
+      symbol: 币种代码，如 "BTC,ETH"（同名时返回市值最大的）。
+      convert: 转换目标货币，如 "USD,BTC,CNY"（最多 120 个）。
+      convert_id: 用 CMC ID 指定转换货币，如 "1,2781"。
+      aux: 附加字段（逗号分隔），可选值:
+        num_market_pairs, cmc_rank, date_added, tags, platform,
+        max_supply, circulating_supply, total_supply,
+        market_cap_by_total_supply, volume_24h_reported,
+        volume_7d, volume_7d_reported, volume_30d, volume_30d_reported,
+        is_active, is_fiat。
+      skip_invalid: 布尔值，true 跳过无效 ID 而不报错（默认 false）。
+    description_en: >
+      Real-time cryptocurrency quotes. Returns price, market cap, 24h volume, % changes.
+      Must provide at least one of id/slug/symbol.
+      id: CMC IDs comma-separated, e.g. "1,1027" (1=BTC, 1027=ETH).
+      slug: slugs comma-separated, e.g. "bitcoin,ethereum".
+      symbol: ticker symbols, e.g. "BTC,ETH" (returns highest market cap if ambiguous).
+      convert: target currencies, e.g. "USD,BTC,CNY" (up to 120).
+      convert_id: target currencies by CMC ID, e.g. "1,2781".
+      aux: supplemental fields (comma-separated):
+        num_market_pairs, cmc_rank, date_added, tags, platform,
+        max_supply, circulating_supply, total_supply,
+        market_cap_by_total_supply, volume_24h_reported,
+        volume_7d, volume_7d_reported, volume_30d, volume_30d_reported,
+        is_active, is_fiat.
+      skip_invalid: boolean, true to skip invalid IDs (default false).
+    allowed_params: [id, slug, symbol, convert, convert_id, aux, skip_invalid]
+
+  # ────────────────────────────────────────────
+  # Cryptocurrency Listings
+  # ────────────────────────────────────────────
+  - gateway_path: /api/v1/crypto/cmc/listings
+    upstream_path: /x402/v3/cryptocurrency/listing/latest
+    category: Cryptocurrency
+    user_price: "0.015"
+    upstream_cost: "0.01"
+    description: >
+      加密货币排行榜（默认按市值排序）。
+      start: 分页偏移量，从 1 开始（默认 1）。
+      limit: 每页数量，1-5000（默认 100）。
+      price_min / price_max: 按 USD 价格过滤。
+      market_cap_min / market_cap_max: 按市值过滤。
+      volume_24h_min / volume_24h_max: 按 24h 成交量过滤。
+      circulating_supply_min / circulating_supply_max: 按流通量过滤。
+      percent_change_24h_min / percent_change_24h_max: 按 24h 涨跌幅过滤。
+      convert: 转换目标货币，如 "USD,CNY"。
+      convert_id: 用 CMC ID 指定转换货币。
+      sort: 排序字段，可选: name, symbol, date_added, market_cap,
+        market_cap_strict, price, circulating_supply, total_supply,
+        max_supply, num_market_pairs, volume_24h, percent_change_1h,
+        percent_change_24h, percent_change_7d（默认 market_cap）。
+      sort_dir: 排序方向 asc/desc。
+      cryptocurrency_type: all / coins / tokens（默认 all）。
+      tag: 按标签过滤，如 defi, filesharing。
+      aux: 附加字段。
+    description_en: >
+      Cryptocurrency rankings (default sorted by market cap).
+      start: pagination offset, 1-based (default 1).
+      limit: results per page, 1-5000 (default 100).
+      price_min / price_max: filter by USD price.
+      market_cap_min / market_cap_max: filter by market cap.
+      volume_24h_min / volume_24h_max: filter by 24h volume.
+      circulating_supply_min / circulating_supply_max: filter by circulating supply.
+      percent_change_24h_min / percent_change_24h_max: filter by 24h % change.
+      convert: target currencies, e.g. "USD,CNY".
+      convert_id: target currencies by CMC ID.
+      sort: sort field — name, symbol, date_added, market_cap,
+        market_cap_strict, price, circulating_supply, total_supply,
+        max_supply, num_market_pairs, volume_24h, percent_change_1h,
+        percent_change_24h, percent_change_7d (default market_cap).
+      sort_dir: asc / desc.
+      cryptocurrency_type: all / coins / tokens (default all).
+      tag: filter by tag, e.g. defi, filesharing.
+      aux: supplemental data fields.
+    allowed_params:
+      - start
+      - limit
+      - price_min
+      - price_max
+      - market_cap_min
+      - market_cap_max
+      - volume_24h_min
+      - volume_24h_max
+      - circulating_supply_min
+      - circulating_supply_max
+      - percent_change_24h_min
+      - percent_change_24h_max
+      - convert
+      - convert_id
+      - sort
+      - sort_dir
+      - cryptocurrency_type
+      - tag
+      - aux
+
+  # ────────────────────────────────────────────
+  # DEX Pairs Quotes
+  # ────────────────────────────────────────────
+  - gateway_path: /api/v1/crypto/cmc/dex/pairs
+    upstream_path: /x402/v4/dex/pairs/quotes/latest
+    category: DEX
+    user_price: "0.015"
+    upstream_cost: "0.01"
+    description: >
+      DEX 交易对实时报价。按合约地址或网络查询链上 DEX 交易对。
+      network_slug: 区块链网络，如 "ethereum", "bsc", "solana", "base", "arbitrum"。
+      contract_address: 交易对或代币合约地址。
+      sort: 排序字段。
+      sort_dir: 排序方向 asc/desc。
+      start: 分页偏移量（默认 1）。
+      limit: 每页数量（默认 100）。
+      liquidity_min: 最小流动性过滤。
+      volume_24h_min: 最小 24h 成交量过滤。
+      aux: 附加字段。
+    description_en: >
+      DEX trading pair real-time quotes. Query on-chain DEX pairs by contract or network.
+      network_slug: blockchain network, e.g. "ethereum", "bsc", "solana", "base", "arbitrum".
+      contract_address: pair or token contract address.
+      sort: sort field.
+      sort_dir: sort direction asc/desc.
+      start: pagination offset (default 1).
+      limit: results per page (default 100).
+      liquidity_min: minimum liquidity filter.
+      volume_24h_min: minimum 24h volume filter.
+      aux: supplemental data fields.
+    allowed_params:
+      - network_slug
+      - contract_address
+      - sort
+      - sort_dir
+      - start
+      - limit
+      - liquidity_min
+      - volume_24h_min
+      - aux
+
+  # ────────────────────────────────────────────
+  # DEX Search
+  # ────────────────────────────────────────────
+  - gateway_path: /api/v1/crypto/cmc/dex/search
+    upstream_path: /x402/v1/dex/search
+    category: DEX
+    user_price: "0.015"
+    upstream_cost: "0.01"
+    description: >
+      DEX 代币/交易对搜索。通过关键词搜索 DEX 上的代币和交易对。
+      query (必填): 搜索关键词，如 "PEPE", "uniswap", 或合约地址。
+      network: 限定搜索的区块链网络，如 "ethereum", "bsc", "solana"。
+    description_en: >
+      Search DEX tokens and trading pairs by keyword.
+      query (required): search keyword, e.g. "PEPE", "uniswap", or contract address.
+      network: filter by blockchain network, e.g. "ethereum", "bsc", "solana".
+    allowed_params: [query, network]
+
+  # ────────────────────────────────────────────
+  # MCP (Model Context Protocol for AI Agents)
+  # ────────────────────────────────────────────
+  # Note: The /x402/mcp endpoint is an MCP server providing 12 AI tools:
+  #   get_crypto_quotes_latest, search_cryptos, get_crypto_info,
+  #   get_crypto_technical_analysis, get_crypto_marketcap_technical_analysis,
+  #   get_crypto_metrics, get_global_metrics_latest,
+  #   get_global_crypto_derivatives_metrics, trending_crypto_narratives,
+  #   get_upcoming_macro_events, get_crypto_latest_news, search_crypto_info.
+  # MCP uses a different protocol (JSON-RPC over HTTP) than REST.
+  # We proxy it as a POST endpoint; the AI agent sends MCP tool calls in the body.
+  - gateway_path: /api/v1/crypto/cmc/mcp
+    upstream_path: /x402/mcp
+    method: POST
+    category: MCP
+    user_price: "0.015"
+    upstream_cost: "0.01"
+    description: >
+      CoinMarketCap MCP 端点（面向 AI Agent）。通过 MCP 协议访问 12 个 AI 工具。
+      这是一个 POST 端点，请求体为 MCP JSON-RPC 格式。
+      可用工具: get_crypto_quotes_latest（实时报价）, search_cryptos（搜索币种）,
+      get_crypto_info（币种详情/白皮书）, get_crypto_technical_analysis（技术分析: SMA/EMA/MACD/RSI/斐波那契）,
+      get_crypto_marketcap_technical_analysis（市值技术分析）,
+      get_crypto_metrics（链上指标: 持仓分布/地址分析）,
+      get_global_metrics_latest（全球市场: 总市值/BTC 占比/恐贪指数）,
+      get_global_crypto_derivatives_metrics（衍生品: 杠杆率/ETF 资金流）,
+      trending_crypto_narratives（热门叙事与板块涨跌）,
+      get_upcoming_macro_events（影响币市的宏观事件）,
+      get_crypto_latest_news（最新加密新闻）,
+      search_crypto_info（语义搜索: 白皮书/概念/文档）。
+    description_en: >
+      CoinMarketCap MCP endpoint for AI agents. Access 12 AI tools via MCP protocol.
+      This is a POST endpoint; request body uses MCP JSON-RPC format.
+      Available tools: get_crypto_quotes_latest (real-time quotes), search_cryptos (search coins),
+      get_crypto_info (coin metadata/whitepapers), get_crypto_technical_analysis (SMA/EMA/MACD/RSI/Fibonacci),
+      get_crypto_marketcap_technical_analysis (market cap TA),
+      get_crypto_metrics (on-chain: holder distribution/address analysis),
+      get_global_metrics_latest (global: total market cap/BTC dominance/Fear & Greed),
+      get_global_crypto_derivatives_metrics (derivatives: leverage/ETF flows),
+      trending_crypto_narratives (trending narratives with performance data),
+      get_upcoming_macro_events (macro events affecting crypto),
+      get_crypto_latest_news (latest crypto news),
+      search_crypto_info (semantic search: whitepapers/concepts/docs).
+    allowed_params: []

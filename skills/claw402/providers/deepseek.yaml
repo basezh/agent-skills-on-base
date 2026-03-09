@@ -1,0 +1,67 @@
+id: deepseek
+order: 6
+name: DeepSeek
+short_description: "DeepSeek V3 & R1 reasoning models — pay per request with USDC"
+short_description_zh: "DeepSeek V3 和 R1 推理模型 — 用 USDC 按次付费"
+full_description: "Access DeepSeek's powerful language models without an account or API key. DeepSeek-Chat (V3.2) for general tasks and DeepSeek-Reasoner for advanced chain-of-thought reasoning. OpenAI-compatible API."
+full_description_zh: "无需注册 DeepSeek 账号或 API Key，直接用 USDC 按次调用 DeepSeek 模型。DeepSeek-Chat (V3.2) 用于通用任务，DeepSeek-Reasoner 用于高级推理。兼容 OpenAI API 格式。"
+website: https://deepseek.com
+logo_url: /providers/deepseek.svg
+category: ai
+tags: [ai, llm, deepseek, chat, reasoning, agents, china]
+featured: true
+
+upstream_base_url: https://api.deepseek.com
+upstream_type: api_key
+upstream_auth_env: DEEPSEEK_API_KEY
+upstream_auth_header: Authorization
+
+routes:
+  # ── Chat Completions ──
+  - gateway_path: /api/v1/ai/deepseek/chat
+    upstream_path: /chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: deepseek-chat
+    user_price: "0.003"
+    upstream_cost: "0.001"
+    description: "DeepSeek-Chat 对话补全（V3.2，通用任务）"
+    description_en: "Chat completions with DeepSeek-Chat (V3.2, general tasks)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/deepseek/chat/reasoner
+    upstream_path: /chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: deepseek-reasoner
+    user_price: "0.005"
+    upstream_cost: "0.002"
+    description: "DeepSeek-Reasoner 深度推理（CoT 链式思考）"
+    description_en: "Chat completions with DeepSeek-Reasoner (chain-of-thought reasoning)"
+    mime_type: application/json
+
+  # ── Completions ──
+  - gateway_path: /api/v1/ai/deepseek/completions
+    upstream_path: /beta/completions
+    method: POST
+    category: Completions
+    body_overrides:
+      model: deepseek-chat
+    user_price: "0.003"
+    upstream_cost: "0.001"
+    description: "DeepSeek Beta 补全接口（FIM / 非对话补全）"
+    description_en: "DeepSeek beta completions API (FIM / non-chat completions)"
+    mime_type: application/json
+
+  # ── Models List ──
+  - gateway_path: /api/v1/ai/deepseek/models
+    upstream_path: /models
+    method: GET
+    category: Models
+    user_price: "0.001"
+    upstream_cost: "0.000"
+    description: "可用模型列表"
+    description_en: "List available DeepSeek models"
+    mime_type: application/json

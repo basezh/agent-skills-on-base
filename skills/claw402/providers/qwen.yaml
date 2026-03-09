@@ -1,0 +1,93 @@
+id: qwen
+order: 7
+name: Qwen (通义千问)
+short_description: "Alibaba Qwen3 models — pay per request with USDC"
+short_description_zh: "阿里巴巴通义千问 Qwen3 系列模型 — 用 USDC 按次付费"
+full_description: "Access Alibaba's Qwen model family without an account or API key. From the flagship Qwen3-Max to the ultra-fast Qwen-Flash, covering chat, coding, and vision tasks. OpenAI-compatible API."
+full_description_zh: "无需注册阿里云账号或 API Key，直接用 USDC 按次调用通义千问系列模型。从旗舰 Qwen3-Max 到超快 Qwen-Flash，覆盖对话、编程、视觉等任务。兼容 OpenAI API 格式。"
+website: https://qwen.ai
+logo_url: /providers/qwen.svg
+category: ai
+tags: [ai, llm, qwen, alibaba, chat, coding, vision, agents, china]
+featured: true
+
+upstream_base_url: https://dashscope.aliyuncs.com/compatible-mode/v1
+upstream_type: api_key
+upstream_auth_env: DASHSCOPE_API_KEY
+upstream_auth_header: Authorization
+
+routes:
+  # ── Chat Completions ──
+  - gateway_path: /api/v1/ai/qwen/chat/max
+    upstream_path: /chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: qwen3-max
+    user_price: "0.01"
+    upstream_cost: "0.005"
+    description: "Qwen3-Max 对话补全（旗舰模型，最强能力）"
+    description_en: "Chat completions with Qwen3-Max (flagship, most powerful)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/qwen/chat/plus
+    upstream_path: /chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: qwen-plus
+    user_price: "0.005"
+    upstream_cost: "0.001"
+    description: "Qwen-Plus 对话补全（性价比之选）"
+    description_en: "Chat completions with Qwen-Plus (best value)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/qwen/chat/turbo
+    upstream_path: /chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: qwen-turbo
+    user_price: "0.002"
+    upstream_cost: "0.0005"
+    description: "Qwen-Turbo 对话补全（快速响应）"
+    description_en: "Chat completions with Qwen-Turbo (fast response)"
+    mime_type: application/json
+
+  - gateway_path: /api/v1/ai/qwen/chat/flash
+    upstream_path: /chat/completions
+    method: POST
+    category: Chat
+    body_overrides:
+      model: qwen-flash
+    user_price: "0.002"
+    upstream_cost: "0.0003"
+    description: "Qwen-Flash 对话补全（超低延迟，最便宜）"
+    description_en: "Chat completions with Qwen-Flash (ultra-low latency, cheapest)"
+    mime_type: application/json
+
+  # ── Coding ──
+  - gateway_path: /api/v1/ai/qwen/chat/coder
+    upstream_path: /chat/completions
+    method: POST
+    category: Coding
+    body_overrides:
+      model: qwen3-coder-plus
+    user_price: "0.005"
+    upstream_cost: "0.001"
+    description: "Qwen3-Coder 代码生成与补全"
+    description_en: "Code generation with Qwen3-Coder-Plus"
+    mime_type: application/json
+
+  # ── Vision ──
+  - gateway_path: /api/v1/ai/qwen/chat/vl
+    upstream_path: /chat/completions
+    method: POST
+    category: Vision
+    body_overrides:
+      model: qwen-vl-plus
+    user_price: "0.005"
+    upstream_cost: "0.001"
+    description: "Qwen-VL 多模态视觉理解（图片+文本）"
+    description_en: "Multimodal vision understanding with Qwen-VL-Plus (image + text)"
+    mime_type: application/json
