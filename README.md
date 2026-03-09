@@ -10,50 +10,51 @@ This repo is a curated collection of [Agent Skills](https://agentskills.io) for 
 
 ## Available Skills
 
-### Infrastructure
+### Chain / Data Infra
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [base](skills/base/) | Base Skills: Base Account SDK, network config, contract deployment, node setup, MiniKit to Farcaster. | [https://github.com/base/skills](https://github.com/base/skills) |
 | [quicknode](skills/quicknode/) | Blockchain infrastructure: RPC, Streams, Webhooks, IPFS, enhanced APIs for 80+ chains, x402 pay-per-request. | [https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill](https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill) |
 | [alchemy](skills/alchemy/) | Blockchain data APIs for agents. Node APIs, Token APIs, Webhooks. Pay for compute with x402. | [https://agents.alchemy.com/](https://agents.alchemy.com/) |
+| [indexy](skills/indexy/) | Manage, create, update, and analyze custom crypto indices with detailed asset weights, methodologies, and performance metrics via API or Web3 authentication. | [https://clawhub.ai/hsantana/indexy](https://clawhub.ai/hsantana/indexy) |
 
-### Agent Wallets
+### Wallets
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [coinbase-agentic-wallet](skills/coinbase-agentic-wallet/) | Authenticate, send USDC, trade tokens using the `awal` CLI. x402 bazaar, monetize services. | [https://github.com/coinbase/agentic-wallet-skills](https://github.com/coinbase/agentic-wallet-skills) |
-| [bankr](skills/bankr/) | Bankr Skills equip builders with plug-and-play tools to build more powerful agents. Includes Bankr (launch tokens, earn trading fees, built-in wallet with safeguards), Sign-In With Agent, Axiom Bankr Signals, Botchan, ERC-8004, ENS Primary Name, OnchainKit, QRcoin, Veil, Yoink, Neynar, and Hydrex. | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
 | [privy-agentic-wallets](skills/privy-agentic-wallets/) | Create crypto wallets with Privy that AI agents control autonomously with policy-based guardrails. | [https://github.com/privy-io/privy-agentic-wallets-skill](https://github.com/privy-io/privy-agentic-wallets-skill) |
 | [sponge-wallet](skills/sponge-wallet/) | Crypto wallet, token swaps, cross-chain bridges, x402 payments for external services (search, image gen, AI). | [https://wallet.paysponge.com/skill.md](https://wallet.paysponge.com/skill.md) |
 | [clawlett](skills/clawlett/) | OpenClaw skill for autonomous token swaps and Trenches trading via Gnosis Safe + Zodiac Roles. | [https://github.com/Creator-Bid/Clawlett](https://github.com/Creator-Bid/Clawlett) |
 
-### Agent Marketplaces
+### Agent Markets
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [virtual-protocol-acp](skills/virtual-protocol-acp/) | Agent Commerce Protocol CLI: agent wallet, marketplace, token launch, seller runtime, Twitter/X integration. | [https://github.com/Virtual-Protocol/openclaw-acp](https://github.com/Virtual-Protocol/openclaw-acp) |
+| [molten](skills/molten/) | Intent resolution layer. Express what you need, Molten finds the best capability to fulfill it. | [https://molten.gg/skill.md](https://molten.gg/skill.md) |
 | [moltlaunch](skills/moltlaunch/) | Onchain coordination: register, accept work, earn reputation, hire agents. Quote-based tasks, trustless escrow on Base. | [https://moltlaunch.com/skill.md](https://moltlaunch.com/skill.md) |
 | [daydreams-taskmarket](skills/daydreams-taskmarket/) | Open task marketplace. Agents earn USDC. Trustless payments via X402. ERC-8004 identity on Base Mainnet. | [https://market.daydreams.systems/skill.md](https://market.daydreams.systems/skill.md) |
 | [moltdao](skills/moltdao/) | DAO for AIs. Vote on proposals, create proposals, participate with USDC on Base Sepolia. | [https://moltdao.app/skill.html](https://moltdao.app/skill.html) |
-| [molten](skills/molten/) | Intent resolution layer. Express what you need, Molten finds the best capability to fulfill it. | [https://molten.gg/skill.md](https://molten.gg/skill.md) |
 
-### Token Launch Platforms
+### Token Markets
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [clanker](skills/clanker/) | Launch tokens via Clanker on Base. | [https://clanker.world](https://clanker.world) |
 | [claunch](skills/claunch/) | Launch tokens on Base for free via Bankr. Agents earn trading fees. | [https://clawn.ch/skill.md](https://clawn.ch/skill.md) |
 | [flow](skills/flow/) | Flow protocol: discover auctions, launch tokens, submit bids, claim/exit, deploy liquidity on Base. | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
-| [dx-terminal-pro](skills/dx-terminal-pro/) | Managing autonomous memecoin trading agents on DX Terminal Pro. | [https://github.com/ProjectDXAI/dx-terminal-pro-skill](https://github.com/ProjectDXAI/dx-terminal-pro-skill) |
 | [frame](skills/frame/) | Build in public with vibe raising. Launch builder coins, ship products, claim vesting and trading fees. Gas-free on Base. | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
 
-### DeFi Protocols
+### DeFi / Trading
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
+| [bankr](skills/bankr/) | Bankr Skills equip builders with plug-and-play tools to build more powerful agents. Includes Bankr (launch tokens, earn trading fees, built-in wallet with safeguards), Sign-In With Agent, Axiom Bankr Signals, Botchan, ERC-8004, ENS Primary Name, OnchainKit, QRcoin, Veil, Yoink, Neynar, and Hydrex. | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
 | [uniswap-ai](skills/uniswap-ai/) | Uniswap-specific AI tools: hooks, trading, CCA auctions, viem integration for Base. | [https://github.com/Uniswap/uniswap-ai](https://github.com/Uniswap/uniswap-ai) |
 | [opensea](skills/opensea/) | Query NFT data, trade on Seaport, swap ERC20 tokens across Base and other chains. | [https://github.com/ProjectOpenSea/opensea-skill](https://github.com/ProjectOpenSea/opensea-skill) |
+| [dx-terminal-pro](skills/dx-terminal-pro/) | Managing autonomous memecoin trading agents on DX Terminal Pro. | [https://github.com/ProjectDXAI/dx-terminal-pro-skill](https://github.com/ProjectDXAI/dx-terminal-pro-skill) |
 | [elsa](skills/elsa/) | OpenClaw skill for Elsa x402 DeFi API. Micropayments for USDC on Base. | [https://github.com/HeyElsa/elsa-openclaw](https://github.com/HeyElsa/elsa-openclaw) |
 | [fluid](skills/fluid/) | Fluid Protocol: lending (ERC-4626 fTokens), vaults (T1–T4). Deposit, borrow, manage positions. No API keys. | [https://fluid.io/skill.md](https://fluid.io/skill.md) |
 
@@ -67,13 +68,14 @@ This repo is a curated collection of [Agent Skills](https://agentskills.io) for 
 | [moltline](skills/moltline/) | Private messaging for molts. Claim handle, DM other molts. XMTP-based. | [https://www.moltline.com/skill.md](https://www.moltline.com/skill.md) |
 | [town](skills/town/) | Towns Protocol bots. Build community bots on Base. | [https://github.com/towns-protocol/skills](https://github.com/towns-protocol/skills) |
 
-### AI / LLM Capability
+### AI Services
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [clawrouter](skills/clawrouter/) | Agent-native LLM router. Route to right model at right price. 15-dim scoring, 41+ models, zero API keys. | [https://github.com/BlockRunAI/ClawRouter](https://github.com/BlockRunAI/ClawRouter) |
 | [heurist-mesh](skills/heurist-mesh/) | Web3/crypto intelligence via 30+ specialized AI agents. Analytics, token data, wallet analysis. | [https://github.com/heurist-network/heurist-mesh-skill](https://github.com/heurist-network/heurist-mesh-skill) |
 | [venice-ai](skills/venice-ai/) | Venice AI platform: text, search, embeddings, TTS, image gen, video. Private, uncensored inference. | [https://clawhub.ai/jonisjongithub/venice-ai](https://clawhub.ai/jonisjongithub/venice-ai) |
+| [claw402](skills/claw402/) | Real-time crypto market data and AI trading signals via x402 micropayments. | [https://github.com/NoFxAiOS/claw402-open](https://github.com/NoFxAiOS/claw402-open) |
 
 ### Gaming / Art Creation
 
