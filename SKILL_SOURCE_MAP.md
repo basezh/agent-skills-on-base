@@ -1,39 +1,10 @@
 # Skill Source Mapping
 
 ## Rule
-- **GitHub link** → Fork repo, add frontmatter to README as SKILL.md
-- **skill.md URL** → Use fetched skill.md content directly
-- **Clawhub / skills.sh** → Fetch skill from platform URL
+- **GitHub repo** → Fork repo, add frontmatter to README as SKILL.md
+- **Other** → Use fetched skill.md/content directly from URL
 
-## skill.md URLs (use directly)
-| Skill | URL |
-|-------|-----|
-| sponge-wallet | https://wallet.paysponge.com/skill.md |
-| moltlaunch | https://moltlaunch.com/skill.md |
-| daydreams-taskmarket | https://market.daydreams.systems/skill.md |
-| molten | https://molten.gg/skill.md |
-| moltdao | https://moltdao.app/skill.html |
-| openagent-market | https://openagent.market/skill.md |
-| clawnch | https://clawn.ch/skill.md |
-| flow | https://www.flow.bid/skill/skill.md |
-| frame | https://frame.fun/skill.md |
-| fluid | https://fluid.io/skill.md |
-| moltline | https://www.moltline.com/skill.md |
-| basebario-agentarcade | https://aa.baes.app/_skill/SKILL.md |
-| basebario-fxclaw | https://fxclaw.xyz/SKILL.md |
-| apinow | https://www.apinow.fun/skill.md |
-
-## Clawhub / skills.sh
-| Skill | URL |
-|-------|-----|
-| quicknode | https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill |
-| alchemy | https://agents.alchemy.com/ |
-| indexy | https://clawhub.ai/hsantana/indexy |
-| agentmail | https://clawhub.ai/adboio/agentmail |
-| venice-ai | https://clawhub.ai/jonisjongithub/venice-ai |
-| clanker | https://clanker.world |
-
-## GitHub (fork repo)
+## GitHub
 | Skill | Repo |
 |-------|------|
 | base | https://github.com/base/skills |
@@ -53,3 +24,27 @@
 | heurist-mesh | https://github.com/heurist-network/heurist-mesh-skill |
 | claw402 | https://github.com/NoFxAiOS/claw402-open |
 | remix | https://github.com/farworld-labs/remix-skills |
+
+## Other
+| Skill | URL |
+|-------|-----|
+| quicknode | https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill |
+| alchemy | https://agents.alchemy.com/ |
+| indexy | https://clawhub.ai/hsantana/indexy |
+| sponge-wallet | https://wallet.paysponge.com/skill.md |
+| moltlaunch | https://moltlaunch.com/skill.md |
+| daydreams-taskmarket | https://market.daydreams.systems/skill.md |
+| molten | https://molten.gg/skill.md |
+| moltdao | https://moltdao.app/skill.html |
+| openagent-market | https://openagent.market/skill.md |
+| clanker | https://clanker.world |
+| clawnch | https://clawn.ch/skill.md |
+| flow | https://www.flow.bid/skill/skill.md |
+| frame | https://frame.fun/skill.md |
+| fluid | https://fluid.io/skill.md |
+| agentmail | https://clawhub.ai/adboio/agentmail |
+| moltline | https://www.moltline.com/skill.md |
+| venice-ai | https://clawhub.ai/jonisjongithub/venice-ai |
+| apinow | https://www.apinow.fun/skill.md |
+| basebario-agentarcade | https://aa.baes.app/_skill/SKILL.md |
+| basebario-fxclaw | https://fxclaw.xyz/SKILL.md |
