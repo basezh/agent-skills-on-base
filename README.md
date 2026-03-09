@@ -6,7 +6,11 @@
 
 Base is the onchain home for AI agents.
 
-This repository is a curated collection of [Agent Skills](https://agentskills.io) for building AI agents on [Base](https://base.org). These skills help agents connect to Base infrastructure, manage wallets, launch tokens, participate in agent marketplaces, interact with DeFi protocols, and more.
+@basezh has curated a collection of Agent Skills built on Base, covering infra, wallets, markets, DeFi, social, and creation, etc.
+
+Try installing these Skills and your agent can immediately gain onchain capabilities, interacting with protocols, completing tasks, and even starting to earn autonomously.
+
+We believe more and more onchain apps will redesign their interfaces for agents. Enjoy the acceleration brought by AI.
 
 ## Available Skills
 
@@ -136,13 +140,15 @@ Some skills require API keys or additional configuration. Please check each skil
 
 [![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh) [![X](https://img.shields.io/badge/@basezh-X-000000?style=flat-square&logo=x)](https://x.com/basezh) [![Telegram](https://img.shields.io/badge/@basezh-Telegram-26A5E4?style=flat-square&logo=telegram)](https://t.me/basezh) [![Farcaster](https://img.shields.io/badge/@basezh-Farcaster-6A3CFF?style=flat-square&logo=farcaster)](https://farcaster.xyz/basezh)
 
-Base 是 AI agents 的链上家园。
+Base 已经是 AI agents 的链上家园。
 
-本仓库精选了适用于 [Base](https://base.org) 生态的 [Agent Skills](https://agentskills.io)，用于构建 AI agents。这些 skills 可帮助 agents 连接 Base 基础设施、管理钱包、发行代币、参与 agent 市场、与 DeFi 协议交互等。
+Base 中文台整理了 Base 上目前推出 Agent Skills 的主要项目，覆盖基建、钱包、市场、DeFi、社交、创作等多个场景。可以尝试安装这些 Skills，让你的龙虾马上获得链上交互能力，调用协议、完成任务，甚至开始自主赚钱。
+
+相信还会有越来越多的链上应用都会为 Agents 重写入口，享受 AI 加速吧。
 
 ## 可用 Skills
 
-### Chain / Data Infra
+### 公链/数据基础设施
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -151,7 +157,7 @@ Base 是 AI agents 的链上家园。
 | [alchemy](skills/alchemy/) | 面向 agents 的区块链数据 API，包括 Node API、Token API 和 Webhooks，可通过 x402 支付算力费用。 | [https://agents.alchemy.com/](https://agents.alchemy.com/) |
 | [indexy](skills/indexy/) | 通过 API 或 Web3 认证来管理、创建、更新和分析自定义加密指数，支持详细的资产权重、方法论和绩效指标。 | [https://clawhub.ai/hsantana/indexy](https://clawhub.ai/hsantana/indexy) |
 
-### Wallets
+### 钱包
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -160,7 +166,7 @@ Base 是 AI agents 的链上家园。
 | [sponge-wallet](skills/sponge-wallet/) | 加密钱包、代币兑换、跨链桥接，以及用于外部服务（搜索、图像生成、AI 等）的 x402 支付能力。 | [https://wallet.paysponge.com/skill.md](https://wallet.paysponge.com/skill.md) |
 | [clawlett](skills/clawlett/) | 基于 Gnosis Safe + Zodiac Roles 的 OpenClaw skill，用于自主代币兑换与 Trenches 交易。 | [https://github.com/Creator-Bid/Clawlett](https://github.com/Creator-Bid/Clawlett) |
 
-### Agent Markets
+### Agent市场
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -170,7 +176,7 @@ Base 是 AI agents 的链上家园。
 | [daydreams-taskmarket](skills/daydreams-taskmarket/) | 开放任务市场，agents 可赚取 USDC。通过 X402 实现 trustless 支付，并支持 Base Mainnet 上的 ERC-8004 身份。 | [https://market.daydreams.systems/skill.md](https://market.daydreams.systems/skill.md) |
 | [moltdao](skills/moltdao/) | 面向 AI 的 DAO。支持提案投票、创建提案，并使用 Base Sepolia 上的 USDC 参与治理。 | [https://moltdao.app/skill.html](https://moltdao.app/skill.html) |
 
-### Token Markets
+### 代币市场
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -179,7 +185,7 @@ Base 是 AI agents 的链上家园。
 | [flow](skills/flow/) | Flow Protocol：发现拍卖、发行代币、提交出价、领取或退出，并在 Base 上部署流动性。 | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
 | [frame](skills/frame/) | 面向公开构建和 vibe raising：发行 builder coins、发布产品，并领取 vesting 与交易手续费。Base 上免 Gas。 | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
 
-### DeFi / 交易
+### DeFi/交易
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -190,7 +196,7 @@ Base 是 AI agents 的链上家园。
 | [elsa](skills/elsa/) | 面向 Elsa x402 DeFi API 的 OpenClaw skill，支持 Base 上的 USDC 小额支付。 | [https://github.com/HeyElsa/elsa-openclaw](https://github.com/HeyElsa/elsa-openclaw) |
 | [fluid](skills/fluid/) | Fluid Protocol：支持借贷（ERC-4626 fTokens）和金库（T1–T4），可进行存入、借出和仓位管理，无需 API key。 | [https://fluid.io/skill.md](https://fluid.io/skill.md) |
 
-### Social / Messaging
+### 社交
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -200,7 +206,7 @@ Base 是 AI agents 的链上家园。
 | [moltline](skills/moltline/) | 面向 molts 的私信服务。可认领 handle，并通过 XMTP 向其他 molts 发送私信。 | [https://www.moltline.com/skill.md](https://www.moltline.com/skill.md) |
 | [town](skills/town/) | 用于在 Base 上构建社区机器人的 Towns Protocol bots。 | [https://github.com/towns-protocol/skills](https://github.com/towns-protocol/skills) |
 
-### AI Services
+### AI 服务
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -209,7 +215,7 @@ Base 是 AI agents 的链上家园。
 | [venice-ai](skills/venice-ai/) | Venice AI 平台：支持文本、搜索、embeddings、TTS、图像生成和视频，提供私有、无审查推理能力。 | [https://clawhub.ai/jonisjongithub/venice-ai](https://clawhub.ai/jonisjongithub/venice-ai) |
 | [claw402](skills/claw402/) | 通过 x402 小额支付获取实时加密市场数据与 AI 交易信号。 | [https://github.com/NoFxAiOS/claw402-open](https://github.com/NoFxAiOS/claw402-open) |
 
-### 游戏 / 艺术创作
+### 创作
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
@@ -233,7 +239,7 @@ cp -r agent-skills-on-base/skills/* ~/.openclaw/skills/
 **通过 agent 对话安装：**
 
 ```
-Read <url>/SKILL.md 或 github.com/<org>/skills 文档，按说明安装。
+Read <url>/SKILL.md or github.com/<org>/skills docs, and follow the instructions to install the skill.
 ```
 
 **仓库结构**
