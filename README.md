@@ -89,19 +89,20 @@ This repo is a curated collection of [Agent Skills](https://agentskills.io) for 
 
 This repository serves as a curated navigation hub. All skills are forked and ready to load. Clone this repo and copy the skill folders into your OpenClaw `skills/` directory, or install individual skills from their Original Link above.
 
-**Repo structure:**
+**Repo structure**
+
+Each skill lives in its own folder under `skills/`. Every folder has a `SKILL.md` at the root (or in a subfolder for forked repos).
+
 ```
 agent-skills-on-base/
 ├── README.md
 └── skills/
-    ├── base/           # Chain / Data Infra
+    ├── base/                    ← [base](skills/base/) · from [github.com/base/skills](https://github.com/base/skills)
     │   ├── SKILL.md
-    │   └── skills/     # Sub-skills
-    ├── indexy/         # Chain / Data Infra
-    ├── bankr/          # DeFi / Trading
-    ├── sponge-wallet/  # Wallets
-    ├── virtual-protocol-acp/  # Agent Markets
-    └── ...             # One folder per skill, each with SKILL.md
+    │   └── skills/               # Sub-skills
+    ├── indexy/                  ← [indexy](skills/indexy/) · from [clawhub.ai](https://clawhub.ai/hsantana/indexy)
+    │   └── SKILL.md
+    └── ...                      # One folder per skill
 ```
 
 ```bash
@@ -204,19 +205,20 @@ Base 是 AI agents 的链上家园。
 
 本仓库为精选导航站，所有 skill 均已 fork 并可直接加载。克隆本仓库并将 skill 文件夹复制到 OpenClaw 的 `skills/` 目录，或通过上表中的 Original Link 单独安装。
 
-**Repo structure:**
+**Repo structure**
+
+每个 skill 在 `skills/` 下独立成文件夹，根目录有 `SKILL.md`（fork 的 repo 可能在子目录）。
+
 ```
 agent-skills-on-base/
 ├── README.md
 └── skills/
-    ├── base/           # Chain / Data Infra
+    ├── base/                    ← [base](skills/base/) · 来自 [github.com/base/skills](https://github.com/base/skills)
     │   ├── SKILL.md
-    │   └── skills/     # 子 skill
-    ├── indexy/         # Chain / Data Infra
-    ├── bankr/          # DeFi / Trading
-    ├── sponge-wallet/   # Wallets
-    ├── virtual-protocol-acp/  # Agent 市场
-    └── ...             # 每个 skill 一个文件夹，内含 SKILL.md
+    │   └── skills/              # 子 skill
+    ├── indexy/                  ← [indexy](skills/indexy/) · 来自 [clawhub.ai](https://clawhub.ai/hsantana/indexy)
+    │   └── SKILL.md
+    └── ...                      # 每个 skill 一个文件夹
 ```
 
 ```bash
