@@ -75,7 +75,7 @@ This repo is a curated collection of [Agent Skills](https://agentskills.io) for 
 | [clawrouter](skills/clawrouter/) | Agent-native LLM router. Route to right model at right price. 15-dim scoring, 41+ models, zero API keys. | [https://github.com/BlockRunAI/ClawRouter](https://github.com/BlockRunAI/ClawRouter) |
 | [heurist-mesh](skills/heurist-mesh/) | Web3/crypto intelligence via 30+ specialized AI agents. Analytics, token data, wallet analysis. | [https://github.com/heurist-network/heurist-mesh-skill](https://github.com/heurist-network/heurist-mesh-skill) |
 | [venice-ai](skills/venice-ai/) | Venice AI platform: text, search, embeddings, TTS, image gen, video. Private, uncensored inference. | [https://clawhub.ai/jonisjongithub/venice-ai](https://clawhub.ai/jonisjongithub/venice-ai) |
-| [claw402](skills/claw402/) | Real-time crypto market data and AI trading signals via x402 micropayments. | [https://github.com/NoFxAiOS/claw402-open](https://github.com/NoFxAiOS/claw402-open) |
+| [claw402](skills/claw402/openclaw-skill/) | Real-time crypto market data and AI trading signals via x402 micropayments. | [https://github.com/NoFxAiOS/claw402-open](https://github.com/NoFxAiOS/claw402-open) |
 
 ### Gaming / Art Creation
 
@@ -94,12 +94,13 @@ This repository serves as a curated navigation hub. All skills are forked and re
 agent-skills-on-base/
 ├── README.md
 └── skills/
-    ├── base/           # Base infrastructure (Account SDK, deployment, node, etc.)
+    ├── base/           # Chain / Data Infra
     │   ├── SKILL.md
     │   └── skills/     # Sub-skills
-    ├── bankr/          # Token launch, trading, SIWA, Farcaster, etc.
-    ├── sponge-wallet/
-    ├── virtual-protocol-acp/
+    ├── indexy/         # Chain / Data Infra
+    ├── bankr/          # DeFi / Trading
+    ├── sponge-wallet/  # Wallets
+    ├── virtual-protocol-acp/  # Agent Markets
     └── ...             # One folder per skill, each with SKILL.md
 ```
 
@@ -124,20 +125,20 @@ Base 是 AI agents 的链上家园。
 
 ## 可用 Skills
 
-### 基础设施
+### Chain / Data Infra
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [base](skills/base/) | Base Skills：Base Account SDK、网络配置、合约部署、节点搭建、MiniKit 转 Farcaster。 | [https://github.com/base/skills](https://github.com/base/skills) |
 | [quicknode](skills/quicknode/) | 区块链基础设施：RPC、Streams、Webhooks、IPFS，支持 80+ 链的增强 API，x402 按需付费。 | [https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill](https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill) |
 | [alchemy](skills/alchemy/) | 面向 agents 的区块链数据 API：Node API、Token API、Webhooks，x402 按量计费。 | [https://agents.alchemy.com/](https://agents.alchemy.com/) |
+| [indexy](skills/indexy/) | 通过 API 或 Web3 认证管理、创建、更新、分析自定义加密指数，含资产权重、方法论与绩效指标。 | [https://clawhub.ai/hsantana/indexy](https://clawhub.ai/hsantana/indexy) |
 
-### Agent 钱包
+### Wallets
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [coinbase-agentic-wallet](skills/coinbase-agentic-wallet/) | 使用 `awal` CLI 完成认证、发送 USDC、交易代币，x402 市集与服务变现。 | [https://github.com/coinbase/agentic-wallet-skills](https://github.com/coinbase/agentic-wallet-skills) |
-| [bankr](skills/bankr/) | Bankr Skills 为 builders 提供即插即用工具，构建更强大的 agents。包含 Bankr（代币发行、赚取交易费、内置带 safeguards 的钱包）、Sign-In With Agent、Axiom Bankr Signals、Botchan、ERC-8004、ENS Primary Name、OnchainKit、QRcoin、Veil、Yoink、Neynar、Hydrex。 | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
 | [privy-agentic-wallets](skills/privy-agentic-wallets/) | 用 Privy 创建由 AI agents 自主控制、带策略约束的加密钱包。 | [https://github.com/privy-io/privy-agentic-wallets-skill](https://github.com/privy-io/privy-agentic-wallets-skill) |
 | [sponge-wallet](skills/sponge-wallet/) | 加密钱包、代币兑换、跨链桥接，x402 支付外部服务（搜索、图像生成、AI 等）。 | [https://wallet.paysponge.com/skill.md](https://wallet.paysponge.com/skill.md) |
 | [clawlett](skills/clawlett/) | OpenClaw skill：基于 Gnosis Safe + Zodiac Roles 的自主代币兑换与 Trenches 交易。 | [https://github.com/Creator-Bid/Clawlett](https://github.com/Creator-Bid/Clawlett) |
@@ -147,27 +148,28 @@ Base 是 AI agents 的链上家园。
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [virtual-protocol-acp](skills/virtual-protocol-acp/) | Agent Commerce Protocol CLI：agent 钱包、市场、代币发行、卖家运行时、Twitter/X 集成。 | [https://github.com/Virtual-Protocol/openclaw-acp](https://github.com/Virtual-Protocol/openclaw-acp) |
+| [molten](skills/molten/) | 意图解析层：描述需求，Molten 自动匹配最佳能力。 | [https://molten.gg/skill.md](https://molten.gg/skill.md) |
 | [moltlaunch](skills/moltlaunch/) | 链上协作：注册、接单、积累声誉、雇佣 agents，报价制任务，Base 上 trustless 托管。 | [https://moltlaunch.com/skill.md](https://moltlaunch.com/skill.md) |
 | [daydreams-taskmarket](skills/daydreams-taskmarket/) | 开放任务市场，agents 赚取 USDC，X402 trustless 支付，Base 主网 ERC-8004 身份。 | [https://market.daydreams.systems/skill.md](https://market.daydreams.systems/skill.md) |
 | [moltdao](skills/moltdao/) | 面向 AI 的 DAO：投票、提案、使用 Base Sepolia 上的 USDC 参与治理。 | [https://moltdao.app/skill.html](https://moltdao.app/skill.html) |
-| [molten](skills/molten/) | 意图解析层：描述需求，Molten 自动匹配最佳能力。 | [https://molten.gg/skill.md](https://molten.gg/skill.md) |
 
-### 代币发行平台
+### Token 市场
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [clanker](skills/clanker/) | 在 Base 上通过 Clanker 发行代币。 | [https://clanker.world](https://clanker.world) |
 | [claunch](skills/claunch/) | 通过 Bankr 在 Base 上免费发行代币，agents 赚取交易手续费。 | [https://clawn.ch/skill.md](https://clawn.ch/skill.md) |
 | [flow](skills/flow/) | Flow 协议：发现拍卖、发行代币、出价、领取/退出、部署流动性，均在 Base 上。 | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
-| [dx-terminal-pro](skills/dx-terminal-pro/) | 在 DX Terminal Pro 上管理自主 meme 币交易 agents。 | [https://github.com/ProjectDXAI/dx-terminal-pro-skill](https://github.com/ProjectDXAI/dx-terminal-pro-skill) |
 | [frame](skills/frame/) | 公开构建与 vibe raising：发行 builder 代币、发布产品、领取 vesting 与交易费，Base 上 gas-free。 | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
 
-### DeFi 协议
+### DeFi / 交易
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
+| [bankr](skills/bankr/) | Bankr Skills 为 builders 提供即插即用工具，构建更强大的 agents。包含 Bankr（代币发行、赚取交易费、内置带 safeguards 的钱包）、Sign-In With Agent、Axiom Bankr Signals、Botchan、ERC-8004、ENS Primary Name、OnchainKit、QRcoin、Veil、Yoink、Neynar、Hydrex。 | [https://github.com/BankrBot/skills](https://github.com/BankrBot/skills) |
 | [uniswap-ai](skills/uniswap-ai/) | Uniswap 专用 AI 工具：hooks、交易、CCA 拍卖、viem 集成，面向 Base。 | [https://github.com/Uniswap/uniswap-ai](https://github.com/Uniswap/uniswap-ai) |
 | [opensea](skills/opensea/) | 查询 NFT 数据、在 Seaport 交易、在 Base 等多链上兑换 ERC20。 | [https://github.com/ProjectOpenSea/opensea-skill](https://github.com/ProjectOpenSea/opensea-skill) |
+| [dx-terminal-pro](skills/dx-terminal-pro/) | 在 DX Terminal Pro 上管理自主 meme 币交易 agents。 | [https://github.com/ProjectDXAI/dx-terminal-pro-skill](https://github.com/ProjectDXAI/dx-terminal-pro-skill) |
 | [elsa](skills/elsa/) | Elsa x402 DeFi API 的 OpenClaw skill，Base 上 USDC 小额支付。 | [https://github.com/HeyElsa/elsa-openclaw](https://github.com/HeyElsa/elsa-openclaw) |
 | [fluid](skills/fluid/) | Fluid Protocol：借贷（ERC-4626 fTokens）、金库（T1–T4），存入、借出、管理仓位，无需 API key。 | [https://fluid.io/skill.md](https://fluid.io/skill.md) |
 
@@ -181,13 +183,14 @@ Base 是 AI agents 的链上家园。
 | [moltline](skills/moltline/) | Molt 私信：认领 handle、与其他 molt 私聊，基于 XMTP。 | [https://www.moltline.com/skill.md](https://www.moltline.com/skill.md) |
 | [town](skills/town/) | Towns Protocol 机器人，在 Base 上构建社区机器人。 | [https://github.com/towns-protocol/skills](https://github.com/towns-protocol/skills) |
 
-### AI / LLM 能力
+### AI 服务
 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [clawrouter](skills/clawrouter/) | 面向 agents 的 LLM 路由，按需选模型与价格，15 维评分，41+ 模型，零 API key。 | [https://github.com/BlockRunAI/ClawRouter](https://github.com/BlockRunAI/ClawRouter) |
 | [heurist-mesh](skills/heurist-mesh/) | 通过 30+ 专业 AI agents 获取 Web3/加密情报：分析、代币数据、钱包分析。 | [https://github.com/heurist-network/heurist-mesh-skill](https://github.com/heurist-network/heurist-mesh-skill) |
 | [venice-ai](skills/venice-ai/) | Venice AI 平台：文本、搜索、embedding、TTS、图像、视频，私有、无审查推理。 | [https://clawhub.ai/jonisjongithub/venice-ai](https://clawhub.ai/jonisjongithub/venice-ai) |
+| [claw402](skills/claw402/) | 通过 x402 小额支付获取实时加密市场数据与 AI 交易信号。 | [https://github.com/NoFxAiOS/claw402-open](https://github.com/NoFxAiOS/claw402-open) |
 
 ### 游戏 / 艺术创作
 
@@ -206,12 +209,13 @@ Base 是 AI agents 的链上家园。
 agent-skills-on-base/
 ├── README.md
 └── skills/
-    ├── base/           # Base 基础设施（Account SDK、部署、节点等）
+    ├── base/           # Chain / Data Infra
     │   ├── SKILL.md
     │   └── skills/     # 子 skill
-    ├── bankr/          # 代币发行、交易、SIWA、Farcaster 等
-    ├── sponge-wallet/
-    ├── virtual-protocol-acp/
+    ├── indexy/         # Chain / Data Infra
+    ├── bankr/          # DeFi / Trading
+    ├── sponge-wallet/   # Wallets
+    ├── virtual-protocol-acp/  # Agent 市场
     └── ...             # 每个 skill 一个文件夹，内含 SKILL.md
 ```
 
