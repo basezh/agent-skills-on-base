@@ -6,9 +6,7 @@
 
 Base is the onchain home for AI agents.
 
-[@basezh](https://x.com/basezh) has curated a collection of [Agent Skills](https://agentskills.io) built on [Base](https://base.org), covering infra, wallets, markets, DeFi, social, and creation, etc.
-
-Try installing these Skills and your agent can immediately gain onchain capabilities, interacting with protocols, completing tasks, and even starting to earn autonomously.
+[@basezh](https://x.com/basezh) has curated a collection of [Agent Skills](https://agentskills.io) built on [Base](https://base.org), covering infra, wallets, markets, DeFi, social, and creation, etc. Try installing these Skills and your openclaw agent can immediately gain onchain capabilities, interacting with protocols, completing tasks, and even starting to earn autonomously.
 
 We believe more and more onchain apps will redesign their interfaces for agents. Enjoy the acceleration brought by AI.
 
@@ -142,7 +140,7 @@ Some skills require API keys or additional configuration. Please check each skil
 
 Base 已经是 AI agents 的链上家园。
 
-[Base 中文台](https://x.com/basezh) 整理了 [Base](https://base.org) 上目前推出 [Agent Skills](https://agentskills.io) 的主要项目，覆盖基建、钱包、市场、DeFi、社交、创作等多个场景。可以尝试安装这些 Skills，让你的龙虾马上获得链上交互能力，调用协议、完成任务，甚至开始自主赚钱。
+[Base 中文台](https://x.com/basezh) 整理了 [Base](https://base.org) 上目前推出 [Agent Skills](https://agentskills.io) 的主要项目，覆盖基建、钱包、市场、DeFi、社交、创作等多个场景。可以尝试安装这些 Skills，让你的 OpenClaw 龙虾马上获得链上交互能力，调用协议、完成任务，甚至开始自主赚钱。
 
 相信还会有越来越多的链上应用都会为 Agents 重写入口，享受 AI 加速吧。
 
