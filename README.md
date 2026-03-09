@@ -81,6 +81,7 @@ We believe more and more onchain apps will redesign their interfaces for agents.
 | [heurist-mesh](skills/heurist-mesh/) | Web3 and crypto intelligence via 30+ specialized AI agents for analytics, token data, and wallet analysis. | [https://github.com/heurist-network/heurist-mesh-skill](https://github.com/heurist-network/heurist-mesh-skill) |
 | [venice-ai](skills/venice-ai/) | Venice AI platform for text, search, embeddings, TTS, image generation, and video. Private, uncensored inference. | [https://clawhub.ai/jonisjongithub/venice-ai](https://clawhub.ai/jonisjongithub/venice-ai) |
 | [claw402](skills/claw402/) | Real-time crypto market data and AI trading signals via x402 micropayments. | [https://github.com/NoFxAiOS/claw402-open](https://github.com/NoFxAiOS/claw402-open) |
+| [apinow](skills/apinow/) | Discover APIs, fetch endpoint details/examples, execute paid calls, and run multi-step workflows on APINow with x402. | [https://www.apinow.fun/skill.md](https://www.apinow.fun/skill.md) |
 
 ### Gaming / Art Creation
 
@@ -218,6 +219,7 @@ Some skills require API keys or additional configuration. Please check each skil
 | [heurist-mesh](skills/heurist-mesh/) | 通过 30+ 个专业 AI agents 提供 Web3 与加密情报能力，涵盖分析、代币数据和钱包分析。 | [https://github.com/heurist-network/heurist-mesh-skill](https://github.com/heurist-network/heurist-mesh-skill) |
 | [venice-ai](skills/venice-ai/) | Venice AI 平台：支持文本、搜索、embeddings、TTS、图像生成和视频，提供私有、无审查推理能力。 | [https://clawhub.ai/jonisjongithub/venice-ai](https://clawhub.ai/jonisjongithub/venice-ai) |
 | [claw402](skills/claw402/) | 通过 x402 小额支付获取实时加密市场数据与 AI 交易信号。 | [https://github.com/NoFxAiOS/claw402-open](https://github.com/NoFxAiOS/claw402-open) |
+| [apinow](skills/apinow/) | 发现 API、获取端点详情与示例、执行付费调用，并通过 x402 在 APINow 上运行多步骤工作流。 | [https://www.apinow.fun/skill.md](https://www.apinow.fun/skill.md) |
 
 ### 创作
 
