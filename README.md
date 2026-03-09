@@ -89,22 +89,27 @@ This repo is a curated collection of [Agent Skills](https://agentskills.io) for 
 
 This repository serves as a curated navigation hub. All skills are forked and ready to load. Clone this repo and copy the skill folders into your OpenClaw `skills/` directory, or install individual skills from their Original Link above.
 
-**To install individually:** Open the Original Link (e.g. [clawn.ch/skill.md](https://clawn.ch/skill.md), [github.com/BankrBot/skills](https://github.com/BankrBot/skills)), read the SKILL.md or repo docs, and follow the instructions to install the skill.
+**To install individually:** `Read <url>/SKILL.md or github.com/<org>/skills docs, and follow the instructions to install the skill.`
 
 **Repo structure**
-
-Each skill lives in its own folder under `skills/`. Every folder has a `SKILL.md` at the root (or in a subfolder for forked repos).
 
 ```
 agent-skills-on-base/
 ├── README.md
 └── skills/
-    ├── base/                    ← [base](skills/base/) · [github.com/base/skills](https://github.com/base/skills)
+    ├── base/
     │   ├── SKILL.md
-    │   └── skills/               # Sub-skills
-    ├── quicknode/               ← [quicknode](skills/quicknode/) · [skills.sh/.../quicknode-skill](https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill)
-    ├── bankr/                   ← [bankr](skills/bankr/) · [github.com/BankrBot/skills](https://github.com/BankrBot/skills)
-    ├── clawnch/                 ← [clawnch](skills/clawnch/) · [clawn.ch/skill.md](https://clawn.ch/skill.md)
+    │   └── skills/
+    ├── quicknode/
+    │   └── SKILL.md
+    ├── bankr/
+    │   ├── SKILL.md
+    │   ├── bankr/
+    │   ├── siwa/
+    │   ├── onchainkit/
+    │   └── ...
+    ├── clawnch/
+    │   └── SKILL.md
     └── ...
 ```
 
@@ -208,22 +213,27 @@ Base 是 AI agents 的链上家园。
 
 本仓库为精选导航站，所有 skill 均已 fork 并可直接加载。克隆本仓库并将 skill 文件夹复制到 OpenClaw 的 `skills/` 目录，或通过上表中的 Original Link 单独安装。
 
-**单独安装：** 打开 Original Link（如 [clawn.ch/skill.md](https://clawn.ch/skill.md)、[github.com/BankrBot/skills](https://github.com/BankrBot/skills)），阅读 SKILL.md 或 repo 文档，按说明安装。
+**单独安装：** `Read <url>/SKILL.md 或 github.com/<org>/skills 文档，按说明安装。`
 
 **Repo structure**
-
-每个 skill 在 `skills/` 下独立成文件夹，根目录有 `SKILL.md`（fork 的 repo 可能在子目录）。
 
 ```
 agent-skills-on-base/
 ├── README.md
 └── skills/
-    ├── base/                    ← [base](skills/base/) · [github.com/base/skills](https://github.com/base/skills)
+    ├── base/
     │   ├── SKILL.md
-    │   └── skills/              # 子 skill
-    ├── quicknode/               ← [quicknode](skills/quicknode/) · [skills.sh/.../quicknode-skill](https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill)
-    ├── bankr/                   ← [bankr](skills/bankr/) · [github.com/BankrBot/skills](https://github.com/BankrBot/skills)
-    ├── clawnch/                 ← [clawnch](skills/clawnch/) · [clawn.ch/skill.md](https://clawn.ch/skill.md)
+    │   └── skills/
+    ├── quicknode/
+    │   └── SKILL.md
+    ├── bankr/
+    │   ├── SKILL.md
+    │   ├── bankr/
+    │   ├── siwa/
+    │   ├── onchainkit/
+    │   └── ...
+    ├── clawnch/
+    │   └── SKILL.md
     └── ...
 ```
 
