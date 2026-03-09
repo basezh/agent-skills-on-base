@@ -1,8 +1,9 @@
 # Skill Source Mapping
 
 ## Rule
-- **GitHub link** → Fork repo, generate SKILL.md from README
+- **GitHub link** → Fork repo, add frontmatter to README as SKILL.md
 - **skill.md URL** → Use fetched skill.md content directly
+- **Clawhub / skills.sh** → Fetch skill from platform URL
 
 ## skill.md URLs (use directly)
 | Skill | URL |
@@ -11,17 +12,28 @@
 | moltlaunch | https://moltlaunch.com/skill.md |
 | daydreams-taskmarket | https://market.daydreams.systems/skill.md |
 | molten | https://molten.gg/skill.md |
-| moltdao | https://molten.gg/skill.md |
-| clawnch | https://clawn.ch/skill |
+| moltdao | https://moltdao.app/skill.html |
+| openagent-market | https://openagent.market/skill.md |
+| clawnch | https://clawn.ch/skill.md |
 | flow | https://www.flow.bid/skill/skill.md |
 | frame | https://frame.fun/skill.md |
 | fluid | https://fluid.io/skill.md |
 | moltline | https://www.moltline.com/skill.md |
 | basebario-agentarcade | https://aa.baes.app/_skill/SKILL.md |
 | basebario-fxclaw | https://fxclaw.xyz/SKILL.md |
-| clanker | https://clanker.world/skill/skill.md (404) |
+| apinow | https://www.apinow.fun/skill.md |
 
-## GitHub (README-based SKILL)
+## Clawhub / skills.sh
+| Skill | URL |
+|-------|-----|
+| quicknode | https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill |
+| alchemy | https://agents.alchemy.com/ |
+| indexy | https://clawhub.ai/hsantana/indexy |
+| agentmail | https://clawhub.ai/adboio/agentmail |
+| venice-ai | https://clawhub.ai/jonisjongithub/venice-ai |
+| clanker | https://clanker.world |
+
+## GitHub (fork repo)
 | Skill | Repo |
 |-------|------|
 | base | https://github.com/base/skills |
@@ -39,4 +51,5 @@
 | town | https://github.com/towns-protocol/skills |
 | clawrouter | https://github.com/BlockRunAI/ClawRouter |
 | heurist-mesh | https://github.com/heurist-network/heurist-mesh-skill |
+| claw402 | https://github.com/NoFxAiOS/claw402-open |
 | remix | https://github.com/farworld-labs/remix-skills |
