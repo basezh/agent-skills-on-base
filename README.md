@@ -98,7 +98,7 @@ cp -r agent-skills-on-base/skills/* ~/.openclaw/skills/
 
 You can also install individual skills from the Original Link listed above.
 
-**For individual installation:** read the corresponding `SKILL.md` or repository documentation and follow the setup instructions provided by the original project.
+**For individual installation:** `Read <url>/SKILL.md or github.com/<org>/skills docs, and follow the instructions to install the skill.`
 
 **Repository structure**
 
@@ -226,7 +226,7 @@ cp -r agent-skills-on-base/skills/* ~/.openclaw/skills/
 
 你也可以通过上表中的 Original Link 单独安装某个 skill。
 
-**单独安装：** 请阅读对应项目的 `SKILL.md` 或仓库文档，并按原项目提供的说明完成安装。
+**单独安装：** `Read <url>/SKILL.md 或 github.com/<org>/skills 文档，按说明安装。`
 
 **仓库结构**
 
