@@ -43,7 +43,7 @@ This repo is a curated collection of [Agent Skills](https://agentskills.io) for 
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [clanker](skills/clanker/) | Launch tokens via Clanker on Base. | [https://clanker.world](https://clanker.world) |
-| [claunch](skills/claunch/) | Launch tokens on Base for free via Bankr. Agents earn trading fees. | [https://clawn.ch/skill.md](https://clawn.ch/skill.md) |
+| [clawnch](skills/clawnch/) | Launch tokens on Base for free via Bankr. Agents earn trading fees. | [https://clawn.ch/skill.md](https://clawn.ch/skill.md) |
 | [flow](skills/flow/) | Flow protocol: discover auctions, launch tokens, submit bids, claim/exit, deploy liquidity on Base. | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
 | [frame](skills/frame/) | Build in public with vibe raising. Launch builder coins, ship products, claim vesting and trading fees. Gas-free on Base. | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
 
@@ -89,6 +89,8 @@ This repo is a curated collection of [Agent Skills](https://agentskills.io) for 
 
 This repository serves as a curated navigation hub. All skills are forked and ready to load. Clone this repo and copy the skill folders into your OpenClaw `skills/` directory, or install individual skills from their Original Link above.
 
+**To install individually:** Open the Original Link (e.g. [clawn.ch/skill.md](https://clawn.ch/skill.md), [github.com/BankrBot/skills](https://github.com/BankrBot/skills)), read the SKILL.md or repo docs, and follow the instructions to install the skill.
+
 **Repo structure**
 
 Each skill lives in its own folder under `skills/`. Every folder has a `SKILL.md` at the root (or in a subfolder for forked repos).
@@ -97,12 +99,13 @@ Each skill lives in its own folder under `skills/`. Every folder has a `SKILL.md
 agent-skills-on-base/
 ├── README.md
 └── skills/
-    ├── base/                    ← [base](skills/base/) · from [github.com/base/skills](https://github.com/base/skills)
+    ├── base/                    ← [base](skills/base/) · [github.com/base/skills](https://github.com/base/skills)
     │   ├── SKILL.md
     │   └── skills/               # Sub-skills
-    ├── indexy/                  ← [indexy](skills/indexy/) · from [clawhub.ai](https://clawhub.ai/hsantana/indexy)
-    │   └── SKILL.md
-    └── ...                      # One folder per skill
+    ├── quicknode/               ← [quicknode](skills/quicknode/) · [skills.sh/.../quicknode-skill](https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill)
+    ├── bankr/                   ← [bankr](skills/bankr/) · [github.com/BankrBot/skills](https://github.com/BankrBot/skills)
+    ├── clawnch/                 ← [clawnch](skills/clawnch/) · [clawn.ch/skill.md](https://clawn.ch/skill.md)
+    └── ...
 ```
 
 ```bash
@@ -159,7 +162,7 @@ Base 是 AI agents 的链上家园。
 | Skill | Description | Original Link |
 | ----- | ----------- | ------------- |
 | [clanker](skills/clanker/) | 在 Base 上通过 Clanker 发行代币。 | [https://clanker.world](https://clanker.world) |
-| [claunch](skills/claunch/) | 通过 Bankr 在 Base 上免费发行代币，agents 赚取交易手续费。 | [https://clawn.ch/skill.md](https://clawn.ch/skill.md) |
+| [clawnch](skills/clawnch/) | 通过 Bankr 在 Base 上免费发行代币，agents 赚取交易手续费。 | [https://clawn.ch/skill.md](https://clawn.ch/skill.md) |
 | [flow](skills/flow/) | Flow 协议：发现拍卖、发行代币、出价、领取/退出、部署流动性，均在 Base 上。 | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
 | [frame](skills/frame/) | 公开构建与 vibe raising：发行 builder 代币、发布产品、领取 vesting 与交易费，Base 上 gas-free。 | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
 
@@ -205,6 +208,8 @@ Base 是 AI agents 的链上家园。
 
 本仓库为精选导航站，所有 skill 均已 fork 并可直接加载。克隆本仓库并将 skill 文件夹复制到 OpenClaw 的 `skills/` 目录，或通过上表中的 Original Link 单独安装。
 
+**单独安装：** 打开 Original Link（如 [clawn.ch/skill.md](https://clawn.ch/skill.md)、[github.com/BankrBot/skills](https://github.com/BankrBot/skills)），阅读 SKILL.md 或 repo 文档，按说明安装。
+
 **Repo structure**
 
 每个 skill 在 `skills/` 下独立成文件夹，根目录有 `SKILL.md`（fork 的 repo 可能在子目录）。
@@ -213,12 +218,13 @@ Base 是 AI agents 的链上家园。
 agent-skills-on-base/
 ├── README.md
 └── skills/
-    ├── base/                    ← [base](skills/base/) · 来自 [github.com/base/skills](https://github.com/base/skills)
+    ├── base/                    ← [base](skills/base/) · [github.com/base/skills](https://github.com/base/skills)
     │   ├── SKILL.md
     │   └── skills/              # 子 skill
-    ├── indexy/                  ← [indexy](skills/indexy/) · 来自 [clawhub.ai](https://clawhub.ai/hsantana/indexy)
-    │   └── SKILL.md
-    └── ...                      # 每个 skill 一个文件夹
+    ├── quicknode/               ← [quicknode](skills/quicknode/) · [skills.sh/.../quicknode-skill](https://skills.sh/quiknode-labs/blockchain-skills/quicknode-skill)
+    ├── bankr/                   ← [bankr](skills/bankr/) · [github.com/BankrBot/skills](https://github.com/BankrBot/skills)
+    ├── clawnch/                 ← [clawnch](skills/clawnch/) · [clawn.ch/skill.md](https://clawn.ch/skill.md)
+    └── ...
 ```
 
 ```bash

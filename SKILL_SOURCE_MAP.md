@@ -12,7 +12,7 @@
 | daydreams-taskmarket | https://market.daydreams.systems/skill.md |
 | molten | https://molten.gg/skill.md |
 | moltdao | https://molten.gg/skill.md |
-| claunch | https://clawn.ch/skill |
+| clawnch | https://clawn.ch/skill |
 | flow | https://www.flow.bid/skill/skill.md |
 | frame | https://frame.fun/skill.md |
 | fluid | https://fluid.io/skill.md |
