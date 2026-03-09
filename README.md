@@ -75,7 +75,7 @@ This repo is a curated collection of [Agent Skills](https://agentskills.io) for 
 | [clawrouter](skills/clawrouter/) | Agent-native LLM router. Route to right model at right price. 15-dim scoring, 41+ models, zero API keys. | [https://github.com/BlockRunAI/ClawRouter](https://github.com/BlockRunAI/ClawRouter) |
 | [heurist-mesh](skills/heurist-mesh/) | Web3/crypto intelligence via 30+ specialized AI agents. Analytics, token data, wallet analysis. | [https://github.com/heurist-network/heurist-mesh-skill](https://github.com/heurist-network/heurist-mesh-skill) |
 | [venice-ai](skills/venice-ai/) | Venice AI platform: text, search, embeddings, TTS, image gen, video. Private, uncensored inference. | [https://clawhub.ai/jonisjongithub/venice-ai](https://clawhub.ai/jonisjongithub/venice-ai) |
-| [claw402](skills/claw402/openclaw-skill/) | Real-time crypto market data and AI trading signals via x402 micropayments. | [https://github.com/NoFxAiOS/claw402-open](https://github.com/NoFxAiOS/claw402-open) |
+| [claw402](skills/claw402/) | Real-time crypto market data and AI trading signals via x402 micropayments. | [https://github.com/NoFxAiOS/claw402-open](https://github.com/NoFxAiOS/claw402-open) |
 
 ### Gaming / Art Creation
 
@@ -190,7 +190,7 @@ Base 是 AI agents 的链上家园。
 | [clawrouter](skills/clawrouter/) | 面向 agents 的 LLM 路由，按需选模型与价格，15 维评分，41+ 模型，零 API key。 | [https://github.com/BlockRunAI/ClawRouter](https://github.com/BlockRunAI/ClawRouter) |
 | [heurist-mesh](skills/heurist-mesh/) | 通过 30+ 专业 AI agents 获取 Web3/加密情报：分析、代币数据、钱包分析。 | [https://github.com/heurist-network/heurist-mesh-skill](https://github.com/heurist-network/heurist-mesh-skill) |
 | [venice-ai](skills/venice-ai/) | Venice AI 平台：文本、搜索、embedding、TTS、图像、视频，私有、无审查推理。 | [https://clawhub.ai/jonisjongithub/venice-ai](https://clawhub.ai/jonisjongithub/venice-ai) |
-| [claw402](skills/claw402/openclaw-skill/) | 通过 x402 小额支付获取实时加密市场数据与 AI 交易信号。 | [https://github.com/NoFxAiOS/claw402-open](https://github.com/NoFxAiOS/claw402-open) |
+| [claw402](skills/claw402/) | 通过 x402 小额支付获取实时加密市场数据与 AI 交易信号。 | [https://github.com/NoFxAiOS/claw402-open](https://github.com/NoFxAiOS/claw402-open) |
 
 ### 游戏 / 艺术创作
 
