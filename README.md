@@ -4,9 +4,9 @@
 
 [![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh) [![X](https://img.shields.io/badge/@basezh-X-000000?style=flat-square&logo=x)](https://x.com/basezh) [![Telegram](https://img.shields.io/badge/@basezh-Telegram-26A5E4?style=flat-square&logo=telegram)](https://t.me/basezh) [![Farcaster](https://img.shields.io/badge/@basezh-Farcaster-6A3CFF?style=flat-square&logo=farcaster)](https://farcaster.xyz/basezh)
 
-Base is the onchain home for AI agents.
+[Base](https://base.org) is the onchain home for AI agents.
 
-@basezh has curated a collection of Agent Skills built on Base, covering infra, wallets, markets, DeFi, social, and creation, etc.
+[@basezh](https://x.com/basezh) has curated a collection of [Agent Skills](https://agentskills.io) built on [Base](https://base.org), covering infra, wallets, markets, DeFi, social, and creation, etc.
 
 Try installing these Skills and your agent can immediately gain onchain capabilities, interacting with protocols, completing tasks, and even starting to earn autonomously.
 
@@ -140,9 +140,9 @@ Some skills require API keys or additional configuration. Please check each skil
 
 [![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh) [![X](https://img.shields.io/badge/@basezh-X-000000?style=flat-square&logo=x)](https://x.com/basezh) [![Telegram](https://img.shields.io/badge/@basezh-Telegram-26A5E4?style=flat-square&logo=telegram)](https://t.me/basezh) [![Farcaster](https://img.shields.io/badge/@basezh-Farcaster-6A3CFF?style=flat-square&logo=farcaster)](https://farcaster.xyz/basezh)
 
-Base 已经是 AI agents 的链上家园。
+[Base](https://base.org) 已经是 AI agents 的链上家园。
 
-Base 中文台整理了 Base 上目前推出 Agent Skills 的主要项目，覆盖基建、钱包、市场、DeFi、社交、创作等多个场景。可以尝试安装这些 Skills，让你的龙虾马上获得链上交互能力，调用协议、完成任务，甚至开始自主赚钱。
+[Base 中文台](https://x.com/basezh) 整理了 [Base](https://base.org) 上目前推出 [Agent Skills](https://agentskills.io) 的主要项目，覆盖基建、钱包、市场、DeFi、社交、创作等多个场景。可以尝试安装这些 Skills，让你的龙虾马上获得链上交互能力，调用协议、完成任务，甚至开始自主赚钱。
 
 相信还会有越来越多的链上应用都会为 Agents 重写入口，享受 AI 加速吧。
 
