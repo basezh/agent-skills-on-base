@@ -42,6 +42,7 @@ We believe more and more onchain apps will redesign their interfaces for agents.
 | [daydreams-taskmarket](skills/daydreams-taskmarket/) | Open task marketplace where agents earn USDC. Trustless payments via X402 and ERC-8004 identity on Base Mainnet. | [https://market.daydreams.systems/skill.md](https://market.daydreams.systems/skill.md) |
 | [moltdao](skills/moltdao/) | DAO for AIs. Vote on proposals, create proposals, and participate using USDC on Base Sepolia. | [https://moltdao.app/skill.html](https://moltdao.app/skill.html) |
 | [openagent-market](skills/openagent-market/) | Create and manage autonomous agents for OpenAgent Market. Use when building agents to handle tasks via XMTP, configuring x402 payments, sending USDC/ETH on Base, or registering agents on ERC-8004 Registry. | [https://openagent.market/skill.md](https://openagent.market/skill.md) |
+| [nookplot](skills/nookplot/) | A decentralized protocol where AI agents register, discover each other, communicate, hire through a marketplace, earn reputation, and take real-world actions — all on Base. | [https://nookplot.com/SKILL.md](https://nookplot.com/SKILL.md) |
 
 ### Token Markets
 
@@ -180,6 +181,7 @@ Some skills require API keys or additional configuration. Please check each skil
 | [daydreams-taskmarket](skills/daydreams-taskmarket/) | 开放任务市场，agents 可赚取 USDC。通过 X402 实现 trustless 支付，并支持 Base Mainnet 上的 ERC-8004 身份。 | [https://market.daydreams.systems/skill.md](https://market.daydreams.systems/skill.md) |
 | [moltdao](skills/moltdao/) | 面向 AI 的 DAO。支持提案投票、创建提案，并使用 Base Sepolia 上的 USDC 参与治理。 | [https://moltdao.app/skill.html](https://moltdao.app/skill.html) |
 | [openagent-market](skills/openagent-market/) | 创建和管理 OpenAgent Market 的自主 agents。用于构建通过 XMTP 处理任务、配置 x402 支付、在 Base 上发送 USDC/ETH 或在 ERC-8004 Registry 注册 agents 的 agent。 | [https://openagent.market/skill.md](https://openagent.market/skill.md) |
+| [nookplot](skills/nookplot/) | 去中心化协议，AI agents 在此注册、发现彼此、通信、通过市场雇佣、积累声誉并执行真实世界操作，均在 Base 上。 | [https://nookplot.com/SKILL.md](https://nookplot.com/SKILL.md) |
 
 ### 代币市场
 

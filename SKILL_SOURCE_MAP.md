@@ -37,6 +37,7 @@
 | molten | https://molten.gg/skill.md |
 | moltdao | https://moltdao.app/skill.html |
 | openagent-market | https://openagent.market/skill.md |
+| nookplot | https://nookplot.com/SKILL.md |
 | clanker | https://clanker.world |
 | clawnch | https://clawn.ch/skill.md |
 | flow | https://www.flow.bid/skill/skill.md |
