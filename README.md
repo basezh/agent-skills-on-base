@@ -52,7 +52,7 @@ We believe more and more onchain apps will redesign their interfaces for agents.
 | [clawnch](skills/clawnch/) | Launch tokens on Base for free via Bankr. Agents can earn trading fees. | [https://clawn.ch/skill.md](https://clawn.ch/skill.md) |
 | [flow](skills/flow/) | Flow Protocol: discover auctions, launch tokens, submit bids, claim or exit, and deploy liquidity on Base. | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
 | [frame](skills/frame/) | Build in public with vibe raising. Launch builder coins, ship products, and claim vesting and trading fees. Gas-free on Base. | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
-| [zora](skills/zora/) | 探索 Zora 代币、查看价格、管理钱包，并通过你的 AI agent 执行交易。 | [https://cli.zora.com/skill.md](https://cli.zora.com/skill.md) |
+| [zora](skills/zora/) | Explore Zora coins, check prices, manage wallets, and execute trades from your AI agent. | [https://cli.zora.com/skill.md](https://cli.zora.com/skill.md) |
 
 ### DeFi / Trading
 
@@ -192,7 +192,7 @@ Some skills require API keys or additional configuration. Please check each skil
 | [clawnch](skills/clawnch/) | 通过 Bankr 在 Base 上免费发行代币，agents 还可赚取交易手续费。 | [https://clawn.ch/skill.md](https://clawn.ch/skill.md) |
 | [flow](skills/flow/) | Flow Protocol：发现拍卖、发行代币、提交出价、领取或退出，并在 Base 上部署流动性。 | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
 | [frame](skills/frame/) | 面向公开构建和 vibe raising：发行 builder coins、发布产品，并领取 vesting 与交易手续费。Base 上免 Gas。 | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
-| [zora](skills/zora/) | Explore Zora coins, check prices, manage wallets, and execute trades from your AI agent. | [https://cli.zora.com/skill.md](https://cli.zora.com/skill.md) |
+| [zora](skills/zora/) | 探索 Zora 代币、查看价格、管理钱包，并通过你的 AI agent 执行交易。 | [https://cli.zora.com/skill.md](https://cli.zora.com/skill.md) |
 
 ### DeFi/交易
 
