@@ -42,6 +42,7 @@
 | clawnch | https://clawn.ch/skill.md |
 | flow | https://www.flow.bid/skill/skill.md |
 | frame | https://frame.fun/skill.md |
+| zora | https://cli.zora.com/skill.md |
 | fluid | https://fluid.io/skill.md |
 | agentmail | https://clawhub.ai/adboio/agentmail |
 | moltline | https://www.moltline.com/skill.md |
