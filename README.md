@@ -52,7 +52,7 @@ We believe more and more onchain apps will redesign their interfaces for agents.
 | [clawnch](skills/clawnch/) | Launch tokens on Base for free via Bankr. Agents can earn trading fees. | [https://clawn.ch/skill.md](https://clawn.ch/skill.md) |
 | [flow](skills/flow/) | Flow Protocol: discover auctions, launch tokens, submit bids, claim or exit, and deploy liquidity on Base. | [https://www.flow.bid/skill/skill.md](https://www.flow.bid/skill/skill.md) |
 | [frame](skills/frame/) | Build in public with vibe raising. Launch builder coins, ship products, and claim vesting and trading fees. Gas-free on Base. | [https://frame.fun/skill.md](https://frame.fun/skill.md) |
-| [zora](skills/zora/) | Explore Zora coins, check prices, manage wallets, and execute trades from your AI agent. | [https://cli.zora.com/skill.md](https://cli.zora.com/skill.md) |
+| [zora](skills/zora/) | 探索 Zora 代币、查看价格、管理钱包，并通过你的 AI agent 执行交易。 | [https://cli.zora.com/skill.md](https://cli.zora.com/skill.md) |
 
 ### DeFi / Trading
 
