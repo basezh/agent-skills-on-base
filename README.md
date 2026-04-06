@@ -1,10 +1,10 @@
 <a id="en"></a>
 
-# Agent Skills on Base
+# [Agent Skills on Base](https://baseskills.best/)
 
 [![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh) [![X](https://img.shields.io/badge/@basezh-X-000000?style=flat-square&logo=x)](https://x.com/basezh) [![Telegram](https://img.shields.io/badge/@basezh-Telegram-26A5E4?style=flat-square&logo=telegram)](https://t.me/basezh) [![Farcaster](https://img.shields.io/badge/@basezh-Farcaster-6A3CFF?style=flat-square&logo=farcaster)](https://farcaster.xyz/basezh)
 
-[![Agent Skills on Base](images/en.png)](https://x.com/basezh/status/2031019361327288411)
+[![Agent Skills on Base](images/en.png)](https://baseskills.best/)
 
 [Base](https://base.org) is the onchain home for AI agents.
 
@@ -140,11 +140,11 @@ Some skills require API keys or additional configuration. Please check each skil
 
 <a id="zh"></a>
 
-# Agent Skills on Base
+# [Agent Skills on Base](https://baseskills.best/)
 
 [![English](https://img.shields.io/badge/English-0052CC?style=flat-square)](#en) [![中文](https://img.shields.io/badge/中文-0052CC?style=flat-square)](#zh) [![X](https://img.shields.io/badge/@basezh-X-000000?style=flat-square&logo=x)](https://x.com/basezh) [![Telegram](https://img.shields.io/badge/@basezh-Telegram-26A5E4?style=flat-square&logo=telegram)](https://t.me/basezh) [![Farcaster](https://img.shields.io/badge/@basezh-Farcaster-6A3CFF?style=flat-square&logo=farcaster)](https://farcaster.xyz/basezh)
 
-[![Agent Skills on Base](images/zh.png)](https://x.com/basezh/status/2031019361327288411)
+[![Agent Skills on Base](images/zh.png)](https://baseskills.best/)
 
 [Base](https://base.org) 已经是 AI agents 的链上家园。
 
