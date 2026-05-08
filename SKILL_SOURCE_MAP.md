@@ -24,6 +24,7 @@
 | heurist-mesh | https://github.com/heurist-network/heurist-mesh-skill |
 | claw402 | https://github.com/NoFxAiOS/claw402-open |
 | remix | https://github.com/farworld-labs/remix-skills |
+| morpho | https://github.com/morpho-org/morpho-skills |
 
 ## Other
 | Skill | URL |

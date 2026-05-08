@@ -1,0 +1,8 @@
+{
+  "name": "morpho-cli",
+  "version": "0.1.0",
+  "description": "[Experimental] CLI skill for autonomous agents interacting with Morpho via the cli — query vaults/markets/positions, prepare transactions, and simulate outcomes on Ethereum and Base",
+  "author": {
+    "name": "Morpho Agents"
+  }
+}

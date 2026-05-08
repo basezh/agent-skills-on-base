@@ -1,0 +1,51 @@
+{
+  "name": "morpho-agent",
+  "owner": {
+    "name": "Morpho Agents"
+  },
+  "metadata": {
+    "description": "Plugins and skills for interacting with the Morpho lending protocol on Ethereum and Base",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "morpho-mcp",
+      "source": "./plugins/morpho-mcp",
+      "description": "[Experimental] MCP server for the Morpho lending protocol — query vaults/markets, prepare transactions, and simulate outcomes on Ethereum and Base",
+      "version": "0.1.0",
+      "author": {
+        "name": "Morpho Agents"
+      },
+      "repository": "https://github.com/morpho-org/morpho-skills",
+      "license": "MIT",
+      "keywords": ["morpho", "defi", "lending", "mcp"],
+      "category": "defi"
+    },
+    {
+      "name": "morpho-cli",
+      "source": "./plugins/morpho-cli",
+      "description": "[Experimental] CLI skill for querying Morpho protocol data and building unsigned transactions — vault APYs, market rates, user positions, deposits, withdrawals, and borrows",
+      "version": "0.1.0",
+      "author": {
+        "name": "Morpho Agents"
+      },
+      "repository": "https://github.com/morpho-org/morpho-skills",
+      "license": "MIT",
+      "keywords": ["morpho", "defi", "lending", "cli"],
+      "category": "defi"
+    },
+    {
+      "name": "morpho-builder",
+      "source": "./plugins/morpho-builder",
+      "description": "[Experimental] Builder skill for code-generation agents building Morpho integrations — deposit apps, dashboards, bots",
+      "version": "0.1.0",
+      "author": {
+        "name": "Morpho Agents"
+      },
+      "repository": "https://github.com/morpho-org/morpho-skills",
+      "license": "MIT",
+      "keywords": ["morpho", "defi", "lending", "sdk", "builder"],
+      "category": "defi"
+    }
+  ]
+}

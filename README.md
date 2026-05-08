@@ -64,6 +64,7 @@ We believe more and more onchain apps will redesign their interfaces for agents.
 | [dx-terminal-pro](skills/dx-terminal-pro/) | Manage autonomous memecoin trading agents on DX Terminal Pro. | [https://github.com/ProjectDXAI/dx-terminal-pro-skill](https://github.com/ProjectDXAI/dx-terminal-pro-skill) |
 | [elsa](skills/elsa/) | OpenClaw skill for the Elsa x402 DeFi API. Micropayments for USDC on Base. | [https://github.com/HeyElsa/elsa-openclaw](https://github.com/HeyElsa/elsa-openclaw) |
 | [fluid](skills/fluid/) | Fluid Protocol: lending (ERC-4626 fTokens) and vaults (T1–T4). Deposit, borrow, and manage positions with no API keys required. | [https://fluid.io/skill.md](https://fluid.io/skill.md) |
+| [morpho](skills/morpho/) | Query Morpho vault APYs, market rates, and positions; prepare unsigned deposit, withdraw, and borrow flows via CLI or MCP; builder pack covers SDK, GraphQL, and contract patterns for integrations. | [https://github.com/morpho-org/morpho-skills](https://github.com/morpho-org/morpho-skills) |
 
 ### Social / Messaging
 
@@ -204,6 +205,7 @@ Some skills require API keys or additional configuration. Please check each skil
 | [dx-terminal-pro](skills/dx-terminal-pro/) | 在 DX Terminal Pro 上管理自主 memecoin 交易 agents。 | [https://github.com/ProjectDXAI/dx-terminal-pro-skill](https://github.com/ProjectDXAI/dx-terminal-pro-skill) |
 | [elsa](skills/elsa/) | 面向 Elsa x402 DeFi API 的 OpenClaw skill，支持 Base 上的 USDC 小额支付。 | [https://github.com/HeyElsa/elsa-openclaw](https://github.com/HeyElsa/elsa-openclaw) |
 | [fluid](skills/fluid/) | Fluid Protocol：支持借贷（ERC-4626 fTokens）和金库（T1–T4），可进行存入、借出和仓位管理，无需 API key。 | [https://fluid.io/skill.md](https://fluid.io/skill.md) |
+| [morpho](skills/morpho/) | 查询 Morpho 金库 APY、市场利率与仓位；通过 CLI 或 MCP 准备存入、取出与借贷的未签名流程；builder 技能包涵盖 SDK、GraphQL 与合约集成模式。 | [https://github.com/morpho-org/morpho-skills](https://github.com/morpho-org/morpho-skills) |
 
 ### 社交
 
