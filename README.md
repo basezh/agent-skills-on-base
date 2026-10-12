@@ -85,6 +85,7 @@ We believe more and more onchain apps will redesign their interfaces for agents.
 | [venice-ai](skills/venice-ai/) | Venice AI platform for text, search, embeddings, TTS, image generation, and video. Private, uncensored inference. | [https://clawhub.ai/jonisjongithub/venice-ai](https://clawhub.ai/jonisjongithub/venice-ai) |
 | [claw402](skills/claw402/) | Real-time crypto market data and AI trading signals via x402 micropayments. | [https://github.com/NoFxAiOS/claw402-open](https://github.com/NoFxAiOS/claw402-open) |
 | [apinow](skills/apinow/) | Discover APIs, fetch endpoint details/examples, execute paid calls, and run multi-step workflows on APINow with x402. | [https://www.apinow.fun/skill.md](https://www.apinow.fun/skill.md) |
+| [penny-press](skills/penny-press/) | Penny Press: essays on freedom, economics and philosophy. Free for humans; pay-per-read for AI agents via x402 micropayments (USDC on Base). | [https://github.com/con-scribe/penny-press-mcp](https://github.com/con-scribe/penny-press-mcp) |
 
 ### Gaming / Art Creation
 
